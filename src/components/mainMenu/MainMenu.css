@@ -1,0 +1,20 @@
+.button-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+   padding-top: 5rem;
+    /*width: 100%;*/
+    /*padding: 1rem;*/
+    margin: 1rem;
+}
+
+.option-select-button{
+    height: 100px;
+    border-radius: 12px;
+    width: 70rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
