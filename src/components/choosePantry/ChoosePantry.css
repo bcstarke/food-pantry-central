@@ -24,3 +24,20 @@
     display: flex;
     justify-content: center;
 }
+
+.main-container .results-list {
+    padding-top: 5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .pantry-option{
+    height: 100px;
+    color: black;
+}
+
+.main-container .pantry-option:focus{
+    background:#0275d8;
+    color: #fff;
+}
