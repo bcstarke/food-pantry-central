@@ -41,3 +41,14 @@
     background:#0275d8;
     color: #fff;
 }
+
+
+.main-container .details-btn {
+    margin: 1rem;
+}
+
+.main-container .pantry-name {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
