@@ -16,17 +16,17 @@ export default class MainMenu extends Component {
                         <h2>What would you like to do?</h2>
                         <div className="row button-container">
                             <div className="d-grid gap-3">
-                                <Link to="/hello"
+                                <Link to="/choosePantry"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Donate
                                 </Link>
-                                <Link to="/hello"
+                                <Link to="/choosePantry"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Volunteer
                                 </Link>
-                                <Link to="/hello"
+                                <Link to="/choosePantry"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Go to My Food Pantry Central
