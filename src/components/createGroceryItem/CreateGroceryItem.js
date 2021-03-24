@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import "./CreateGroceryItem.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
+import logo from "../images/food-pantry-logo-t.png";
 
 
 export default class createGroceryItem extends Component {
@@ -10,6 +11,7 @@ export default class createGroceryItem extends Component {
         return (
             <div className="main-container" id="home">
                 <div id="header">
+                    <img src={logo} alt={"Logo"} width="800px"/>
                     <h1>Add new item to Grocery List</h1>
                 </div>
                 <div id="input-container">
