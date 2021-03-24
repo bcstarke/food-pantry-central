@@ -120,9 +120,9 @@ export default class CreditCardPage extends Component {
                         <div className="col-12 button-row">
                             <div className="col-3">
                                 <Link to="/donateMoney"
-                                      class="btn btn-dark btn-lg cc-page-button"
+                                      class="btn btn-dark btn-lg"
                                       type="button">
-                                    <div className="button-text">
+                                    <div className="button-text-cc-page">
                                         <div className="left-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
                                         </div>
@@ -134,7 +134,7 @@ export default class CreditCardPage extends Component {
                                 <Link to="/creditCardReview"
                                       className="btn btn-success btn-lg cc-page-button"
                                       type="button">
-                                    <div className="button-text">
+                                    <div className="button-text-cc-page">
                                         Review
                                         <div className="right-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowRight} size='2x'/>

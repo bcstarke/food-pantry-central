@@ -33,25 +33,24 @@ export default class DonateMoney extends Component {
                             <div className="container-fluid payment-method-container">
                                 <h2>Choose your payment type</h2>
                                 <div className="payment-methods">
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <Link to="/creditCard"
-                                                  className="btn btn-dark option-select-button"
-                                                  type="button">
-                                                <img src={creditCard} alt={"Credit Card"}
-                                                     height="200rem"/>
-                                            </Link>
-                                            <Link to="/choosePantry"
-                                                  className="btn btn-dark option-select-button"
-                                                  type="button">
-                                                <img src={paypal} alt={"PayPal"} height="200rem"/>
-
-                                            </Link>
+                                        <div className="row">
+                                            <div className="col-6">
+                                                <Link to="/creditCard"
+                                                      className="btn btn-dark option-select-button"
+                                                      type="button">
+                                                    <img src={creditCard} alt={"Credit Card"}
+                                                         height="200rem"/>
+                                                </Link>
+                                                <Link to="/choosePantry"
+                                                      className="btn btn-dark option-select-button"
+                                                      type="button">
+                                                    <img src={paypal} alt={"PayPal"} height="200rem"/>
+                                                </Link>
+                                            </div>
                                         </div>
-                                    </div>
                                     <div className="row">
                                         <div className="col-6">
-                                            <Link to="/choosePantry"
+                                            <Link to="/venmo"
                                                   className="btn btn-dark option-select-button"
                                                   type="button">
                                                 <img src={venmo} alt={"Venmo"} height="200rem"/>

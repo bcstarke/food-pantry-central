@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './CreditCardPage.css'
+import './CCReviewPage.css'
 import logo from "../../images/food-pantry-logo.jpg";
 import creditCardsLong from "../../images/credit-cards-long.png"
 import {Link} from "react-router-dom";
@@ -132,7 +132,7 @@ export default class CCReviewPage extends Component {
                                 <Link to="/creditCard"
                                       class="btn btn-dark btn-lg cc-page-button"
                                       type="button">
-                                    <div className="button-text">
+                                    <div className="button-text-cc-review">
                                         <div className="left-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
                                         </div>
@@ -141,10 +141,10 @@ export default class CCReviewPage extends Component {
                                 </Link>
                             </div>
                             <div className="col-3">
-                                <Link to="/creditCardReview"
+                                <Link to="/thankYouPayment"
                                       className="btn btn-success btn-lg cc-page-button"
                                       type="button">
-                                    <div className="button-text">
+                                    <div className="button-text-cc-review">
                                         Pay
                                         <div className="right-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowRight} size='2x'/>
