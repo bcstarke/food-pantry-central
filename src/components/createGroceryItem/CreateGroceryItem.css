@@ -24,3 +24,98 @@
     display: flex;
     justify-content: center;
 }
+
+.box {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#input-container, #index, #header, #child-index, #child-input-container{
+    position: absolute
+}
+#index {
+    padding: 20px;
+    width: 300px;
+    top: 0;
+    bottom: 0;
+    right: 0px;
+    overflow:hidden;
+
+}
+#input-container{
+    padding: 60px;
+    top: 200px;
+    right: 300px;
+    bottom: 0px;
+    left: 0px;
+    overflow-y: auto
+}
+
+#child-input-container{
+    outline:3px solid #00ff36;
+    height: 90%;
+    width: 90%;
+
+    background:#ccc
+}
+
+#header {
+    height: 200px;
+    right: 300px;
+    top: 0;
+    left: 0;
+}
+
+#child-index {
+    outline:3px solid #00ff36;
+    height: 90%;
+    width: 260px;
+    bottom: 20px;
+    background:#ccc;
+    overflow:hidden;
+}
+.timeline {
+    position: relative;
+    margin-top: 20%;
+    width: 90%;
+
+
+}
+
+.timeline ul li {
+    margin-bottom: 50px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -25px;
+
+}
+
+.point {
+    min-width: 20px;
+    margin-right: 5%;
+    height: 20px;
+    background-color: #be9fe1;
+    border-radius: 100%;
+    z-index: 2;
+    border: 3px #333333 solid;
+    left: -100px;
+
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 3px;
+    left: 10%;
+    background-color: #333333;
+}
+
+/*just for demo*/
+
+#header{background:#9a7b7b}
+#input-container{background:#319b6d}
+#index{background:#00d2df}
+#index{background:#00d2df}
