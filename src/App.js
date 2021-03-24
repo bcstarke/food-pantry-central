@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainMenu from "./components/mainMenu/MainMenu";
 import ChoosePantry from "./components/choosePantry/ChoosePantry";
+import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem";
 import {
     BrowserRouter as Router,
     Route,
@@ -23,6 +24,7 @@ class App extends Component {
                 <div className="App">
                     <Route exact path="/" component={MainMenu}/>
                     <Route exact path="/hello" component={ChoosePantry}/>
+                    <Route exact path="/createItem" component={CreateGroceryItem}/>
                 </div>
             </Router>
         );

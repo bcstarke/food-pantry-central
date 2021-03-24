@@ -1,0 +1,26 @@
+.main-container {
+    padding-top: 2rem;
+}
+
+.main-container .zip-input {
+    padding-top: 2rem;
+    width: 20rem;
+}
+
+.main-container .show-results-text {
+    padding-top: 2rem;
+}
+
+.main-container .radius-drop-down{
+    padding-top: 2rem;
+    padding-left: -3rem;
+}
+.main-container .btn-search-pantry{
+    padding-top: 2rem;
+}
+
+.main-container .user-input-row {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
