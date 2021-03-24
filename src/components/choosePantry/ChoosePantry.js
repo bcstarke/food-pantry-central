@@ -4,7 +4,8 @@ import './ChoosePantry.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
-import logo from '../images/food-pantry-logo.jpg'
+import logo from '../images/food-pantry-logo.jpg';
+import map from '../images/googlemap.png';
 
 export default class ChoosePantry extends Component {
 
@@ -112,11 +113,18 @@ export default class ChoosePantry extends Component {
                                                                         Details</Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
-
-                                                                    This pantry is located at 123
-                                                                    Address St., Boston MA, 02130
-                                                                    <br/>
-                                                                    Hours: M-F 9-5
+                                                                    <div className="row container-fluid">
+                                                                        <div className="map-container">
+                                                                            <img src={map}
+                                                                                 alt="Google Maps"/>
+                                                                        </div>
+                                                                        This pantry is located at
+                                                                        123
+                                                                        Address St., Boston MA,
+                                                                        02130
+                                                                        <br/>
+                                                                        Hours: M-F 9-5
+                                                                    </div>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
                                                                     <Button

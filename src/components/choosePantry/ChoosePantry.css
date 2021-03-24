@@ -52,3 +52,10 @@
     display: flex;
     justify-content: center;
 }
+
+.main-container .map-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: -10rem;
+}
