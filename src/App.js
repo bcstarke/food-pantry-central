@@ -13,6 +13,8 @@ import {
 import ChooseDonationType from "./components/chooseDonationType/ChooseDonationType";
 import DonateMoney from "./components/donateMoney/DonateMoney";
 import CreditCardPage from "./components/donateMoney/creditCardPage/CreditCardPage";
+import CCReviewPage from "./components/donateMoney/creditCardPage/CCReviewPage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class App extends Component {
     constructor(props) {
@@ -29,6 +31,7 @@ class App extends Component {
                     <Route exact path="/donationType" component={ChooseDonationType}/>
                     <Route exact path="/donateMoney" component={DonateMoney}/>
                     <Route exact path="/creditCard" component={CreditCardPage}/>
+                    <Route exact path="/creditCardReview" component={CCReviewPage}/>
 
                 </div>
             </Router>

@@ -1,9 +1,14 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Link} from 'react-router-dom'
 import './CreditCardPage.css'
 import logo from "../../images/food-pantry-logo.jpg";
 import creditCardsLong from "../../images/credit-cards-long.png"
+import {Link} from "react-router-dom";
+import '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
+
 
 export default class CreditCardPage extends Component {
 
@@ -107,16 +112,40 @@ export default class CreditCardPage extends Component {
                                         </form>
                                     </div>
                                 </div>
-                                {/*<h2>Pantry you chose: XXX</h2>*/}
-                                {/*<div className="change-pantry-container">*/}
-                                {/*    <Link to="/choosePantry"*/}
-                                {/*          className="btn btn-info change-pantry-btn"*/}
-                                {/*       type="button">*/}
-                                {/*        Change Food Pantry*/}
-                                {/*    </Link>*/}
-                                {/*</div>*/}
                             </div>
                         </div>
+
+                        {/*<div className="row">*/}
+                        {/*<div className="button-row">*/}
+                        <div className="col-12 button-row">
+                            <div className="col-3">
+                                <Link to="/donateMoney"
+                                      class="btn btn-dark btn-lg cc-page-button"
+                                      type="button">
+                                    <div className="button-text">
+                                        <div className="left-arrow-icon">
+                                            <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
+                                        </div>
+                                        Go Back
+                                    </div>
+                                </Link>
+                            </div>
+                            <div className="col-3">
+                                <Link to="/creditCardReview"
+                                      className="btn btn-success btn-lg cc-page-button"
+                                      type="button">
+                                    <div className="button-text">
+                                        Review
+                                        <div className="right-arrow-icon">
+                                            <FontAwesomeIcon icon={faArrowRight} size='2x'/>
+                                        </div>
+                                    </div>
+
+                                </Link>
+                            </div>
+                        </div>
+                        {/*</div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
