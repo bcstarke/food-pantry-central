@@ -35,7 +35,7 @@ export default class DonateMoney extends Component {
                                 <div className="payment-methods">
                                     <div className="row">
                                         <div className="col-6">
-                                            <Link to="/choosePantry"
+                                            <Link to="/creditCard"
                                                   className="btn btn-dark option-select-button"
                                                   type="button">
                                                 <img src={creditCard} alt={"Credit Card"}

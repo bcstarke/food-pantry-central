@@ -118,12 +118,19 @@ export default class ChoosePantry extends Component {
                                                                             <img src={map}
                                                                                  alt="Google Maps"/>
                                                                         </div>
-                                                                        This pantry is located at
+                                                                        <b>Address: </b>
                                                                         123
                                                                         Address St., Boston MA,
                                                                         02130
                                                                         <br/>
-                                                                        Hours: M-F 9-5
+                                                                        <b>Hours of
+                                                                            operation:</b>
+                                                                        <br/>
+                                                                        Mon - Thu: 10:00AM - 4:00PM
+                                                                        <br/>
+                                                                        Sat: 9:00AM - 12:00PM
+                                                                        <br/>
+                                                                        <b>Phone: (123) 456-7890</b>
                                                                     </div>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
