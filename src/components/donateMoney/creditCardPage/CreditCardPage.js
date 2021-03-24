@@ -63,8 +63,9 @@ export default class CreditCardPage extends Component {
                                     <div className="col-6">
                                         <form>
                                             <div className="row container">
-                                                <div className="col-auto">
-                                                    <label className="amount-label"><h5>Expiration Date</h5>
+                                                <div className="col-6">
+                                                    <label className="amount-label">
+                                                        <h5>Expiration Date</h5>
                                                     </label>
                                                     <div className="input-group mb-2">
                                                         <input type="text" className="form-control"
@@ -72,8 +73,9 @@ export default class CreditCardPage extends Component {
                                                                placeholder="MM/YYYY"/>
                                                     </div>
                                                 </div>
-                                                <div className="col-auto">
-                                                    <label className="amount-label"><h5>Security Code</h5>
+                                                <div className="col-6">
+                                                    <label className="amount-label">
+                                                        <h5>Security Code</h5>
                                                     </label>
                                                     <div className="input-group mb-2">
                                                         <input type="text" className="form-control"
@@ -84,22 +86,22 @@ export default class CreditCardPage extends Component {
                                             </div>
                                             <br/>
                                             <div className="col-auto">
-                                                <label className="amount-label"><h5>Cardholder
-                                                    Name</h5></label>
+                                                <label className="amount-label"><h5>Zip code</h5>
+                                                </label>
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter name..."/>
+                                                           placeholder="Enter zip code..."/>
                                                 </div>
                                             </div>
                                             <br/>
                                             <div className="col-auto">
-                                                <label className="amount-label"><h5>Credit Card
-                                                    Number</h5></label>
+                                                <label className="amount-label"><h5>Email</h5>
+                                                </label>
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter Card NUmber..."/>
+                                                           placeholder="Enter Email..."/>
                                                 </div>
                                             </div>
                                         </form>
