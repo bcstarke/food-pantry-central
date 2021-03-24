@@ -11,6 +11,7 @@ import {
     Redirect
 } from "react-router-dom";
 import ChooseDonationType from "./components/chooseDonationType/ChooseDonationType";
+import DonateMoney from "./components/donateMoney/DonateMoney";
 
 class App extends Component {
     constructor(props) {
@@ -25,6 +26,8 @@ class App extends Component {
                     <Route exact path="/" component={MainMenu}/>
                     <Route exact path="/choosePantry" component={ChoosePantry}/>
                     <Route exact path="/donationType" component={ChooseDonationType}/>
+                    <Route exact path="/donateMoney" component={DonateMoney}/>
+
                 </div>
             </Router>
         );

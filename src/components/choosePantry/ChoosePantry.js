@@ -4,6 +4,7 @@ import './ChoosePantry.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import {Link} from "react-router-dom";
+import logo from '../images/food-pantry-logo.jpg'
 
 export default class ChoosePantry extends Component {
 
@@ -52,7 +53,8 @@ export default class ChoosePantry extends Component {
             <div className="main-container" id="choosePantry">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <h1>Welcome to Food Pantry Central!</h1>
+                        {/*<h1>Welcome to Food Pantry Central!</h1>*/}
+                        <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
                         <h2>Please choose a pantry</h2>
                         <div className="row user-input-row">
@@ -110,6 +112,7 @@ export default class ChoosePantry extends Component {
                                                                         Details</Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
+
                                                                     This pantry is located at 123
                                                                     Address St., Boston MA, 02130
                                                                     <br/>

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import './ChooseDonationType.css'
+import logo from "../images/food-pantry-logo.jpg";
 
 export default class ChooseDonationType extends Component {
 
@@ -10,7 +11,7 @@ export default class ChooseDonationType extends Component {
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <h1>Welcome to Food Pantry Central!</h1>
+                        <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
@@ -25,13 +26,13 @@ export default class ChooseDonationType extends Component {
                             </div>
                         </div>
                         <div className="row">
-                            <div className="d-grid gap-3">
-                                <Link to="/"
+                            <div className="d-grid gap-3 button-row">
+                                <Link to="/donateMoney"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button">
                                     Donate Money
                                 </Link>
-                                <Link to="/"
+                                <Link to="/donateMoney"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button">
                                     Donate Groceries
