@@ -1,15 +1,61 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './ChoosePantry.css'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import {Link} from "react-router-dom";
+import logo from '../images/food-pantry-logo.jpg';
+import map from '../images/googlemap.png';
 
 export default class ChoosePantry extends Component {
+
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            showMessage: false,
+            showModal: false
+        };
+
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
+    }
+
+    _showTable = (bool) => {
+        this.setState({
+                          showMessage: bool
+                      });
+    };
+
+    open() {
+        this.setState({showModal: true});
+    }
+
+    close() {
+        this.setState({showModal: false});
+    }
+
+    // may need this later?
+    pantryDetails = (props) => {
+        const unreadMessages = props.unreadMessages;
+        return (
+            <div>
+                <h1>Hello!</h1>
+                {unreadMessages.length > 0 &&
+                 <h2>
+                     You have {unreadMessages.length} unread messages.
+                 </h2>
+                }
+            </div>
+        );
+    }
 
     render() {
         return (
             <div className="main-container" id="choosePantry">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <h1>Welcome to Food Pantry Central!</h1>
+                        {/*<h1>Welcome to Food Pantry Central!</h1>*/}
+                        <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
                         <h2>Please choose a pantry</h2>
                         <div className="row user-input-row">
@@ -30,8 +76,141 @@ export default class ChoosePantry extends Component {
                                 </select>
                             </div>
                             <div className="btn-search-pantry">
-                                <button type="button" className="btn btn-success">Search</button>
+                                <button type="button" className="btn btn-success"
+                                        onClick={this._showTable.bind(null, true)}>Search
+                                </button>
                             </div>
+                        </div>
+                        <div className="row results-list">
+                            {this.state.showMessage && (
+                                <div className="col-10">
+                                    <div className="list-group" id="list-tab" role="tablist">
+                                        <ul className="list-group">
+                                            <li className="list-group-item">
+                                                <div className="row button-row">
+                                                    <div className="col-6 pantry-name">
+                                                        <h5>The Greater Boston Food Bank</h5>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <Button type="button"
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.open}>See
+                                                            Details
+                                                        </Button>
+                                                        <Link to="/donationType"
+                                                              className="btn btn-success details-btn"
+                                                              type="button">
+                                                            Choose
+                                                        </Link>
+                                                        <div>
+                                                            <Modal className="modal-container"
+                                                                   show={this.state.showModal}
+                                                                   onHide={this.close}
+                                                                   animation={true}
+                                                                   bsSize="small">
+                                                                <Modal.Header closeButton>
+                                                                    <Modal.Title>Pantry
+                                                                        Details</Modal.Title>
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                    <div className="row container-fluid">
+                                                                        <div className="map-container">
+                                                                            <img src={map}
+                                                                                 alt="Google Maps"/>
+                                                                        </div>
+                                                                        <b>Address: </b>
+                                                                        123
+                                                                        Address St., Boston MA,
+                                                                        02130
+                                                                        <br/>
+                                                                        <b>Hours of
+                                                                            operation:</b>
+                                                                        <br/>
+                                                                        Mon - Thu: 10:00AM - 4:00PM
+                                                                        <br/>
+                                                                        Sat: 9:00AM - 12:00PM
+                                                                        <br/>
+                                                                        <b>Phone: (123) 456-7890</b>
+                                                                    </div>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <Button
+                                                                        onClick={this.close}>Close</Button>
+                                                                </Modal.Footer>
+                                                            </Modal>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <div className="row button-row">
+                                                    <div className="col-6 pantry-name">
+                                                        <h5>St. Anthony Shrine / Franscician Food
+                                                            Bank</h5>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <Button type="button"
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.open}>See
+                                                            Details
+                                                        </Button>
+                                                        <Link to="/donationType"
+                                                              className="btn btn-success details-btn"
+                                                              type="button">
+                                                            Choose
+                                                        </Link>
+                                                        <div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <div className="row button-row">
+                                                    <div className="col-6 pantry-name">
+                                                        <h5>Salvation Army / South End Food
+                                                            Bank</h5>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <Button type="button"
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.open}>See
+                                                            Details
+                                                        </Button>
+                                                        <Link to="/donationType"
+                                                              className="btn btn-success details-btn"
+                                                              type="button">
+                                                            Choose
+                                                        </Link>
+                                                        <div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li className="list-group-item">
+                                                <div className="row button-row">
+                                                    <div className="col-6 pantry-name">
+                                                        <h5>Haley House Food Pantry</h5>
+                                                    </div>
+                                                    <div className="col-6">
+                                                        <Button type="button"
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.open}>See
+                                                            Details
+                                                        </Button>
+                                                        <Link to="/donationType"
+                                                              className="btn btn-success details-btn"
+                                                              type="button">
+                                                            Choose
+                                                        </Link>
+                                                        <div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>

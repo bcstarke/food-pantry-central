@@ -1,0 +1,21 @@
+.main-container {
+    margin: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.pantry-info-container {
+    margin: 1rem;
+    align-items: end;
+    display: flex;
+    justify-content: center;
+}
+
+.change-pantry-btn {
+    margin-left: 1rem;
+}
+
+.option-select-button{
+    height: 10rem;
+}
