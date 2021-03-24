@@ -1,0 +1,8 @@
+.main-container .cc-info {
+    margin: 1rem;
+}
+
+.main-container .amount-label {
+    align-items: flex-start;
+    display: flex;
+}
