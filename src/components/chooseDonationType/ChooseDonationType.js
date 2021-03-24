@@ -13,7 +13,7 @@ export default class ChooseDonationType extends Component {
                         <h1>Welcome to Food Pantry Central!</h1>
                         <br/>
                         <div className="row">
-                            <div className="pantry-info-container">
+                            <div className="pantry-info-container container-fluid">
                                 <h2>Pantry you chose: XXX</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantry"
@@ -22,6 +22,20 @@ export default class ChooseDonationType extends Component {
                                         Change Food Pantry
                                     </Link>
                                 </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="d-grid gap-3">
+                                <Link to="/"
+                                      className="btn btn-dark btn-lg option-select-button"
+                                      type="button">
+                                    Donate Money
+                                </Link>
+                                <Link to="/"
+                                      className="btn btn-dark btn-lg option-select-button"
+                                      type="button">
+                                    Donate Groceries
+                                </Link>
                             </div>
                         </div>
                     </div>
