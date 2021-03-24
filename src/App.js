@@ -10,6 +10,9 @@ import {
     Link,
     Redirect
 } from "react-router-dom";
+import ChooseDonationType from "./components/chooseDonationType/ChooseDonationType";
+import DonateMoney from "./components/donateMoney/DonateMoney";
+import CreditCardPage from "./components/donateMoney/creditCardPage/CreditCardPage";
 
 class App extends Component {
     constructor(props) {
@@ -22,7 +25,11 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Route exact path="/" component={MainMenu}/>
-                    <Route exact path="/hello" component={ChoosePantry}/>
+                    <Route exact path="/choosePantry" component={ChoosePantry}/>
+                    <Route exact path="/donationType" component={ChooseDonationType}/>
+                    <Route exact path="/donateMoney" component={DonateMoney}/>
+                    <Route exact path="/creditCard" component={CreditCardPage}/>
+
                 </div>
             </Router>
         );

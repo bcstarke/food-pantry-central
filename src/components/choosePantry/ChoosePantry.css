@@ -1,5 +1,5 @@
 .main-container {
-    padding-top: 2rem;
+    padding-top: 0rem;
 }
 
 .main-container .zip-input {
@@ -23,4 +23,39 @@
     align-items: center;
     display: flex;
     justify-content: center;
+}
+
+.main-container .results-list {
+    padding-top: 5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .pantry-option{
+    height: 100px;
+    color: black;
+}
+
+.main-container .pantry-option:focus{
+    background:#0275d8;
+    color: #fff;
+}
+
+
+.main-container .details-btn {
+    margin: 1rem;
+}
+
+.main-container .pantry-name {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .map-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: -10rem;
 }
