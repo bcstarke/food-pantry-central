@@ -41,7 +41,7 @@ export default class DonateMoney extends Component {
                                                     <img src={creditCard} alt={"Credit Card"}
                                                          height="200rem"/>
                                                 </Link>
-                                                <Link to="/choosePantry"
+                                                <Link to="/paypal"
                                                       className="btn btn-dark option-select-button"
                                                       type="button">
                                                     <img src={paypal} alt={"PayPal"} height="200rem"/>
