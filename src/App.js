@@ -18,6 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ThankYouPage from "./components/donateMoney/thankYouPage/ThankYouPage";
 import VenmoPage from "./components/donateMoney/venmoPage/VenmoPage";
 import PayPalPage from "./components/donateMoney/payPalPage/PayPalPage";
+import OtherDonationTypePage
+    from "./components/donateMoney/otherDonationTypePage/OtherDonationTypePage";
 
 class App extends Component {
     constructor(props) {
@@ -38,6 +40,7 @@ class App extends Component {
                     <Route exact path="/thankYouPayment" component={ThankYouPage}/>
                     <Route exact path="/venmo" component={VenmoPage}/>
                     <Route exact path="/paypal" component={PayPalPage}/>
+                    <Route exact path="/otherDonationType" component={OtherDonationTypePage}/>
 
                 </div>
             </Router>

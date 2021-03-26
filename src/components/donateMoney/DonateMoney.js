@@ -56,7 +56,7 @@ export default class DonateMoney extends Component {
                                                 <img src={venmo} alt={"Venmo"} height="200rem"/>
 
                                             </Link>
-                                            <Link to="/choosePantry"
+                                            <Link to="/otherDonationType"
                                                   className="btn btn-dark option-select-button"
                                                   type="button">
                                                 <div className="row">
