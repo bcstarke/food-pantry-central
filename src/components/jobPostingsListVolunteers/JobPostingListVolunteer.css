@@ -82,11 +82,22 @@ h6{
 }
 
 .volunteer-list{
-
     overflow: scroll;
+
     height: 25rem;
-    width: 80rem;
+    width: 70rem;
     margin-left: 3rem;
+
+}
+
+
+.volunteer-list::-webkit-scrollbar {
+    display: none;
+}
+
+.volunteer-list {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
 
 }
 

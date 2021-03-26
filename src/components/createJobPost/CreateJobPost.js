@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import "./CreateGroceryItem.css"
+import "./CreateJobPost.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import logo from "../images/food-pantry-logo-b.png";
@@ -7,16 +7,16 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 
 
-export default class createGroceryItem extends Component {
+export default class createJobPost extends Component {
 
     constructor(props) {
         super(props);
         this.state={
             showModal:false,
             showModal2:false,
-            showName:true,
-            showQuantity:false,
-            showAddNotes:false,
+            showName:false,
+            showSchedule:true,
+            showDescription:false,
             showReview:false,
             showCheckname:false,
             showCheckQuantity:false,
@@ -70,7 +70,7 @@ export default class createGroceryItem extends Component {
     hideQuantity() {
         this.setState({
                           showQuantity:false,
-                          showAddNotes:true,
+                          showDescription:true,
                           backgroundPointQuantity:"white",
                           showCheckQuantity:true,
                       })
@@ -128,21 +128,21 @@ export default class createGroceryItem extends Component {
                     <div className="header-box container form">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
-                        <h1>Add new Item to grocery list</h1>
+                        <h1>Create a new volunteer posting</h1>
 
                         <div id="input-container">
 
                             {
                                 this.state.showName?
                                 <div id="child-input-container">
-                                    <h2>Please enter the name of the product you wish to add:</h2>
+                                    <h2>Please enter the Job tittle here:</h2>
                                     <div className="form-floating col-sm-8">
                                         <input type="text" className="form-control form-font"
-                                               placeholder="Product Name here" name="productName" onChange={this.handleInputName}/>
+                                               placeholder="Job Tittle" name="productName" onChange={this.handleInputName}/>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Job Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideName()}>next
@@ -153,22 +153,47 @@ export default class createGroceryItem extends Component {
                             }
 
                             {
-                                this.state.showQuantity?
+                                this.state.showSchedule?
                                 <div id="child-input-container">
-                                    <h2>Please enter the name of the product you wish to add:</h2>
+                                    <h2>Please enter the schedules here:</h2>
                                     <div>
-                                        <div className="row user-input-row form-div">
-                                            <div className="form-floating col-sm-3">
-                                                <input type="text" className="form-control form-font" placeholder="Product quantity here" name="productQuantity" onChange={this.handleInputQuantity}/>
-                                            </div>
-                                            <div className="col-sm-1.2">
-                                                <select className="form-control form-font" value={productUnit}>
-                                                    <option selected value="Unit(s)">Unit(s)</option>
-                                                    <option value="Box(es)">Box(es)</option>
-                                                    <option value="Kg">Kg</option>
-                                                    <option value="Liter">Liter</option>
-                                                </select>
-                                            </div>
+                                        <div className="row user-input-row-sche" style={{backgroundColor:"#ce9466"}}>
+
+                                                <div className="md-form mx-2 my-5">
+                                                    <label style={{color:"#ce9466"}}>
+                                                        Day of the week  </label>
+                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={productUnit}>
+                                                        <option selected value="Day">Day</option>
+                                                        <option value="Monday">Monday</option>
+                                                        <option value="Tuesday">Tuesday</option>
+                                                        <option value="Wednesday">Wednesday</option>
+                                                        <option value="Thursday">Thursday</option>
+                                                        <option value="Friday">Friday</option>
+                                                        <option value="Saturday">Saturday</option>
+                                                        <option value="Sunday">Sunday</option>
+                                                    </select>
+
+                                                </div>
+                                                <div className="md-form mx-2 my-5">
+                                                        <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>From
+                                                            time</label>
+                                                        <input type="time" id="inputMDEx1"
+                                                               className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
+
+
+                                                </div>
+                                                <div className="md-form mx-2 my-5">
+
+                                                    <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>To
+                                                        time</label>
+                                                    <input type="time" id="inputMDEx1"
+                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
+
+                                                </div>
+                                                    <button className="btn edit-btn" size="m"
+                                                            onClick={() => this.hideName()}>Add new schedule
+                                                    </button>
+
                                         </div>
                                     </div>
 
@@ -177,7 +202,7 @@ export default class createGroceryItem extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Job Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideQuantity()}>next
@@ -188,14 +213,14 @@ export default class createGroceryItem extends Component {
                             }
 
                             {
-                                this.state.showAddNotes?
+                                this.state.showDescription?
                                 <div id="child-input-container">
                                     <h2>Please enter any additional comments:</h2>
                                     <div>
 
-                                            <div className="form-floating form-text-area">
-                                                <textarea type="text" className="form-control form-font" placeholder="Product quantity here" name="productAddNotes" onChange={this.handleInputQuantity}/>
-                                            </div>
+                                        <div className="form-floating form-text-area">
+                                            <textarea type="text" className="form-control form-font" placeholder="Product quantity here" name="productAddNotes" onChange={this.handleInputQuantity}/>
+                                        </div>
 
                                     </div>
 
@@ -269,7 +294,16 @@ export default class createGroceryItem extends Component {
                                                 this.state.showCheckname?
                                             <div className="check-mark"></div>
                                                 :null}
-                                            Product Name
+                                            Job Tittle
+                                        </li>
+                                        <li>
+
+                                            <div className="point" style={{backgroundColor:this.state.backgroundPointReview}}></div>
+                                            {
+                                                this.state.showCheckReview?
+                                                <div className="check-mark"></div>
+                                                                          :null}
+                                            Description
                                         </li>
                                         <li>
 
@@ -278,7 +312,7 @@ export default class createGroceryItem extends Component {
                                                 this.state.showCheckQuantity?
                                                 <div className="check-mark"></div>
                                                                         :null}
-                                            Quantity
+                                            Qualifications
                                         </li>
                                         <li>
 
@@ -287,7 +321,16 @@ export default class createGroceryItem extends Component {
                                                 this.state.showCheckAddNotes?
                                                 <div className="check-mark"></div>
                                                                             :null}
-                                            Additional Notes
+                                            Schedule
+                                        </li>
+                                        <li>
+
+                                            <div className="point" style={{backgroundColor:this.state.backgroundPointAddNotes}}></div>
+                                            {
+                                                this.state.showCheckAddNotes?
+                                                <div className="check-mark"></div>
+                                                                            :null}
+                                            Open positions
                                         </li>
                                         <li>
 

@@ -6,6 +6,7 @@ import ChoosePantry from "./components/choosePantry/ChoosePantry";
 import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem";
 import FoodPantryPortal from "./components/foodPantryPortal/FoodPantryPortal";
 import JobPostingsVolunteer from "./components/jobPostingsListVolunteers/JobPostingListVolunteer";
+import CreateJobPosting from "./components/createJobPost/CreateJobPost";
 import {
     BrowserRouter as Router,
     Route,
@@ -38,6 +39,7 @@ class App extends Component {
                     <Route exact path="/createItem" component={CreateGroceryItem}/>
                     <Route exact path="/foodPantryPortal" component={FoodPantryPortal}/>
                     <Route exact path="/jobPostingsVolunteer" component={JobPostingsVolunteer}/>
+                    <Route exact path="/createPost" component={CreateJobPosting}/>
 
                 </div>
             </Router>

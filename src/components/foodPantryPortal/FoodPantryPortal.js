@@ -30,9 +30,9 @@ export default class createGroceryItem extends Component {
                         <h1>PORTAL</h1>
                         <div className="btn-wrapper">
                             <div className="row">
-                                <button type="button" className="btn btn-success buttonPortal" >
+                                <Link to="/createItem" type="button" className="btn btn-success buttonPortal" >
                                     Add new item to My Grocery List
-                                </button>
+                                </Link>
                                 <button type="button" className="btn btn-success buttonPortal" >
                                     Go to My Grocery List
                                 </button>
