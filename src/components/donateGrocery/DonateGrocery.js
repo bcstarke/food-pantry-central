@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 import "./DonateGrocery.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -52,8 +52,9 @@ export default class DonateGrocery extends Component {
                                 <h2>Pantry you chose: XXX</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantry"
-                                          className="btn btn-info change-pantry-btn"
-                                          type="button">
+                                          className="btn btn-info button1"
+                                          type="button"
+                                          style={{fontSize:"20px"}}>
                                         Change Food Pantry
                                     </Link>
                                 </div>
