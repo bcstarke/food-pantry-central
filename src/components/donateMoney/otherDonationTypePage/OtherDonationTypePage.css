@@ -1,0 +1,27 @@
+.main-container .bank-info{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .other-info {
+    background-color: lightgrey;
+    border-radius: 10px;
+    height: 20rem;
+}
+
+.main-container .button-text-other-payment {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .other-payment-page-button {
+    /*text-align: center;*/
+    /*align-items: center;*/
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}

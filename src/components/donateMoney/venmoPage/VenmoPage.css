@@ -1,0 +1,25 @@
+.main-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .img-row {
+    margin: auto;
+    margin-top: -1rem;
+}
+
+.main-container .username-row {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin-left: -3rem;
+}
+
+.main-container .venmo-img {
+    margin-top: -5rem;
+    margin-left: -1.5rem;
+}
+
+

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './CreditCardPage.css'
+import './CCReviewPage.css'
 import logo from "../../images/food-pantry-logo.jpg";
 import creditCardsLong from "../../images/credit-cards-long.png"
 import {Link} from "react-router-dom";
@@ -10,7 +10,7 @@ import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 
-export default class CreditCardPage extends Component {
+export default class CCReviewPage extends Component {
 
     render() {
         return (
@@ -38,9 +38,11 @@ export default class CreditCardPage extends Component {
                                                             $
                                                         </div>
                                                     </div>
-                                                    <input type="text" className="form-control"
-                                                           id="inlineFormInputGroup"
-                                                           placeholder="Enter amount..."/>
+                                                    <input type="text" readOnly
+                                                           className="form-control-plaintext"
+                                                           id="staticEmail"
+                                                           value="  25"/>
+
                                                 </div>
                                             </div>
                                             <br/>
@@ -48,9 +50,11 @@ export default class CreditCardPage extends Component {
                                                 <label className="amount-label"><h5>Cardholder
                                                     Name</h5></label>
                                                 <div className="input-group mb-2">
-                                                    <input type="text" className="form-control"
-                                                           id="inlineFormInputGroup"
-                                                           placeholder="Enter name..."/>
+                                                    <input type="text" readOnly
+                                                           className="form-control-plaintext"
+                                                           id="staticEmail"
+                                                           value="Ben Starke"/>
+
                                                 </div>
                                             </div>
                                             <br/>
@@ -58,9 +62,11 @@ export default class CreditCardPage extends Component {
                                                 <label className="amount-label"><h5>Credit Card
                                                     Number</h5></label>
                                                 <div className="input-group mb-2">
-                                                    <input type="text" className="form-control"
-                                                           id="inlineFormInputGroup"
-                                                           placeholder="Enter Card Number..."/>
+                                                    <input type="text" readOnly
+                                                           className="form-control-plaintext"
+                                                           id="staticEmail"
+                                                           value="7297-8262-8262-3411"/>
+
                                                 </div>
                                             </div>
                                         </form>
@@ -73,9 +79,10 @@ export default class CreditCardPage extends Component {
                                                         <h5>Expiration Date</h5>
                                                     </label>
                                                     <div className="input-group mb-2">
-                                                        <input type="text" className="form-control"
-                                                               id="inlineFormInputGroup"
-                                                               placeholder="MM/YYYY"/>
+                                                        <input type="text" readOnly
+                                                               className="form-control-plaintext"
+                                                               id="staticEmail"
+                                                               value="03/2025"/>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
@@ -83,9 +90,10 @@ export default class CreditCardPage extends Component {
                                                         <h5>Security Code</h5>
                                                     </label>
                                                     <div className="input-group mb-2">
-                                                        <input type="text" className="form-control"
-                                                               id="inlineFormInputGroup"
-                                                               placeholder="XXX"/>
+                                                        <input type="text" readOnly
+                                                               className="form-control-plaintext"
+                                                               id="staticEmail"
+                                                               value="367"/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,9 +102,10 @@ export default class CreditCardPage extends Component {
                                                 <label className="amount-label"><h5>Zip code</h5>
                                                 </label>
                                                 <div className="input-group mb-2">
-                                                    <input type="text" className="form-control"
-                                                           id="inlineFormInputGroup"
-                                                           placeholder="Enter zip code..."/>
+                                                    <input type="text" readOnly
+                                                           className="form-control-plaintext"
+                                                           id="staticEmail"
+                                                           value="12345"/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -104,9 +113,10 @@ export default class CreditCardPage extends Component {
                                                 <label className="amount-label"><h5>Email</h5>
                                                 </label>
                                                 <div className="input-group mb-2">
-                                                    <input type="text" className="form-control"
-                                                           id="inlineFormInputGroup"
-                                                           placeholder="Enter Email..."/>
+                                                    <input type="text" readOnly
+                                                           className="form-control-plaintext"
+                                                           id="staticEmail"
+                                                           value="name@example.com"/>
                                                 </div>
                                             </div>
                                         </form>
@@ -119,10 +129,10 @@ export default class CreditCardPage extends Component {
                         {/*<div className="button-row">*/}
                         <div className="col-12 button-row">
                             <div className="col-3">
-                                <Link to="/donateMoney"
-                                      class="btn btn-dark btn-lg"
+                                <Link to="/creditCard"
+                                      class="btn btn-dark btn-lg cc-page-button"
                                       type="button">
-                                    <div className="button-text-cc-page">
+                                    <div className="button-text-cc-review">
                                         <div className="left-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
                                         </div>
@@ -131,11 +141,11 @@ export default class CreditCardPage extends Component {
                                 </Link>
                             </div>
                             <div className="col-3">
-                                <Link to="/creditCardReview"
+                                <Link to="/thankYouPayment"
                                       className="btn btn-success btn-lg cc-page-button"
                                       type="button">
-                                    <div className="button-text-cc-page">
-                                        Review
+                                    <div className="button-text-cc-review">
+                                        Pay
                                         <div className="right-arrow-icon">
                                             <FontAwesomeIcon icon={faArrowRight} size='2x'/>
                                         </div>
@@ -144,8 +154,6 @@ export default class CreditCardPage extends Component {
                                 </Link>
                             </div>
                         </div>
-                        {/*</div>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
             </div>
