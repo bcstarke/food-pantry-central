@@ -71,34 +71,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -110,29 +82,6 @@ export default class BuyGroceryOnline extends Component {
                                                         See Details
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -150,34 +99,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -188,30 +109,6 @@ export default class BuyGroceryOnline extends Component {
                                                             onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -229,34 +126,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -267,30 +136,6 @@ export default class BuyGroceryOnline extends Component {
                                                             onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -308,34 +153,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -346,30 +163,6 @@ export default class BuyGroceryOnline extends Component {
                                                             onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -387,34 +180,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -425,30 +190,6 @@ export default class BuyGroceryOnline extends Component {
                                                             onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -466,34 +207,6 @@ export default class BuyGroceryOnline extends Component {
                                                         Accept
                                                     </Button>
 
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showConfirmationModal}*/}
-                                                    {/*           onHide={this.closeConfirmation}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*               Congratulations! You accept Alice's application!*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-                                                    {/*               <textarea rows="4" cols="50">*/}
-                                                    {/*               </textarea>*/}
-                                                    {/*                <Button type="button"*/}
-                                                    {/*                        className="btn btn-dark btn-sm">*/}
-                                                    {/*                    Send*/}
-                                                    {/*                </Button>*/}
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeConfirmation}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option">
                                                         Decline
@@ -504,30 +217,6 @@ export default class BuyGroceryOnline extends Component {
                                                             onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
-                                                    {/*<div>*/}
-                                                    {/*    <Modal className="modal-container"*/}
-                                                    {/*           show={this.state.showDetailsModal}*/}
-                                                    {/*           onHide={this.closeDetails}*/}
-                                                    {/*           animation={true}*/}
-                                                    {/*           bsSize="small">*/}
-                                                    {/*        <Modal.Header closeButton>*/}
-                                                    {/*            <Modal.Title>*/}
-                                                    {/*                Alice*/}
-                                                    {/*            </Modal.Title>*/}
-                                                    {/*        </Modal.Header>*/}
-                                                    {/*        <Modal.Body>*/}
-                                                    {/*            <div className="row container-fluid">*/}
-
-                                                    {/*            </div>*/}
-                                                    {/*        </Modal.Body>*/}
-                                                    {/*        <Modal.Footer>*/}
-                                                    {/*            <Button*/}
-                                                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                                                    {/*        </Modal.Footer>*/}
-                                                    {/*    </Modal>*/}
-                                                    {/*</div>*/}
-
                                                 </div>
                                             </div>
                                         </td>
@@ -544,6 +233,56 @@ export default class BuyGroceryOnline extends Component {
                                 PORTAL
                             </Link>
                         </div>
+                    </div>
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showConfirmationModal}
+                               onHide={this.closeConfirmation}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    Congratulations! You accept Alice's application!
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+                                                                   <textarea rows="4" cols="50">
+                                                                   </textarea>
+                                    <Button type="button"
+                                            className="btn btn-dark btn-sm">
+                                        Send
+                                    </Button>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeConfirmation}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showDetailsModal}
+                               onHide={this.closeDetails}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    Alice
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeDetails}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
                 </div>
 
