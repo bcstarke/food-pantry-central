@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import './DonateMoney.css';
 import creditCard from '../images/credit-cards.jpg';
-import paypal from '../images/paypal.png'
-import venmo from '../images/venmo.png'
+import paypal from '../images/paypal.png';
+import venmo from '../images/venmo.png';
 import logo from "../images/food-pantry-logo.jpg";
 import otherOptionMoney from '../images/other-option-money.png'
 

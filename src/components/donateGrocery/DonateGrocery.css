@@ -1,0 +1,21 @@
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+.option-select-button {
+    height: 14rem;
+    width: 40rem;
+}
+
+.donate-options {
+    margin-top: 1rem;
+}
+
+.download-pdf-list{
+    margin-left: 2rem;
+}
