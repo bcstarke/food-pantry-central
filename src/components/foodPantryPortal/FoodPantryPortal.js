@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
+import Button from "react-bootstrap/Button";
 
 
 export default class createGroceryItem extends Component {
@@ -24,6 +25,11 @@ export default class createGroceryItem extends Component {
 
             <div className="main-container" id="home">
                 <div className="container-fluid" id="mainMenuBox">
+                    <Link to="/profile" type="button"
+                            className="btn btn-profile"
+                            onClick={this.open}>See
+                        Profile
+                    </Link>
                     <div className="header-box container header">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
