@@ -8,11 +8,6 @@ import target from '../images/target.png';
 import walmart from '../images/walmart.png';
 import "./BuyGroceryOnline.css"
 
-import otherOptionMoney from '../images/other-option-money.png'
-import Button from "react-bootstrap/Button";
-import Modal from "../choosePantry/ChoosePantry";
-import map from "../images/googlemap.png";
-
 export default class BuyGroceryOnline extends Component {
 
     render() {

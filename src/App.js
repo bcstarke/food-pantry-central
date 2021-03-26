@@ -5,6 +5,8 @@ import MainMenu from "./components/mainMenu/MainMenu";
 import ChoosePantry from "./components/choosePantry/ChoosePantry";
 import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem";
 import DonateGrocery from "./components/donateGrocery/DonateGrocery";
+import EmployeePortal from "./components/mainMenu/EmployeePortal";
+import AcceptApplication from "./components/acceptApplication/AcceptApplication";
 
 import {
     BrowserRouter as Router,
@@ -29,9 +31,6 @@ class App extends Component {
             <Router>
                 <div className="App">
                     <Route exact path="/" component={MainMenu}/>
-
-                    
-
                     <Route exact path="/choosePantry" component={ChoosePantry}/>
                     <Route exact path="/donationType" component={ChooseDonationType}/>
                     <Route exact path="/donateMoney" component={DonateMoney}/>
@@ -39,7 +38,8 @@ class App extends Component {
                     <Route exact path="/createItem" component={CreateGroceryItem}/>
                     <Route exact path="/donateGrocery" component={DonateGrocery}/>
                     <Route exact path="/buyGroceryOnline" component={BuyGroceryOnline}/>
-
+                    <Route exact path="/employeePortal" component={EmployeePortal}/>
+                    <Route exact path="/goToVolunteerPosting" component={AcceptApplication}/>
                 </div>
             </Router>
         );
