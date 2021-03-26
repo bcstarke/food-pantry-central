@@ -38,12 +38,12 @@ export default class createGroceryItem extends Component {
                                 </button>
                             </div>
                             <div className="row">
-                                <button type="button" className="btn btn-success buttonPortal" >
+                                <Link to="/goToVolunteerPosting" type="button" className="btn btn-success buttonPortal" >
                                     Go to My Volunteer Postings
-                                </button>
-                                <button type="button" className="btn btn-success buttonPortal" >
+                                </Link>
+                                <Link to="/createPost" type="button" className="btn btn-success buttonPortal" >
                                     Create a new Volunteer Posting
-                                </button>
+                                </Link>
                             </div>
                         </div>
 
