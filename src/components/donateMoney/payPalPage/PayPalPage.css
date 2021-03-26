@@ -1,3 +1,7 @@
+.main-container .amount-label {
+    float: left;
+}
+
 .main-container .paypal-img-row {
     margin-top: -1rem;
 }
