@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './CCReviewPage.css'
-import logo from "../../images/food-pantry-logo.jpg";
+import logo from "../../images/food-pantry-logo-b.png";
 import creditCardsLong from "../../images/credit-cards-long.png"
 import {Link} from "react-router-dom";
 import '@fortawesome/react-fontawesome'

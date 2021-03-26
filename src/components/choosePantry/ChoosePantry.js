@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './ChoosePantry.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import logo from '../images/food-pantry-logo.jpg';
+import logo from '../images/food-pantry-logo-b.png';
 import map from '../images/googlemap.png';
 import DonateMoney from "../donateMoney/DonateMoney";
 import {
@@ -105,7 +105,7 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/donateMoney"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose

@@ -5,7 +5,7 @@ import './DonateMoney.css';
 import creditCard from '../images/credit-cards.jpg';
 import paypal from '../images/paypal.png';
 import venmo from '../images/venmo.png';
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 import otherOptionMoney from '../images/other-option-money.png'
 
 export default class DonateMoney extends Component {
