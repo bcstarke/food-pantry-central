@@ -1,0 +1,83 @@
+.main-container {
+    padding-top: 2rem;
+    /*font-family: 'Lato', sans-serif;*/
+
+    font-family: 'Bebas Neue', cursive;
+}
+
+body{
+
+    background: #461b1b;
+    background: #bfa675 url("../images/background-image-maroon.png") no-repeat;
+    background-size: cover;
+}
+
+.header{
+  margin-right: 10rem;
+
+}
+
+
+h1 {
+
+    color: #ce9466;
+    font-size: 60px;
+}
+
+h2{
+
+    color: #6b724e;
+    font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+h3{
+
+
+    color: #6b724e;
+    font-size: 70px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+h4{
+
+
+    color: #4b1b1b;
+    font-size: 50px;
+}
+
+h5{
+
+
+    color: #6b724e;
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+h6{
+
+
+    color: #ce9466;
+    font-size: 40px;
+    margin-right: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.buttonPortal{
+
+    height: 13rem;
+    width: 25rem;
+    margin: 2rem;
+    /*background-color: rgba(206, 148, 102, 0.8);*/
+    background-color: #6b724e;
+    color: rgb(206, 148, 102);
+    font-size: 3rem;
+    border: none;
+    padding-top: 1rem;
+}
+
+.btn-wrapper{
+   margin-top: -1rem;
+    margin-left: 6rem;
+}

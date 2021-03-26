@@ -9,6 +9,9 @@ import EmployeePortal from "./components/mainMenu/EmployeePortal";
 import AcceptApplication from "./components/acceptApplication/AcceptApplication";
 import ApplicationList from "./components/acceptApplication/ApplicationList";
 
+import FoodPantryPortal from "./components/foodPantryPortal/FoodPantryPortal";
+import JobPostingsVolunteer from "./components/jobPostingsListVolunteers/JobPostingListVolunteer";
+import CreateJobPosting from "./components/createJobPost/CreateJobPost";
 import {
     BrowserRouter as Router,
     Route,
@@ -20,6 +23,13 @@ import ChooseDonationType from "./components/chooseDonationType/ChooseDonationTy
 import DonateMoney from "./components/donateMoney/DonateMoney";
 import CreditCardPage from "./components/donateMoney/creditCardPage/CreditCardPage";
 import BuyGroceryOnline from "./components/donateGrocery/BuyGroceryOnline";
+import CCReviewPage from "./components/donateMoney/creditCardPage/CCReviewPage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ThankYouPage from "./components/donateMoney/thankYouPage/ThankYouPage";
+import VenmoPage from "./components/donateMoney/venmoPage/VenmoPage";
+import PayPalPage from "./components/donateMoney/payPalPage/PayPalPage";
+import OtherDonationTypePage
+    from "./components/donateMoney/otherDonationTypePage/OtherDonationTypePage";
 
 class App extends Component {
     constructor(props) {
@@ -36,12 +46,21 @@ class App extends Component {
                     <Route exact path="/donationType" component={ChooseDonationType}/>
                     <Route exact path="/donateMoney" component={DonateMoney}/>
                     <Route exact path="/creditCard" component={CreditCardPage}/>
+                    <Route exact path="/creditCardReview" component={CCReviewPage}/>
+                    <Route exact path="/thankYouPayment" component={ThankYouPage}/>
+                    <Route exact path="/venmo" component={VenmoPage}/>
+                    <Route exact path="/paypal" component={PayPalPage}/>
+                    <Route exact path="/otherDonationType" component={OtherDonationTypePage}/>
                     <Route exact path="/createItem" component={CreateGroceryItem}/>
                     <Route exact path="/donateGrocery" component={DonateGrocery}/>
                     <Route exact path="/buyGroceryOnline" component={BuyGroceryOnline}/>
                     <Route exact path="/employeePortal" component={EmployeePortal}/>
                     <Route exact path="/goToVolunteerPosting" component={AcceptApplication}/>
                     <Route exact path="/applicationDetails" component={ApplicationList}/>
+                    <Route exact path="/foodPantryPortal" component={FoodPantryPortal}/>
+                    <Route exact path="/jobPostingsVolunteer" component={JobPostingsVolunteer}/>
+                    <Route exact path="/createPost" component={CreateJobPosting}/>
+
                 </div>
             </Router>
         );

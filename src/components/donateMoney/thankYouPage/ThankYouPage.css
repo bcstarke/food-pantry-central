@@ -1,0 +1,32 @@
+.thank-you-text {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.thank-you {
+    font-size: 4rem;
+}
+
+.thank-you-button {
+    height: 15rem;
+    width: 25rem;
+}
+
+.nav-buttons {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.main-container .button-text {
+    font-size: 3rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
