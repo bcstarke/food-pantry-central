@@ -22,8 +22,9 @@ export default class DonateMoney extends Component {
                                 <h2>Pantry you chose: XXX</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantry"
-                                          className="btn btn-info change-pantry-btn"
-                                          type="button">
+                                          className="btn btn-info button1"
+                                          type="button"
+                                          style={{fontSize:"20px"}}>
                                         Change Food Pantry
                                     </Link>
                                 </div>

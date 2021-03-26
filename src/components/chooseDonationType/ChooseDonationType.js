@@ -27,7 +27,7 @@ export default class ChooseDonationType extends Component {
                         </div>
                         <div className="row">
                             <div className="d-grid gap-3 button-row">
-                                <Link to="/choosePantry"
+                                <Link to="/donateMoney"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button">
                                     Donate Money

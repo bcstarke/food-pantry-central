@@ -105,7 +105,7 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to="/donationType"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
