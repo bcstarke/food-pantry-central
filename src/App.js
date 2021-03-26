@@ -7,6 +7,7 @@ import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem"
 import DonateGrocery from "./components/donateGrocery/DonateGrocery";
 import EmployeePortal from "./components/mainMenu/EmployeePortal";
 import AcceptApplication from "./components/acceptApplication/AcceptApplication";
+import ApplicationList from "./components/acceptApplication/ApplicationList";
 
 import {
     BrowserRouter as Router,
@@ -40,6 +41,7 @@ class App extends Component {
                     <Route exact path="/buyGroceryOnline" component={BuyGroceryOnline}/>
                     <Route exact path="/employeePortal" component={EmployeePortal}/>
                     <Route exact path="/goToVolunteerPosting" component={AcceptApplication}/>
+                    <Route exact path="/applicationDetails" component={ApplicationList}/>
                 </div>
             </Router>
         );

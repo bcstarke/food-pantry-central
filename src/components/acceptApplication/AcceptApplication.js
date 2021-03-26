@@ -37,17 +37,18 @@ export default class BuyGroceryOnline extends Component {
                                                 </div>
                                                 <div className="col-9">
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         x
                                                     </Button>
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         Edit
                                                     </Button>
-                                                    <Button type="button"
-                                                            className="btn btn-primary details-btn">
-                                                        See Applicants (2)
-                                                    </Button>
+                                                    <Link to="/applicationDetails"
+                                                          className="btn btn-dark btn-sm"
+                                                          type="button">
+                                                        See Applications (2)
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </td>
@@ -60,17 +61,18 @@ export default class BuyGroceryOnline extends Component {
                                                 </div>
                                                 <div className="col-9">
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         x
                                                     </Button>
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         Edit
                                                     </Button>
-                                                    <Button type="button"
-                                                            className="btn btn-primary details-btn">
-                                                        See Applicants (2)
-                                                    </Button>
+                                                    <Link to="/applicationDetails"
+                                                          className="btn btn-dark btn-sm"
+                                                          type="button">
+                                                        See Applications (2)
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </td>
@@ -83,17 +85,18 @@ export default class BuyGroceryOnline extends Component {
                                                 </div>
                                                 <div className="col-9">
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         x
                                                     </Button>
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         Edit
                                                     </Button>
-                                                    <Button type="button"
-                                                            className="btn btn-primary details-btn">
-                                                        See Applicants (2)
-                                                    </Button>
+                                                    <Link to="/applicationDetails"
+                                                          className="btn btn-dark btn-sm"
+                                                          type="button">
+                                                        See Applications (2)
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </td>
@@ -106,17 +109,18 @@ export default class BuyGroceryOnline extends Component {
                                                 </div>
                                                 <div className="col-9">
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         x
                                                     </Button>
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         Edit
                                                     </Button>
-                                                    <Button type="button"
-                                                            className="btn btn-primary details-btn">
-                                                        See Applicants (2)
-                                                    </Button>
+                                                    <Link to="/applicationDetails"
+                                                          className="btn btn-dark btn-sm"
+                                                          type="button">
+                                                        See Applications (2)
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </td>
@@ -129,17 +133,18 @@ export default class BuyGroceryOnline extends Component {
                                                 </div>
                                                 <div className="col-9">
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         x
                                                     </Button>
                                                     <Button type="button"
-                                                            className="btn btn-primary details-btn">
+                                                            className="btn btn-dark btn-sm option">
                                                         Edit
                                                     </Button>
-                                                    <Button type="button"
-                                                            className="btn btn-primary details-btn">
-                                                        See Applicants (2)
-                                                    </Button>
+                                                    <Link to="/applicationDetails"
+                                                          className="btn btn-dark btn-sm"
+                                                          type="button">
+                                                        See Applications (2)
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </td>

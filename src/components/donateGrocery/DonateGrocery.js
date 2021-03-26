@@ -260,7 +260,7 @@ export default class DonateGrocery extends Component {
                                            bsSize="small">
                                         <Modal.Header closeButton>
                                             <Modal.Title>
-                                                DROP ITMES AT:
+                                                DROP ITEMS AT:
                                             </Modal.Title>
                                         </Modal.Header>
                                         <Modal.Body>
