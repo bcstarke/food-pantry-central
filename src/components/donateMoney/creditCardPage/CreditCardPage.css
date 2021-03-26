@@ -6,3 +6,40 @@
     align-items: flex-start;
     display: flex;
 }
+
+.main-container .cc-page-button {
+    /*margin-top: 3rem;*/
+    margin: 3rem;
+    height: 6rem;
+    width: 10rem;
+    align-items: start;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .button-row {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .button-text-cc-page {
+    margin-top: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container .right-arrow-icon {
+    margin-left: 1rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.main-container .left-arrow-icon {
+    margin-left: -1.3rem;
+    margin-right: 0.5rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

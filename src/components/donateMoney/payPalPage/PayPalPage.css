@@ -1,0 +1,17 @@
+.main-container .amount-label {
+    float: left;
+}
+
+.main-container .paypal-img-row {
+    margin-top: -1rem;
+}
+
+.main-container .paypal-info {
+    margin-top: 1rem;
+    width: 50rem;
+    background-color: lightgrey;
+    border-radius:10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

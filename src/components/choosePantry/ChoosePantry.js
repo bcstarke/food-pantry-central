@@ -3,9 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './ChoosePantry.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import {Link} from "react-router-dom";
 import logo from '../images/food-pantry-logo.jpg';
 import map from '../images/googlemap.png';
+import DonateMoney from "../donateMoney/DonateMoney";
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link,
+    Redirect
+} from "react-router-dom";
 
 export default class ChoosePantry extends Component {
 
@@ -86,7 +93,8 @@ export default class ChoosePantry extends Component {
                                 <div className="col-10">
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
-                                            <li className="list-group-item">
+                                            <li className="list-group-item"
+                                                value="greater_boston_food_bank">
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h5>The Greater Boston Food Bank</h5>
@@ -113,8 +121,10 @@ export default class ChoosePantry extends Component {
                                                                         Details</Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
-                                                                    <div className="row container-fluid">
-                                                                        <div className="map-container">
+                                                                    <div
+                                                                        className="row container-fluid">
+                                                                        <div
+                                                                            className="map-container">
                                                                             <img src={map}
                                                                                  alt="Google Maps"/>
                                                                         </div>
