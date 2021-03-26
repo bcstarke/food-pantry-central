@@ -1,15 +1,18 @@
 .main-container {
     padding-top: 2rem;
-    font-family: 'Bebas Neue', cursive;
+    /*font-family: 'Lato', sans-serif;*/
 
+    font-family: 'Bebas Neue', cursive;
 }
 
 body{
 
     background: #461b1b;
+    background: #bfa675 url("../images/background-image-maroon.png") no-repeat;
+    background-size: cover;
 }
 
-.header{
+.form{
     margin-right:25%;
 
 }
@@ -25,6 +28,8 @@ h2{
 
     color: #6b724e;
     font-size: 2.5rem;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 h3{
@@ -32,7 +37,41 @@ h3{
 
     color: #6b724e;
     font-size: 70px;
+    font-family: 'Bebas Neue', cursive;
 }
+
+h4{
+
+
+    color: #4b1b1b;
+    font-size: 50px;
+}
+
+h5{
+
+
+    color: #ce9466;
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+h6{
+
+
+    color: #ce9466;
+    font-size: 30px;
+    margin-right: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review-content{
+    margin-left: 3rem;
+
+}
+
+
+
+
 
 
 .main-container .zip-input {
@@ -58,6 +97,8 @@ h3{
     justify-content: center;
 }
 
+
+
 .box {
     display: flex;
     flex-flow: row wrap;
@@ -74,15 +115,17 @@ h3{
     right: 0px;
     overflow:hidden;
     color:#4b1b1b;
-    background: #bfa675 url("../images/background-image.png") no-repeat;
-    background-size: cover;
+    /*background: #bfa675 url("../images/background-image.png") no-repeat;*/
+    /*background-size: cover;*/
+    background-color: rgba(206, 148, 102, 0.8);
     position: absolute;
+
 
 }
 #input-container{
     padding: 5rem;
     /*outline:3px solid #00ff36;*/
-    top: 250px;
+    top: 200px;
     right: 350px;
     bottom: 0px;
     left: 100px;
@@ -93,21 +136,22 @@ h3{
     /*outline:3px solid #00ff36;*/
     height: 70%;
     width: 80%;
-
     /*background:#ccc;*/
     text-align:center;
-    background: #bfa675 url("../images/background-image-maroon.png") no-repeat right 50%;
-    background-size: cover;
+    /*background: #bfa675 url("../images/background-image-maroon.png") no-repeat right 50%;*/
+    /*background-size: cover;*/
     overflow:hidden;
     padding-top: 2rem;
     padding-bottom: 2rem;
-
+    /*background-color: #4b1b1b;*/
+    background-color: rgba(75, 27, 27, 0.5);
+    overflow:scroll;
 
 }
 
 .wrapper {
 
-    margin-top: 8rem;
+    margin-top: 5rem;
     margin-left: auto;
     margin-right: auto;
 
@@ -141,18 +185,47 @@ h3{
     border: none;
 }
 
+.edit-btn{
+    font-size: 15px;
+    color: #6b724e;
+    border-color: #6b724e;
+    padding: 1px;
+    height: 1.3rem;
+    position: relative;
+    margin-top: 17px;
+}
+
 
 .form-font{
-    font-size: 40px;
-    width: 30rem;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
+    font-size: 30px;
+    /*width: 20%;*/
+    /*align-items: center;*/
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*margin-top: 2rem;*/
     background-color: #bfa675;
     color: #4b1b1b;
     border: none;
 }
+.form-text-area{
+    font-size: 30px;
+    width: 40rem;
+    background-color: #bfa675;
+    color: #4b1b1b;
+    border: none;
+    border-radius: 10px;
+    margin-left: 5rem;
+    margin-top: 2rem;
+}
+
+
+.form-div{
+    margin-top: 2rem;
+    width: 70rem;
+    margin-left: -10rem;
+    border-color: white;
+}
+
 
 .form-font::placeholder{
 
@@ -194,8 +267,8 @@ h3{
     flex-direction: row;
     align-items: center;
     margin-left:-6%;
-
-    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px;
 
 }
 
@@ -237,7 +310,49 @@ h3{
     width: 3px;
     left: 10%;
     background-color: #4b1b1b;
+
 }
+
+.modal-header {
+    border-bottom: 0 none;
+}
+
+.modal-footer {
+    border-top: 0 none;
+}
+
+.popup{
+    background-color: #6b724e;
+    height: 30rem;
+    width: 50rem;
+    z-index: 10;
+    margin-left: 150px;
+
+    padding: 100px;
+}
+
+.popup-body{
+   border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+.popup-btn1{
+    background-color: #4b1b1b;
+    color:#ce9466;
+    border: none;
+
+}
+
+.popup-btn{
+    border-color: #4b1b1b;
+    background-color: transparent;
+    color:#4b1b1b;
+
+}
+
+
+
 
 /*just for demo*/
 
