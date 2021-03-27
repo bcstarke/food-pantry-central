@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import "./MainMenu.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 
 export default class MainMenu extends Component {
 
@@ -16,7 +16,7 @@ export default class MainMenu extends Component {
                         <h2>What would you like to do?</h2>
                         <div className="row button-container">
                             <div className="d-grid gap-3">
-                                <Link to="/choosePantry"
+                                <Link to="/donationType"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Donate
