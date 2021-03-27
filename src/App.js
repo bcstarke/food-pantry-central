@@ -8,10 +8,11 @@ import DonateGrocery from "./components/donateGrocery/DonateGrocery";
 import EmployeePortal from "./components/mainMenu/EmployeePortal";
 import AcceptApplication from "./components/acceptApplication/AcceptApplication";
 import ApplicationList from "./components/acceptApplication/ApplicationList";
-
 import FoodPantryPortal from "./components/foodPantryPortal/FoodPantryPortal";
 import JobPostingsVolunteer from "./components/jobPostingsListVolunteers/JobPostingListVolunteer";
 import CreateJobPosting from "./components/createJobPost/CreateJobPost";
+import Profile from "./components/profile/Profile";
+
 import {
     BrowserRouter as Router,
     Route,
@@ -60,6 +61,7 @@ class App extends Component {
                     <Route exact path="/foodPantryPortal" component={FoodPantryPortal}/>
                     <Route exact path="/jobPostingsVolunteer" component={JobPostingsVolunteer}/>
                     <Route exact path="/createPost" component={CreateJobPosting}/>
+                    <Route exact path="/profile" component={Profile}/>
 
                 </div>
             </Router>
