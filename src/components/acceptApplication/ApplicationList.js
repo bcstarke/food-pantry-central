@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -41,10 +41,10 @@ export default class BuyGroceryOnline extends Component {
                 <div className="container-fluid">
                     <div className="header-box container">
                         <img src={logo} alt={"Logo"} width="800px"/>
-                        <Link to="/"
-                              className="btn btn-dark btn-md profile"
-                              type="button">
-                            PROFILE
+                        <Link to="/profile" type="button"
+                              className="btn btn-profile"
+                              onClick={this.open}>See
+                            Profile
                         </Link>
                         <br/>
                         <h1>Volunteer Applicants</h1>

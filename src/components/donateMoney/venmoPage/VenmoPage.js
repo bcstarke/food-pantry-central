@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import logo from "../../images/food-pantry-logo.jpg";
+import logo from "../../images/food-pantry-logo-b.png";
 import {Link} from "react-router-dom";
 import '@fortawesome/react-fontawesome'
 import venmo from "../../images/venmo.png"

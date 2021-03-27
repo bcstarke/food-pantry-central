@@ -14,7 +14,7 @@ import {
     Redirect
 } from "react-router-dom";
 
-export default class ChoosePantry extends Component {
+export default class ChoosePantryVolunteer extends Component {
 
     constructor(props, context) {
         super(props, context);
