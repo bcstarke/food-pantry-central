@@ -46,6 +46,7 @@ export default class MainMenu extends Component {
                                                                    type="button"
                                                                    to="/signUp">Click here to Sign up</Link>
                                 </div>
+                                <br/><br/>
                             </form>
                         </div>
                     </div>

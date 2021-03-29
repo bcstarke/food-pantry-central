@@ -39,7 +39,6 @@ export default class MainMenu extends Component {
                                     <input type="password" className="form-control"
                                            placeholder="Enter password"/>
                                 </div>
-
                                 <Link type="button" to="/foodPantryPortal" className="btn btn-success btn-block">Sign Up
                                 </Link>
                                 <br/><br/><br/>
@@ -49,6 +48,7 @@ export default class MainMenu extends Component {
                                                                  type="button"
                                                                  to="/signIn">Click here to Sign in</Link>
                                 </div>
+                                <br/><br/>
                             </form>
                         </div>
                     </div>
