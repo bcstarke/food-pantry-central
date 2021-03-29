@@ -26,7 +26,7 @@ export default class MainMenu extends Component {
                                       type="button" >
                                     Volunteer
                                 </Link>
-                                <Link to="/foodPantryPortal"
+                                <Link to="/signIn"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Go to My Food Pantry Central

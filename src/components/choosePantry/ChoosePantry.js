@@ -134,11 +134,11 @@ export default class ChoosePantry extends Component {
                                                         {/*onClick={(e) => this.setPantryState(*/}
                                                         {/*e)}*/}
 
-                                                        <Button type="button" onClick={(e) => this.setPantryState("The Greater Boston Food Bank")}>click here</Button>
-                                                        <div className="alert alert-primary"
-                                                             role="alert">
-                                                            {this.state.pantryName}
-                                                        </div>
+                                                        {/*<Button type="button" onClick={(e) => this.setPantryState("The Greater Boston Food Bank")}>click here</Button>*/}
+                                                        {/*<div className="alert alert-primary"*/}
+                                                        {/*     role="alert">*/}
+                                                        {/*    {this.state.pantryName}*/}
+                                                        {/*</div>*/}
                                                         <div>
                                                             <Modal className="modal-container"
                                                                    show={this.state.showModal}
