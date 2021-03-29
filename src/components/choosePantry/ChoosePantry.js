@@ -16,11 +16,13 @@ import {
 
 export default class ChoosePantry extends Component {
 
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.state = {
             showMessage: false,
-            showModal: false
+            showModal: false,
+            pantryName: "hello123",
+            radius: 1
         };
 
         this.open = this.open.bind(this);
@@ -56,6 +58,16 @@ export default class ChoosePantry extends Component {
         );
     }
 
+    handleSearch = () => {
+        this.props.history.push(`/donateMoney/${this.state.pantryName}`)
+    }
+
+    setPantryState = (newPantryName) => {
+        this.setState(prevState => ({
+            pantryName: newPantryName
+        }))
+    }
+
     render() {
         return (
             <div className="main-container" id="choosePantry">
@@ -74,7 +86,8 @@ export default class ChoosePantry extends Component {
                                 <h5>Show results within...</h5>
                             </div>
                             <div className="radius-drop-down col-sm-3">
-                                <select className="form-select" aria-label="Default select example">
+                                <select className="form-select" aria-label="Default select example"
+                                        value={this.state.radius}>
                                     <option value="1">1 Mile</option>
                                     <option value="2">2 Miles</option>
                                     <option value="5">5 Miles</option>
@@ -105,11 +118,27 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to={{
+                                                            pathname: "/donateMoney",
+                                                            state: {
+                                                                pantryName: "The Greater Boston"
+                                                                            + " Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
-                                                              type="button">
+                                                              type="button"
+                                                              onClick={() => this.setPantryState("The Greater Boston Food Bank")}>
+                                                        >
                                                             Choose
                                                         </Link>
+                                                        {/*onClick={(e) => this.setPantryState(*/}
+                                                        {/*e)}*/}
+
+                                                        <Button type="button" onClick={(e) => this.setPantryState("The Greater Boston Food Bank")}>click here</Button>
+                                                        <div className="alert alert-primary"
+                                                             role="alert">
+                                                            {this.state.pantryName}
+                                                        </div>
                                                         <div>
                                                             <Modal className="modal-container"
                                                                    show={this.state.showModal}

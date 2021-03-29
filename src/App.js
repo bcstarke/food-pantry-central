@@ -46,6 +46,7 @@ class App extends Component {
                     <Route exact path="/choosePantry" component={ChoosePantry}/>
                     <Route exact path="/donationType" component={ChooseDonationType}/>
                     <Route exact path="/donateMoney" component={DonateMoney}/>
+                    {/*<Route exact path="/donateMoney/:pantryName" component={DonateMoney}/>*/}
                     <Route exact path="/creditCard" component={CreditCardPage}/>
                     <Route exact path="/creditCardReview" component={CCReviewPage}/>
                     <Route exact path="/thankYouPayment" component={ThankYouPage}/>
