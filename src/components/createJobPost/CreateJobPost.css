@@ -284,6 +284,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 }
 
+.timeline ul li:hover {
+   color:red;
+
+
+}
+
 
 .timeline ul li {
     margin-bottom: 50px;
@@ -376,6 +382,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 }
 
+
+.schedule-container{
+    min-height: 5rem;
+    overflow: scroll;
+
+}
 
 
 

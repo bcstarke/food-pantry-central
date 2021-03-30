@@ -59,7 +59,7 @@ export default class createGroceryItem extends Component {
                                                                 >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -78,7 +78,7 @@ export default class createGroceryItem extends Component {
                                                                 >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -99,7 +99,7 @@ export default class createGroceryItem extends Component {
                                                                 >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -120,7 +120,7 @@ export default class createGroceryItem extends Component {
                                                                 >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -141,7 +141,7 @@ export default class createGroceryItem extends Component {
                                                         >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -162,7 +162,7 @@ export default class createGroceryItem extends Component {
                                                         >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/applyPost"
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
