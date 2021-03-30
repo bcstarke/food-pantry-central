@@ -5,7 +5,7 @@ import './DonateMoney.css';
 import creditCard from '../images/credit-cards.jpg';
 import paypal from '../images/paypal.png';
 import venmo from '../images/venmo.png';
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 import otherOptionMoney from '../images/other-option-money.png'
 
 export default class DonateMoney extends Component {
@@ -22,8 +22,9 @@ export default class DonateMoney extends Component {
                                 <h2>Pantry you chose: XXX</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantry"
-                                          className="btn btn-info change-pantry-btn"
-                                          type="button">
+                                          className="btn btn-info button1"
+                                          type="button"
+                                          style={{fontSize:"20px"}}>
                                         Change Food Pantry
                                     </Link>
                                 </div>

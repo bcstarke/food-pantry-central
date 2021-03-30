@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import logo from "../images/food-pantry-logo.jpg";
+import logo from "../images/food-pantry-logo-b.png";
 import {Link} from "react-router-dom";
 import "./EmployeePortal.css"
 
@@ -15,25 +15,25 @@ export default class EmployeePortal extends Component {
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
                                 <Link to="/addItemToGroceryList"
-                                      className="btn btn-dark btn-lg option"
+                                      className="btn btn-dark btn-lg option button1"
                                       type="button">
                                     Add Items To Grocery List
                                 </Link>
 
                                 <Link to="/goToGroceryList"
-                                      className="btn btn-dark btn-lg option"
+                                      className="btn btn-dark btn-lg option button1"
                                       type="button">
                                     Go To My Grocery List
                                 </Link>
 
                                 <Link to="/goToVolunteerPosting"
-                                      className="btn btn-dark btn-lg option"
+                                      className="btn btn-dark btn-lg option button1"
                                       type="button">
                                     Go To Volunteer Posting
                                 </Link>
 
                                 <Link to="/addNewVolunteerPosting"
-                                      className="btn btn-dark btn-lg option"
+                                      className="btn btn-dark btn-lg option button1"
                                       type="button">
                                     Create A New Volunteer Posting
                                 </Link>
