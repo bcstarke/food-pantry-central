@@ -1,14 +1,21 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Link} from 'react-router-dom'
+import {Link, Route} from 'react-router-dom'
 import './DonateMoney.css';
 import creditCard from '../images/credit-cards.jpg';
 import paypal from '../images/paypal.png';
 import venmo from '../images/venmo.png';
 import logo from "../images/food-pantry-logo-b.png";
 import otherOptionMoney from '../images/other-option-money.png'
+import ChoosePantry from "../choosePantry/ChoosePantry";
 
 export default class DonateMoney extends Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        const pantryName = this.props.location.state
+    }
 
     render() {
         return (
@@ -19,8 +26,17 @@ export default class DonateMoney extends Component {
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: XXX</h2>
+                                <h2>Pantry you chose: {this.props.pantryName}</h2>
+                                <div>{this.props.pantryName}</div>
                                 <div className="change-pantry-container">
+                                    {/*<Route path="/choosePantry" exact={true} render={(props) =>*/}
+                                    {/*    <div>*/}
+                                    {/*        <ChoosePantry*/}
+                                    {/*            pantryName={this.props.pantryName}*/}
+                                    {/*        />*/}
+                                    {/*    </div>*/}
+                                    {/*}>*/}
+                                    {/*</Route>*/}
                                     <Link to="/choosePantry"
                                           className="btn btn-info button1"
                                           type="button"
