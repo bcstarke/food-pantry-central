@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './ChoosePantry.css'
+import './ChoosePantryVolunteer.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import logo from '../images/food-pantry-logo-b.png';
@@ -105,7 +105,7 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to="/jobPostingsVolunteer"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose

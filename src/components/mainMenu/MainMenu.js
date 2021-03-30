@@ -21,7 +21,7 @@ export default class MainMenu extends Component {
                                       type="button" >
                                     Donate
                                 </Link>
-                                <Link to="/choosePantry"
+                                <Link to="/choosePantryV"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button" >
                                     Volunteer

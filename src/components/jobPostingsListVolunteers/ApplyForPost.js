@@ -1,10 +1,11 @@
 import React, {Component} from "react";
-import "./CreateJobPost.css"
+import "./JobPostingListVolunteer.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Radio, RadioGroup} from 'react-radio-group';
 
 
 export default class createJobPost extends Component {
@@ -282,17 +283,23 @@ export default class createJobPost extends Component {
                     <div className="header-box container form">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
-                        <h1>Create a new volunteer posting</h1>
+                        <h1>Apply for a volunteer posting</h1>
 
                         <div id="input-container">
 
                             {
                                 this.state.showName?
                                 <div id="child-input-container">
-                                    <h2>Please enter the Job tittle here:</h2>
+                                    <h2>Please enter your Name here:</h2>
                                     <div className="form-floating col-sm-8">
+                                        <label style={{color:"#ce9466"}}>
+                                            Name  </label>
                                         <input type="text" className="form-control form-font"
-                                               placeholder="Job Tittle" name="postName" onChange={this.handleInputName}/>
+                                               placeholder="Name" name="postName" onChange={this.handleInputName}/>
+                                        <label style={{color:"#ce9466"}}>
+                                            Last name  </label>
+                                        <input type="text" className="form-control form-font"
+                                               placeholder="Last Name" name="postName" onChange={this.handleInputName}/>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
@@ -309,162 +316,21 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showSchedule?
                                 <div id="child-input-container">
-                                    <h2>Please enter the schedules here:</h2>
-
-                                        {
-                                            this.state.showInputSchedule0?
-                                        <div className="row user-input-row-sche" style={{marginTop:"-50px"}}>
-                                                <div className="md-form mx-2 my-5">
-                                                    <label style={{color:"#ce9466"}}>
-                                                        Day of the week  </label>
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-                                                        <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>From
-                                                            time</label>
-                                                        <input type="time" id="inputMDEx1"
-                                                               className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
+                                    <h2>Please select from the available schedules here:</h2>
 
 
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>To
-                                                        time</label>
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                    <button className="btn edit-btn" size="m"
-                                                            onClick={() => this.addScheduleInput()}>Add new schedule
-                                                    </button>
-
+                                    <RadioGroup name="fruits" >
+                                        <div className="radio-button-background">
+                                            <Radio value="Apple" className="radio-button" />Tuesday 10:00 - 12:00
                                         </div>
-                                            :null}
-                                        {
-                                            this.state.showInputSchedule1?
-                                        <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                        <div className="md-form mx-2 my-5">
-
-                                            <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule1}>
-                                                <option selected value="Day">Day</option>
-                                                <option value="Monday">Monday</option>
-                                                <option value="Tuesday">Tuesday</option>
-                                                <option value="Wednesday">Wednesday</option>
-                                                <option value="Thursday">Thursday</option>
-                                                <option value="Friday">Friday</option>
-                                                <option value="Saturday">Saturday</option>
-                                                <option value="Sunday">Sunday</option>
-                                            </select>
-
+                                        <div className="radio-button-background">
+                                            <Radio value="Orange" className="radio-button" />Tuesday 10:00 - 12:00
                                         </div>
-                                        <div className="md-form mx-2 my-5">
-
-                                            <input type="time" id="inputMDEx1"
-                                                   className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
+                                        <div className="radio-button-background">
+                                            <Radio value="Banana" className="radio-button" />Tuesday 10:00 - 12:00
                                         </div>
-                                        <div className="md-form mx-2 my-5">
+                                    </RadioGroup>
 
-
-                                            <input type="time" id="inputMDEx1"
-                                                   className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                        </div>
-                                        <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                            Add new schedule
-                                        </button>
-
-                                    </div>
-                                        :null}
-                                        {
-                                            this.state.showInputSchedule2?
-                                            <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                                    Add new schedule
-                                                </button>
-
-                                            </div>
-                                        :null}
-                                        {
-                                            this.state.showInputSchedule3?
-                                            <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                                    Add new schedule
-                                                </button>
-
-                                            </div>
-                                        :null}
 
                                     <div className="wrapper" style={{marginTop:"-0.5rem"}}>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.backToQualifications()}>
@@ -484,11 +350,18 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showDescription?
                                 <div id="child-input-container">
-                                    <h2>Please enter the volunteer job description here:</h2>
+                                    <h2>Please enter your contact information here:</h2>
                                     <div>
 
-                                        <div className="form-floating form-text-area">
-                                            <textarea type="text" className="form-control form-font" placeholder="Volunteer description here" name="postDescription" onChange={this.handleInputDescription}/>
+                                        <div className="form-floating col-sm-8">
+                                            <label style={{color:"#ce9466"}}>
+                                                Phone #  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Phone #" name="postName" onChange={this.handleInputName}/>
+                                            <label style={{color:"#ce9466"}}>
+                                                Email  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Email" name="postName" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
@@ -511,11 +384,12 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showQualifications?
                                 <div id="child-input-container">
-                                    <h2>Please enter Qualifications and requirements here:</h2>
+                                    <h2>Please enter your date of birth here:</h2>
                                     <div>
 
-                                        <div className="form-floating form-text-area">
-                                            <textarea type="text" className="form-control form-font" placeholder="Qualifications and requirements here" name="postQualifications" onChange={this.handleInputName}/>
+                                        <div className="form-floating">
+                                            <input type="date" className="form-control form-font"
+                                                   placeholder="date" name="postName" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
@@ -627,7 +501,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckname?
                                             <div className="check-mark"></div>
                                                 :null}
-                                            Job Tittle
+                                            Applicant's Name
                                         </li>
                                         <li  onClick={() => this.editDescription()}>
 
@@ -636,7 +510,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckDescription?
                                                 <div className="check-mark"></div>
                                                                           :null}
-                                            Description
+                                            Contact info
                                         </li>
                                         <li  onClick={() => this.editQualifications()}>
 
@@ -645,7 +519,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckQualifications?
                                                 <div className="check-mark"></div>
                                                                         :null}
-                                            Qualifications
+                                            Date of birth
                                         </li>
                                         <li onClick={() => this.editSchedule()}>
 
@@ -663,7 +537,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckOpen?
                                                 <div className="check-mark"></div>
                                                                             :null}
-                                            Open positions
+                                            Qualifications
                                         </li>
                                         <li onClick={() => this.editReview()}>
 
