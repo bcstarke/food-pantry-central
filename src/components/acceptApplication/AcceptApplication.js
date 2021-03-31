@@ -14,10 +14,10 @@ export default class BuyGroceryOnline extends Component {
         };
 
         this.openEditConfirmation = this.openEditConfirmation.bind(this);
-        this.closeEditConfirmation = this.closeEditConfirmation.bind(this)
+        this.closeEditConfirmation = this.closeEditConfirmation.bind(this);
 
-        this.openDeleteConfirmation = this.openDeleteConfirmation.bind(this)
-        this.closeDeleteConfirmation = this.closeDeleteConfirmation.bind(this)
+        this.openDeleteConfirmation = this.openDeleteConfirmation.bind(this);
+        this.closeDeleteConfirmation = this.closeDeleteConfirmation.bind(this);
     }
 
     openEditConfirmation() {

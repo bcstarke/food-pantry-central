@@ -5,19 +5,23 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./ApplicationList.css"
 
-export default class BuyGroceryOnline extends Component {
+export default class ApplicationList extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             showConfirmationModal: false,
-            showDetailsModal: false
+            showDetailsModal: false,
+            showDeclineModal: false
         };
 
         this.openConfirmation = this.openConfirmation.bind(this);
         this.closeConfirmation = this.closeConfirmation.bind(this);
 
         this.openDetails = this.openDetails.bind(this);
-        this.closeDetails = this.closeDetails.bind(this)
+        this.closeDetails = this.closeDetails.bind(this);
+
+        this.openDecline = this.openDecline.bind(this);
+        this.closeDecline = this.closeDecline.bind(this);
     }
 
     openConfirmation() {
@@ -34,6 +38,14 @@ export default class BuyGroceryOnline extends Component {
 
     closeDetails(){
         this.setState({showDetailsModal: false});
+    }
+
+    openDecline(){
+        this.setState({showDeclineModal: true});
+    }
+
+    closeDecline(){
+        this.setState({showDeclineModal: false});
     }
 
     render() {
@@ -73,7 +85,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -100,7 +113,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -127,7 +141,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -154,7 +169,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -181,7 +197,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -208,7 +225,8 @@ export default class BuyGroceryOnline extends Component {
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option">
+                                                            className="btn btn-dark btn-sm option"
+                                                            onclick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
@@ -263,28 +281,51 @@ export default class BuyGroceryOnline extends Component {
                         </Modal>
                     </div>
 
-                    {/*<div>*/}
-                    {/*    <Modal className="modal-container"*/}
-                    {/*           show={this.state.showDetailsModal}*/}
-                    {/*           onHide={this.closeDetails}*/}
-                    {/*           animation={true}*/}
-                    {/*           bsSize="small">*/}
-                    {/*        <Modal.Header>*/}
-                    {/*            <Modal.Title>*/}
-                    {/*                Alice*/}
-                    {/*            </Modal.Title>*/}
-                    {/*        </Modal.Header>*/}
-                    {/*        <Modal.Body>*/}
-                    {/*            <div className="row container-fluid">*/}
-                    
-                    {/*            </div>*/}
-                    {/*        </Modal.Body>*/}
-                    {/*        <Modal.Footer>*/}
-                    {/*            <Button*/}
-                    {/*                onClick={this.closeDetails}>Close</Button>*/}
-                    {/*        </Modal.Footer>*/}
-                    {/*    </Modal>*/}
-                    {/*</div>*/}
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showDetailsModal}
+                               onHide={this.closeDetails}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header>
+                                <Modal.Title>
+                                    Alice
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeDetails}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showDeclineModal}
+                               onHide={this.closeDecline}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header>
+                                <Modal.Title>
+                                    Alice
+                                </Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeDecline}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
 
                 </div>
             </div>
