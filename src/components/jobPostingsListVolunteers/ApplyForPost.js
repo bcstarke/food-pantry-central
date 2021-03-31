@@ -7,15 +7,19 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Radio, RadioGroup} from 'react-radio-group';
 
-
 export default class createJobPost extends Component {
 
     constructor(props) {
         super(props);
+        this.onValueChange1 = this.onValueChange1.bind(this);
+        this.onValueChange2 = this.onValueChange2.bind(this);
+        this.onValueChange3 = this.onValueChange3.bind(this);
+
+        this.onClickAvailability1 = this.onClickAvailability1.bind(this);
         this.state={
             showModal:false,
             showModal2:false,
-
+            appName:"Name",
             showName:true,
             showDescription:false,
             showQualifications:false,
@@ -43,6 +47,7 @@ export default class createJobPost extends Component {
             showInputSchedule2:false,
             showInputSchedule3:false,
             schedulerCount:0,
+            // option1:"Saturday 8:00 AM - 10:00 AM"
 
         }
     }
@@ -239,6 +244,8 @@ export default class createJobPost extends Component {
 
 
 
+
+
     addScheduleInput = () =>{
 
         if (this.state.schedulerCount === 0){
@@ -266,16 +273,49 @@ export default class createJobPost extends Component {
                           })
         }
     }
+    onValueChange1(event) {
+        this.setState({
+                          option1: event.target.value
+                      });
+    }
+    onValueChange2(event) {
+        this.setState({
+                          option2: event.target.value
+                      });
+    }
+    onValueChange3(event) {
+        this.setState({
+                          option3: event.target.value
+                      });
+    }
+
+    onClickAvailability1(e) {
+
+        if (e.target.checked && !this.state.radioButton) {
+            this.setState({
+                              radioButton: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton) {
+            this.setState({
+                              radioButton: false,
+                              option1:"",
+                          })
+
+        }
+    }
 
     render() {
-        const {postName} = this.state
-        const {postDescription} = this.state
-        const {postQualifications} = this.state
-        const {postSchedule0} = this.state
-        const {postSchedule1} = this.state
-        const {postSchedule2} = this.state
-        const {postSchedule3} = this.state
-        const {postOpen} = this.state
+        const {appName} = this.state
+        const {appLastName} = this.state
+        const {birthName} = this.state
+        const {appPhone} = this.state
+        const {appEmail} = this.state
+        const {pantryName} = this.props.location.state
+        const {appDay} = this.state
+        const {option1} = this.state
+        const {option2} = this.state
+        const {option3} = this.state
         return (
 
             <div className="main-container" id="home">
@@ -291,19 +331,23 @@ export default class createJobPost extends Component {
                                 this.state.showName?
                                 <div id="child-input-container">
                                     <h2>Please enter your Name here:</h2>
-                                    <div className="form-floating col-sm-8">
-                                        <label style={{color:"#ce9466"}}>
-                                            Name  </label>
-                                        <input type="text" className="form-control form-font"
-                                               placeholder="Name" name="postName" onChange={this.handleInputName}/>
-                                        <label style={{color:"#ce9466"}}>
-                                            Last name  </label>
-                                        <input type="text" className="form-control form-font"
-                                               placeholder="Last Name" name="postName" onChange={this.handleInputName}/>
+                                    <div className="row" style={{marginLeft: "6rem"}}>
+                                        <div className="form-floating col-sm-5">
+                                            <label style={{color:"#ce9466"}}>
+                                                Name  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Name" value={appName} name="appName" onChange={this.handleInputName}/>
+                                        </div>
+                                        <div className="form-floating col-sm-5">
+                                            <label style={{color:"#ce9466"}}>
+                                                Last name  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Last Name" value={appLastName} name="appLastName" onChange={this.handleInputName}/>
+                                        </div>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideName()}>next
@@ -318,18 +362,37 @@ export default class createJobPost extends Component {
                                 <div id="child-input-container">
                                     <h2>Please select from the available schedules here:</h2>
 
+                                    <div style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
+                                        <div className="radio-button-background">
+                                        <label>
+                                        <input type="radio"
+                                               value="Tuesday 10:00 AM - 12:00 PM"
+                                               name="option1"
+                                               checked={this.state.radioButton}
+                                               onClick={this.onClickAvailability1}
+                                               onChange={this.onValueChange1}/>
+                                            Tuesday 10:00 AM - 12:00 PM
+                                        </label>
+                                        </div>
+                                            <div className="radio-button-background">
+                                        <label>
+                                            <input type="radio"
+                                                   value="Thursday 10:00 AM - 4:00 PM"
+                                                   // checked={this.state.option2 === "Thursday 10:00 AM - 4:00 PM"}PM
+                                                   onChange={this.onValueChange2}/>
+                                            Thursday 10:00 AM - 4:00 PM
+                                        </label>
+                                            </div>
+                                                <div className="radio-button-background">
+                                        <label>
+                                            <input type="radio" value="Saturday 8:00 AM - 10:00 AM"
+                                                   checked={this.state.option3 === "Saturday 8:00 AM - 10:00 AM"}
+                                                   onChange={this.onValueChange3}/>
+                                            Saturday 8:00 AM - 10:00 AM
+                                        </label>
+                                                </div>
+                                    </div>
 
-                                    <RadioGroup name="fruits" >
-                                        <div className="radio-button-background">
-                                            <Radio value="Apple" className="radio-button" />Tuesday 10:00 - 12:00
-                                        </div>
-                                        <div className="radio-button-background">
-                                            <Radio value="Orange" className="radio-button" />Tuesday 10:00 - 12:00
-                                        </div>
-                                        <div className="radio-button-background">
-                                            <Radio value="Banana" className="radio-button" />Tuesday 10:00 - 12:00
-                                        </div>
-                                    </RadioGroup>
 
 
                                     <div className="wrapper" style={{marginTop:"-0.5rem"}}>
@@ -337,7 +400,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideSchedule()}>next
@@ -357,11 +420,11 @@ export default class createJobPost extends Component {
                                             <label style={{color:"#ce9466"}}>
                                                 Phone #  </label>
                                             <input type="text" className="form-control form-font"
-                                                   placeholder="Phone #" name="postName" onChange={this.handleInputName}/>
+                                                   placeholder="Phone #" value={appPhone} name="appPhone" onChange={this.handleInputName}/>
                                             <label style={{color:"#ce9466"}}>
                                                 Email  </label>
                                             <input type="text" className="form-control form-font"
-                                                   placeholder="Email" name="postName" onChange={this.handleInputName}/>
+                                                   placeholder="Email" value={appEmail} name="appEmail" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
@@ -371,7 +434,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideDescription()}>next
@@ -389,7 +452,7 @@ export default class createJobPost extends Component {
 
                                         <div className="form-floating">
                                             <input type="date" className="form-control form-font"
-                                                   placeholder="date" name="postName" onChange={this.handleInputName}/>
+                                                   placeholder="date" name="birthName" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
@@ -399,7 +462,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideQualifications()}>next
@@ -421,7 +484,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideOpen()}>next
@@ -437,50 +500,50 @@ export default class createJobPost extends Component {
                                     <h3>Review form</h3>
                                     <div className="review-content">
                                         <div className="row">
-                                            <h5>Volunteer position tittle:</h5>
-                                            <h6>{postName}</h6>
+                                            <h5>Applicant's Name:</h5>
+                                            <h6>{appName} {appLastName}</h6>
                                             <button  className="btn edit-btn" size="sm"
                                                     onClick={() =>this.editName()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Position Description:</h5>
-                                            <h6>{postDescription}</h6>
+                                            <h5>Phone Number:</h5>
+                                            <h6>{appPhone}</h6>
                                             <button className="btn edit-btn" size="sm"
                                                     onClick={() => this.hideDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Position Qualifications and Requirements:</h5>
-                                            <h6>{postQualifications}</h6>
+                                            <h5>Email:</h5>
+                                            <h6>{appEmail}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideQualifications()}>edit
+                                                    onClick={() => this.hideDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Schedules:</h5>
-                                            <h6>Monday: 10:00 - 11:00</h6>
-                                            <h6>Tuesday: 12:00 - 15:00</h6>
-                                            <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideSchedule()}>edit
-                                            </button>
-                                        </div>
-                                        <div className="row">
-                                            <h5>Open positions:</h5>
-                                            <h6>{postOpen}</h6>
+                                            <h5>Date of Birth:</h5>
+                                            <h6>{birthName}</h6>
                                             <button className="btn edit-btn" size="sm"
                                                     onClick={() => this.editOpen()}>edit
                                             </button>
 
                                         </div>
+                                        <div className="row">
+                                            <h5>Schedules:</h5>
+                                            <h6>{appDay}{option1}{option2}{option3}</h6>
+                                            <button className="btn edit-btn" size="sm"
+                                                    onClick={() => this.hideSchedule()}>edit
+                                            </button>
+                                        </div>
+
 
                                     </div>
                                     <div className="wrapper" style={{marginTop:"1rem"}}>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Cancel Item
+                                            Cancel Application
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()}>Add item
+                                                onClick={() =>this.hideReview()}>Apply
                                         </button>
                                     </div>
                                 </div>
@@ -563,15 +626,22 @@ export default class createJobPost extends Component {
                         <div className="modal-content popup">
                             <div className="modal-header">
 
-                                <h4 className="modal-title">Are you sure you want to go back to the food pantry portal?</h4>
+                                <h4 className="modal-title">Are you sure you want to go back to volunteer posts?</h4>
                             </div>
                             <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                                <p>Everything you have filled out so far in this for is going to be lost.</p>
+                                <p>Everything you have filled out so far in this form is going to be lost.</p>
                             </div>
                             <div className="modal-footer">
-                                <Link to="/foodPantryPortal" type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Yes, take me to portal
+                                <Link to={{
+                                    pathname: "/jobPostingsVolunteer",
+                                    state: {
+                                        pantryName: pantryName,
+                                    }
+                                }}
+                                             type="button" className="btn btn-success popup-btn"
+                                             onClick={() =>this.closeModal()}>Yes, take me to volunteer post
                                 </Link>
+
                                 <button type="button" className="btn btn-success popup-btn1"
                                         onClick={() =>this.closeModal()}>No, cancel action
                                 </button>
@@ -592,9 +662,14 @@ export default class createJobPost extends Component {
                             <p>You have succesfully added  new item!</p>
                         </div>
                         <div className="modal-footer">
-                            <Link to="/foodPantryPortal"
+                            <Link to={{
+                                pathname: "/jobPostingsVolunteer",
+                                state: {
+                                    pantryName: {pantryName}
+                                }
+                            }}
                                type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Close and take me to portal
+                                        onClick={() =>this.closeModal()}>Close and take me to volunteer posts
                                 </Link>
                         </div>
                     </div>

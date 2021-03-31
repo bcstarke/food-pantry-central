@@ -12,16 +12,20 @@ import map from "../images/googlemap.png";
 
 export default class createGroceryItem extends Component {
 
+
     constructor(props) {
         super(props);
 
 
     }
 
-
+    componentDidMount() {
+        const {handle} = this.props.match.params
+        const {pantryName} = this.props.location.state
+    }
 
     render() {
-
+        const {pantryName} = this.props.location.state
 
         return (
 
@@ -33,9 +37,9 @@ export default class createGroceryItem extends Component {
                         <h1>VOLUNTEER POSTINGS</h1>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h6 style={{fontSize:"30px"}}>Pantry you chose: The Greater Boston Food Bank</h6>
+                                <h6 style={{fontSize:"30px"}}>Pantry you chose: {pantryName}</h6>
                                 <div className="change-pantry-container">
-                                    <Link to="/choosePantry"
+                                    <Link to="/choosePantryV"
                                           className="btn btn-info button1"
                                           type="button"
                                     style={{fontSize:"20px"}}>
@@ -59,7 +63,13 @@ export default class createGroceryItem extends Component {
                                                                 >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                              {{
+                                                                  pathname: "/applyPost",
+                                                                  state: {
+                                                                      pantryName: "Haley House Food Pantry"
+                                                                  }
+                                                              }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
