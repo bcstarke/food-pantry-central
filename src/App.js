@@ -34,6 +34,8 @@ import VenmoPage from "./components/donateMoney/venmoPage/VenmoPage";
 import PayPalPage from "./components/donateMoney/payPalPage/PayPalPage";
 import OtherDonationTypePage
     from "./components/donateMoney/otherDonationTypePage/OtherDonationTypePage";
+import SignIn from "./components/signIn/SignIn";
+import SignUp from "./components/signUp/SignUp"
 
 class App extends Component {
     constructor(props) {
@@ -49,6 +51,7 @@ class App extends Component {
                     <Route exact path="/choosePantry" component={ChoosePantry}/>
                     <Route exact path="/donationType" component={ChooseDonationType}/>
                     <Route exact path="/donateMoney" component={DonateMoney}/>
+                    {/*<Route exact path="/donateMoney/:pantryName" component={DonateMoney}/>*/}
                     <Route exact path="/creditCard" component={CreditCardPage}/>
                     <Route exact path="/creditCardReview" component={CCReviewPage}/>
                     <Route exact path="/thankYouPayment" component={ThankYouPage}/>
@@ -65,9 +68,12 @@ class App extends Component {
                     <Route exact path="/jobPostingsVolunteer" component={JobPostingsVolunteer}/>
                     <Route exact path="/createPost" component={CreateJobPosting}/>
                     <Route exact path="/profile" component={Profile}/>
+                    <Route exact path="/signIn" component={SignIn}/>
+                    <Route exact path="/signUp" component={SignUp}/>
                     <Route exact path="/groceryList" component={GroceryList}/>
                     <Route exact path="/applyPost" component={ApplyPost}/>
                     <Route exact path="/choosePantryV" component={ChoosePantryV}/>
+
 
 
 
