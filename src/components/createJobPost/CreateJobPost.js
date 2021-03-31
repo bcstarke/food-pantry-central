@@ -280,7 +280,9 @@ export default class createJobPost extends Component {
             <div className="main-container" id="home">
                 <div className="container-fluid" id="mainMenuBox">
                     <div className="header-box container form">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
                         <h1>Create a new volunteer posting</h1>
 

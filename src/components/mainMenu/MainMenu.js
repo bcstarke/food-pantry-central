@@ -29,7 +29,7 @@ export default class MainMenu extends Component {
                                     Volunteer
                                 </Link>
                                 <h1>Food Pantry managers and employees:</h1>
-                                <Link to="/foodPantryPortal"
+                                <Link to="/signIn"
                                       className="btn btn-success buttonPortal"
                                       type="button"
                                       style={{height:"10rem", fontSize:"50px", paddingTop: "3rem"}}>
