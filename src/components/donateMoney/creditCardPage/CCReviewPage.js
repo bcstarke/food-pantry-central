@@ -53,7 +53,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="Ben Starke"/>
+                                                           value="Jane Doe"/>
 
                                                 </div>
                                             </div>
@@ -65,7 +65,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="7297-8262-8262-3411"/>
+                                                           value="5555-5555-5555-5555"/>
 
                                                 </div>
                                             </div>

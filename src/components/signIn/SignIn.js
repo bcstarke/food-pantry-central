@@ -23,7 +23,7 @@ export default class MainMenu extends Component {
                                 </div>
 
                                 <div className="form-group">
-                                    <label>Password</label>
+                                    <label className="label-text">Password</label>
                                     <input type="password" className="form-control"
                                            placeholder="Enter password"/>
                                 </div>
@@ -37,7 +37,7 @@ export default class MainMenu extends Component {
                                     </div>
                                 </div>
 
-                                <Link type="button" to="/foodPantryPortal" className="btn btn-success btn-block">Submit
+                                <Link type="button" to="/foodPantryPortal" className="btn btn-success btn-block">Sign In
                                 </Link>
                                 <br/><br/><br/>
                                 {/*<div className="sign-up-text text-right">Don't have an account? Sign up here:</div>*/}

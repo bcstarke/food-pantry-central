@@ -5,7 +5,6 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import logo from '../images/food-pantry-logo-b.png';
 import map from '../images/googlemap.png';
-import DonateMoney from "../donateMoney/DonateMoney";
 import {
     BrowserRouter as Router,
     Route,
@@ -43,24 +42,6 @@ export default class ChoosePantry extends Component {
         this.setState({showModal: false});
     }
 
-    // may need this later?
-    pantryDetails = (props) => {
-        const unreadMessages = props.unreadMessages;
-        return (
-            <div>
-                <h1>Hello!</h1>
-                {unreadMessages.length > 0 &&
-                 <h2>
-                     You have {unreadMessages.length} unread messages.
-                 </h2>
-                }
-            </div>
-        );
-    }
-
-    handleSearch = () => {
-        this.props.history.push(`/donateMoney/${this.state.pantryName}`)
-    }
 
     setPantryState = (newPantryName) => {
         this.setState(prevState => ({
@@ -128,7 +109,6 @@ export default class ChoosePantry extends Component {
                                                               className="btn btn-success details-btn"
                                                               type="button"
                                                               onClick={() => this.setPantryState("The Greater Boston Food Bank")}>
-                                                        >
                                                             Choose
                                                         </Link>
                                                         {/*onClick={(e) => this.setPantryState(*/}
@@ -193,7 +173,7 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/donateMoney"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -215,7 +195,7 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/donateMoney"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -236,7 +216,7 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to="/donateMoney"
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
