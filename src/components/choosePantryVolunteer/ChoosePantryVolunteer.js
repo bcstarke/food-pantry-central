@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import './ChoosePantry.css'
+import './ChoosePantryVolunteer.css'
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import logo from '../images/food-pantry-logo-b.png';
@@ -105,7 +105,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to={{
+                                                            pathname: "/jobPostingsVolunteer",
+                                                            state: {
+                                                                pantryName: "The Greater Boston Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -164,7 +169,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to={{
+                                                            pathname: "/jobPostingsVolunteer",
+                                                            state: {
+                                                                pantryName: "St. Anthony Shrine / Franscician Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -186,7 +196,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to={{
+                                                            pathname: "/jobPostingsVolunteer",
+                                                            state: {
+                                                                pantryName: "Salvation Army / South End Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -207,7 +222,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donationType"
+                                                        <Link to={{
+                                                            pathname: "/jobPostingsVolunteer",
+                                                            state: {
+                                                                pantryName: "Haley House Food Pantry"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose

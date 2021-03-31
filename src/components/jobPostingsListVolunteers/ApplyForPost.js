@@ -1,20 +1,27 @@
 import React, {Component} from "react";
-import "./CreateJobPost.css"
+import "./JobPostingListVolunteer.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Dropdown from 'react-bootstrap/Dropdown'
-
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Radio, RadioGroup} from 'react-radio-group';
 
 export default class createJobPost extends Component {
 
     constructor(props) {
         super(props);
+        this.onValueChange1 = this.onValueChange1.bind(this);
+        this.onValueChange2 = this.onValueChange2.bind(this);
+        this.onValueChange3 = this.onValueChange3.bind(this);
+
+        this.onClickAvailability1 = this.onClickAvailability1.bind(this);
+        this.onClickAvailability2 = this.onClickAvailability1.bind(this);
+        this.onClickAvailability3 = this.onClickAvailability1.bind(this);
         this.state={
             showModal:false,
             showModal2:false,
-
+            appName:"Name",
             showName:true,
             showDescription:false,
             showQualifications:false,
@@ -42,6 +49,7 @@ export default class createJobPost extends Component {
             showInputSchedule2:false,
             showInputSchedule3:false,
             schedulerCount:0,
+            // option1:"Saturday 8:00 AM - 10:00 AM"
 
         }
     }
@@ -238,6 +246,8 @@ export default class createJobPost extends Component {
 
 
 
+
+
     addScheduleInput = () =>{
 
         if (this.state.schedulerCount === 0){
@@ -265,16 +275,81 @@ export default class createJobPost extends Component {
                           })
         }
     }
+    onValueChange1(event) {
+        this.setState({
+                          option1: event.target.value
+                      });
+    }
+    onValueChange2(event) {
+        this.setState({
+                          option2: event.target.value
+                      });
+    }
+    onValueChange3(event) {
+        this.setState({
+                          option3: event.target.value
+                      });
+    }
+
+    onClickAvailability1(e) {
+
+        if (e.target.checked && !this.state.radioButton1) {
+            this.setState({
+                              radioButton1: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton1) {
+            this.setState({
+                              radioButton1: false,
+                              option1:"",
+                          })
+
+        }
+    }
+
+    onClickAvailability2(e) {
+
+        if (e.target.checked && !this.state.radioButton2) {
+            this.setState({
+                              radioButton2: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton2) {
+            this.setState({
+                              radioButton2: false,
+                              option2:"",
+                          })
+
+        }
+    }
+
+    onClickAvailability3(e) {
+
+        if (e.target.checked && !this.state.radioButton3) {
+            this.setState({
+                              radioButton3: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton3) {
+            this.setState({
+                              radioButton3: false,
+                              option3:"",
+                          })
+
+        }
+    }
 
     render() {
-        const {postName} = this.state
-        const {postDescription} = this.state
-        const {postQualifications} = this.state
-        const {postSchedule0} = this.state
-        const {postSchedule1} = this.state
-        const {postSchedule2} = this.state
-        const {postSchedule3} = this.state
-        const {postOpen} = this.state
+        const {appName} = this.state
+        const {appLastName} = this.state
+        const {birthName} = this.state
+        const {appPhone} = this.state
+        const {appEmail} = this.state
+        const {pantryName} = this.props.location.state
+        const {appDay} = this.state
+        const {option1} = this.state
+        const {option2} = this.state
+        const {option3} = this.state
         return (
 
             <div className="main-container" id="home">
@@ -282,21 +357,31 @@ export default class createJobPost extends Component {
                     <div className="header-box container form">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
-                        <h1>Create a new volunteer posting</h1>
+                        <h1>Apply for a volunteer posting</h1>
 
                         <div id="input-container">
 
                             {
                                 this.state.showName?
                                 <div id="child-input-container">
-                                    <h2>Please enter the Job tittle here:</h2>
-                                    <div className="form-floating col-sm-8">
-                                        <input type="text" className="form-control form-font"
-                                               placeholder="Job Tittle" name="postName" onChange={this.handleInputName}/>
+                                    <h2>Please enter your Name here:</h2>
+                                    <div className="row" style={{marginLeft: "6rem"}}>
+                                        <div className="form-floating col-sm-5">
+                                            <label style={{color:"#ce9466"}}>
+                                                Name  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Name" value={appName} name="appName" onChange={this.handleInputName}/>
+                                        </div>
+                                        <div className="form-floating col-sm-5">
+                                            <label style={{color:"#ce9466"}}>
+                                                Last name  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Last Name" value={appLastName} name="appLastName" onChange={this.handleInputName}/>
+                                        </div>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideName()}>next
@@ -309,169 +394,52 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showSchedule?
                                 <div id="child-input-container">
-                                    <h2>Please enter the schedules here:</h2>
+                                    <h2>Please select from the available schedules here:</h2>
 
-                                        {
-                                            this.state.showInputSchedule0?
-                                        <div className="row user-input-row-sche" style={{marginTop:"-50px"}}>
-                                                <div className="md-form mx-2 my-5">
-                                                    <label style={{color:"#ce9466"}}>
-                                                        Day of the week  </label>
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
+                                    <div style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
+                                        <div className="radio-button-background">
+                                        <label>
+                                        <input type="radio"
+                                               value="Tuesday 10:00 AM - 12:00 PM"
+                                               name="option1"
+                                               checked={this.state.radioButton1}
+                                               onClick={this.onClickAvailability1}
+                                               onChange={this.onValueChange1}/>
+                                            Tuesday 10:00 AM - 12:00 PM
+                                        </label>
+                                        </div>
+                                            <div className="radio-button-background">
+                                        <label>
+                                            <input type="radio"
+                                                   value="Thursday 10:00 AM - 4:00 PM"
+                                                   name="option2"
+                                                   checked={this.state.radioButton2}
+                                                   onClick={this.onClickAvailability2}
+                                                   onChange={this.onValueChange2}/>
+                                            Thursday 10:00 AM - 4:00 PM
+                                        </label>
+                                            </div>
+                                                <div className="radio-button-background">
+                                        <label>
+                                            <input type="radio"
+                                                   value="Saturday 8:00 AM - 10:00 AM"
+                                                   name="option3"
+                                                   checked={this.state.radioButton3}
+                                                   onClick={this.onClickAvailability3}
+                                                   onChange={this.onValueChange3}/>
+                                            Saturday 8:00 AM - 10:00 AM
+                                        </label>
                                                 </div>
-                                                <div className="md-form mx-2 my-5">
-                                                        <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>From
-                                                            time</label>
-                                                        <input type="time" id="inputMDEx1"
-                                                               className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <label htmlFor="inputMDEx1" style={{color:"#ce9466"}}>To
-                                                        time</label>
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                    <button className="btn edit-btn" size="m"
-                                                            onClick={() => this.addScheduleInput()}>Add new schedule
-                                                    </button>
-
-                                        </div>
-                                            :null}
-                                        {
-                                            this.state.showInputSchedule1?
-                                        <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                        <div className="md-form mx-2 my-5">
-
-                                            <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule1}>
-                                                <option selected value="Day">Day</option>
-                                                <option value="Monday">Monday</option>
-                                                <option value="Tuesday">Tuesday</option>
-                                                <option value="Wednesday">Wednesday</option>
-                                                <option value="Thursday">Thursday</option>
-                                                <option value="Friday">Friday</option>
-                                                <option value="Saturday">Saturday</option>
-                                                <option value="Sunday">Sunday</option>
-                                            </select>
-
-                                        </div>
-                                        <div className="md-form mx-2 my-5">
-
-                                            <input type="time" id="inputMDEx1"
-                                                   className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
-                                        </div>
-                                        <div className="md-form mx-2 my-5">
-
-
-                                            <input type="time" id="inputMDEx1"
-                                                   className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                        </div>
-                                        <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                            Add new schedule
-                                        </button>
-
                                     </div>
-                                        :null}
-                                        {
-                                            this.state.showInputSchedule2?
-                                            <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
 
 
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                                    Add new schedule
-                                                </button>
-
-                                            </div>
-                                        :null}
-                                        {
-                                            this.state.showInputSchedule3?
-                                            <div className="row user-input-row-sche" style={{marginTop:"-80px"}}>
-
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <select className="form-control form-font" style={{fontSize:"20px"}} value={postSchedule0}>
-                                                        <option selected value="Day">Day</option>
-                                                        <option value="Monday">Monday</option>
-                                                        <option value="Tuesday">Tuesday</option>
-                                                        <option value="Wednesday">Wednesday</option>
-                                                        <option value="Thursday">Thursday</option>
-                                                        <option value="Friday">Friday</option>
-                                                        <option value="Saturday">Saturday</option>
-                                                        <option value="Sunday">Sunday</option>
-                                                    </select>
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-
-                                                </div>
-                                                <div className="md-form mx-2 my-5">
-
-
-                                                    <input type="time" id="inputMDEx1"
-                                                           className="form-control form-font" style={{color:"#4b1b1b", fontSize: "20px", border:"none"}}/>
-
-                                                </div>
-                                                <button className="btn edit-btn" size="m" style={{border:"none", color:"transparent"}}>
-                                                    Add new schedule
-                                                </button>
-
-                                            </div>
-                                        :null}
 
                                     <div className="wrapper" style={{marginTop:"-0.5rem"}}>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.backToQualifications()}>
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideSchedule()}>next
@@ -484,12 +452,23 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showDescription?
                                 <div id="child-input-container">
-                                    <h2>Please enter the volunteer job description here:</h2>
+                                    <h2>Please enter your contact information here:</h2>
                                     <div>
 
-                                        <div className="form-floating form-text-area">
-                                            <textarea type="text" className="form-control form-font" placeholder="Volunteer description here" name="postDescription" onChange={this.handleInputDescription}/>
-                                        </div>
+                                        <div className="row" style={{marginLeft: "6rem"}}>
+                                            <div className="form-floating col-sm-5">
+                                            <label style={{color:"#ce9466"}}>
+                                                Phone #  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Phone #" value={appPhone} name="appPhone" onChange={this.handleInputName}/>
+                                            </div>
+                                                <div className="form-floating col-sm-5">
+                                                   <label style={{color:"#ce9466"}}>
+                                                Email  </label>
+                                            <input type="text" className="form-control form-font"
+                                                   placeholder="Email" value={appEmail} name="appEmail" onChange={this.handleInputName}/>
+                                                </div>
+                                                </div>
 
                                     </div>
 
@@ -498,7 +477,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideDescription()}>next
@@ -511,11 +490,12 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showQualifications?
                                 <div id="child-input-container">
-                                    <h2>Please enter Qualifications and requirements here:</h2>
+                                    <h2>Please enter your date of birth here:</h2>
                                     <div>
 
-                                        <div className="form-floating form-text-area">
-                                            <textarea type="text" className="form-control form-font" placeholder="Qualifications and requirements here" name="postQualifications" onChange={this.handleInputName}/>
+                                        <div className="form-floating">
+                                            <input type="date" className="form-control form-font"
+                                                   placeholder="date" name="birthName" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
@@ -525,7 +505,7 @@ export default class createJobPost extends Component {
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Grocery list
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideQualifications()}>next
@@ -537,17 +517,29 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showOpen?
                                 <div id="child-input-container">
-                                    <h2>Please enter number of open positions:</h2>
-                                    <div className="form-floating col-sm-8">
-                                        <input type="number" id="quantity" name="quantity" min="1" max="100" className="form-control form-font"
-                                               placeholder="# here" name="postOpen" style={{width:"10rem", fontSize:"40px", marginLeft:"20rem"}} onChange={this.handleInputName}/>
+                                    <h2>Do you fulfill the qualifcations and requirements of this volunteer position</h2>
+                                    <div className="row" style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
+                                    <label>
+                                        <input type="radio"
+                                               value="true"
+                                               name="qualifications"
+                                               style={{marginLeft:"20rem"}}/>
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio"
+                                               value="true"
+                                               name="qualifications"
+                                               style={{marginLeft:"10rem"}}/>
+                                        No
+                                    </label>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1"  onClick={() =>this.backToSchedule()}>
                                             Back
                                         </button>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Take me to my Job Postings
+                                            Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
                                                 onClick={() =>this.hideOpen()}>next
@@ -563,50 +555,53 @@ export default class createJobPost extends Component {
                                     <h3>Review form</h3>
                                     <div className="review-content">
                                         <div className="row">
-                                            <h5>Volunteer position tittle:</h5>
-                                            <h6>{postName}</h6>
+                                            <h5>Applicant's Name:</h5>
+                                            <h6>{appName} {appLastName}</h6>
                                             <button  className="btn edit-btn" size="sm"
                                                     onClick={() =>this.editName()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Position Description:</h5>
-                                            <h6>{postDescription}</h6>
+                                            <h5>Phone Number:</h5>
+                                            <h6>{appPhone}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideDescription()}>edit
+                                                    onClick={() => this.editDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Position Qualifications and Requirements:</h5>
-                                            <h6>{postQualifications}</h6>
+                                            <h5>Email:</h5>
+                                            <h6>{appEmail}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideQualifications()}>edit
+                                                    onClick={() => this.editDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
-                                            <h5>Schedules:</h5>
-                                            <h6>Monday: 10:00 - 11:00</h6>
-                                            <h6>Tuesday: 12:00 - 15:00</h6>
+                                            <h5>Date of Birth:</h5>
+                                            <h6>{birthName}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideSchedule()}>edit
-                                            </button>
-                                        </div>
-                                        <div className="row">
-                                            <h5>Open positions:</h5>
-                                            <h6>{postOpen}</h6>
-                                            <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.editOpen()}>edit
+                                                    onClick={() => this.editQualifications()}>edit
                                             </button>
 
                                         </div>
+                                        <div className="row">
+                                            <h5>Schedules:</h5>
+                                            <h6></h6>
+                                            <h6>{option1}</h6>
+                                            <h6>{option2}</h6>
+                                            <h6>{option3}</h6>
+                                            <button className="btn edit-btn" size="sm"
+                                                    onClick={() => this.editSchedule()}>edit
+                                            </button>
+                                        </div>
+
 
                                     </div>
                                     <div className="wrapper" style={{marginTop:"1rem"}}>
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
-                                            Cancel Item
+                                            Cancel Application
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()}>Add item
+                                                onClick={() =>this.hideReview()}>Apply
                                         </button>
                                     </div>
                                 </div>
@@ -627,7 +622,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckname?
                                             <div className="check-mark"></div>
                                                 :null}
-                                            Job Tittle
+                                            Applicant's Name
                                         </li>
                                         <li  onClick={() => this.editDescription()}>
 
@@ -636,7 +631,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckDescription?
                                                 <div className="check-mark"></div>
                                                                           :null}
-                                            Description
+                                            Contact info
                                         </li>
                                         <li  onClick={() => this.editQualifications()}>
 
@@ -645,7 +640,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckQualifications?
                                                 <div className="check-mark"></div>
                                                                         :null}
-                                            Qualifications
+                                            Date of birth
                                         </li>
                                         <li onClick={() => this.editSchedule()}>
 
@@ -663,7 +658,7 @@ export default class createJobPost extends Component {
                                                 this.state.showCheckOpen?
                                                 <div className="check-mark"></div>
                                                                             :null}
-                                            Open positions
+                                            Qualifications
                                         </li>
                                         <li onClick={() => this.editReview()}>
 
@@ -689,15 +684,22 @@ export default class createJobPost extends Component {
                         <div className="modal-content popup">
                             <div className="modal-header">
 
-                                <h4 className="modal-title">Are you sure you want to go back to the food pantry portal?</h4>
+                                <h4 className="modal-title">Are you sure you want to go back to volunteer posts?</h4>
                             </div>
                             <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                                <p>Everything you have filled out so far in this for is going to be lost.</p>
+                                <p>Everything you have filled out so far in this form is going to be lost.</p>
                             </div>
                             <div className="modal-footer">
-                                <Link to="/foodPantryPortal" type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Yes, take me to portal
+                                <Link to={{
+                                    pathname: "/jobPostingsVolunteer",
+                                    state: {
+                                        pantryName: pantryName,
+                                    }
+                                }}
+                                             type="button" className="btn btn-success popup-btn"
+                                             onClick={() =>this.closeModal()}>Yes, take me to volunteer post
                                 </Link>
+
                                 <button type="button" className="btn btn-success popup-btn1"
                                         onClick={() =>this.closeModal()}>No, cancel action
                                 </button>
@@ -715,12 +717,17 @@ export default class createJobPost extends Component {
                             <h4 className="modal-title">Congratulations!</h4>
                         </div>
                         <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                            <p>You have succesfully added  new item!</p>
+                            <p>You have successfully applied to this volunteer position!</p>
                         </div>
                         <div className="modal-footer">
-                            <Link to="/foodPantryPortal"
+                            <Link to={{
+                                pathname: "/jobPostingsVolunteer",
+                                state: {
+                                    pantryName: pantryName
+                                }
+                            }}
                                type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Close and take me to portal
+                                        onClick={() =>this.closeModal()}>Close and take me to volunteer posts
                                 </Link>
                         </div>
                     </div>

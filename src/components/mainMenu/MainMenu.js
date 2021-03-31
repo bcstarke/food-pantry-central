@@ -13,23 +13,27 @@ export default class MainMenu extends Component {
                     <div className="header-box container">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
-                        <h2>What would you like to do?</h2>
-                        <div className="row button-container">
-                            <div className="d-grid gap-3">
+                        <h1>What would you like to do?</h1>
+                        <div className="row button-container" style={{marginTop: "-4rem"}}>
+                            <div className="d-grid gap-2">
                                 <Link to="/donationType"
-                                      className="btn btn-dark btn-lg option-select-button"
-                                      type="button" >
+                                      className="btn btn-success buttonPortal"
+                                      type="button"
+                                      style={{height:"10rem", fontSize:"70px", paddingTop: "2rem"}}>
                                     Donate
                                 </Link>
-                                <Link to="/choosePantry"
-                                      className="btn btn-dark btn-lg option-select-button"
-                                      type="button" >
+                                <Link to="/choosePantryV"
+                                      className="btn btn-success buttonPortal"
+                                      type="button"
+                                      style={{height:"10rem", fontSize:"70px", paddingTop: "2rem"}}>
                                     Volunteer
                                 </Link>
-                                <Link to="/signIn"
-                                      className="btn btn-dark btn-lg option-select-button"
-                                      type="button" >
-                                    Go to My Food Pantry Central
+                                <h1>Food Pantry managers and employees:</h1>
+                                <Link to="/foodPantryPortal"
+                                      className="btn btn-success buttonPortal"
+                                      type="button"
+                                      style={{height:"10rem", fontSize:"50px", paddingTop: "3rem"}}>
+                                    Click here to sign-in
                                 </Link>
                             </div>
                         </div>

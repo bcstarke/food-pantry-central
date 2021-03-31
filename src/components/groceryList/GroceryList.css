@@ -74,7 +74,6 @@ h6{
     color: rgb(206, 148, 102);
     font-size: 3rem;
     border: none;
-    padding-top: 1rem;
 }
 
 .btn-wrapper{
@@ -82,12 +81,46 @@ h6{
     margin-left: 6rem;
 }
 
-.btn-in-profile{
+.volunteer-list{
+    overflow: scroll;
 
-margin-right: 3rem;
-    background-color: #ce9466;
-    color: #4b1b1b;
-    font-size: 30px;
+    height: 25rem;
+    width: 70rem;
+    margin-left: 3rem;
+
+}
+
+
+.volunteer-list::-webkit-scrollbar {
+    display: none;
+}
+
+.volunteer-list {
+    -ms-overflow-style: none;  /* IE 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+.volunteer-box{
+    background-color: rgb(107, 114, 78);
+    border-color: #4b1b1b;
+
+}
+
+
+
+.see-details-btn{
+    background-color: #4b1b1b;
+    color:#ce9466;
     border: none;
+    font-size: 30px;
+
+}
+
+.apply-btn{
+    border-color: #4b1b1b;
+    background-color: transparent;
+    color:#4b1b1b;
+    font-size: 30px;
 
 }

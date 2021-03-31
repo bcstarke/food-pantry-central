@@ -1,5 +1,9 @@
 {
   "projects": {
+
     "foodpantrynew": "food-pantry-central"
+    "foodpantrycentral": "food-pantry-central",
+    "default": "food-pantry-central"
   }
 }
+

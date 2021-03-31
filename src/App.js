@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainMenu from "./components/mainMenu/MainMenu";
 import ChoosePantry from "./components/choosePantry/ChoosePantry";
+import ChoosePantryV from "./components/choosePantryVolunteer/ChoosePantryVolunteer";
 import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem";
 import DonateGrocery from "./components/donateGrocery/DonateGrocery";
 import EmployeePortal from "./components/mainMenu/EmployeePortal";
@@ -12,6 +13,8 @@ import FoodPantryPortal from "./components/foodPantryPortal/FoodPantryPortal";
 import JobPostingsVolunteer from "./components/jobPostingsListVolunteers/JobPostingListVolunteer";
 import CreateJobPosting from "./components/createJobPost/CreateJobPost";
 import Profile from "./components/profile/Profile";
+import GroceryList from "./components/groceryList/GroceryList";
+import ApplyPost from "./components/jobPostingsListVolunteers/ApplyForPost"
 
 import {
     BrowserRouter as Router,
@@ -67,6 +70,10 @@ class App extends Component {
                     <Route exact path="/profile" component={Profile}/>
                     <Route exact path="/signIn" component={SignIn}/>
                     <Route exact path="/signUp" component={SignUp}/>
+                    <Route exact path="/groceryList" component={GroceryList}/>
+                    <Route exact path="/applyPost" component={ApplyPost}/>
+                    <Route exact path="/choosePantryV" component={ChoosePantryV}/>
+
 
 
 
