@@ -15,8 +15,26 @@ export default class createGroceryItem extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            showModal:false,
+        }
 
 
+    }
+
+    openModal() {
+        console.log("helloooooo");
+        this.setState({
+                          showModal:true,
+
+                      })
+    }
+
+    closeModal() {
+        this.setState({
+                          showModal:false,
+                          showButton:true
+                      })
     }
 
     componentDidMount() {
@@ -60,14 +78,14 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                                >See
+                                                                onClick={() =>this.openModal()}>See
                                                             Details
                                                         </Button>
                                                         <Link to=
                                                               {{
                                                                   pathname: "/applyPost",
                                                                   state: {
-                                                                      pantryName: "Haley House Food Pantry"
+                                                                      pantryName: pantryName
                                                                   }
                                                               }}
                                                               className="btn btn-success details-btn apply-btn"
@@ -85,14 +103,21 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                                >See
+                                                                onClick={() =>this.openModal()}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                                  {{
+                                                                      pathname: "/applyPost",
+                                                                      state: {
+                                                                          pantryName: pantryName
+                                                                      }
+                                                                  }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
                                                         </Link>
+
                                                         <div>
                                                         </div>
                                                     </div>
@@ -106,10 +131,16 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                                >See
+                                                                onClick={() =>this.openModal()}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                                  {{
+                                                                      pathname: "/applyPost",
+                                                                      state: {
+                                                                          pantryName: pantryName
+                                                                      }
+                                                                  }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -127,10 +158,16 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                                >See
+                                                                onClick={() =>this.openModal()}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                                  {{
+                                                                      pathname: "/applyPost",
+                                                                      state: {
+                                                                          pantryName: pantryName
+                                                                      }
+                                                                  }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -148,10 +185,16 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                        >See
+                                                                onClick={() =>this.openModal()}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                                  {{
+                                                                      pathname: "/applyPost",
+                                                                      state: {
+                                                                          pantryName: pantryName
+                                                                      }
+                                                                  }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -169,10 +212,17 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                        >See
+                                                                onClick={() =>this.openModal()}
+                                                                >See
                                                             Details
                                                         </Button>
-                                                        <Link to="/applyPost"
+                                                        <Link to=
+                                                                  {{
+                                                                      pathname: "/applyPost",
+                                                                      state: {
+                                                                          pantryName: pantryName
+                                                                      }
+                                                                  }}
                                                               className="btn btn-success details-btn apply-btn"
                                                               type="button">
                                                             Apply
@@ -185,6 +235,12 @@ export default class createGroceryItem extends Component {
 
                                         </ul>
                                     </div>
+
+
+
+
+
+
                                 </div>
                         </div>
 
@@ -193,6 +249,41 @@ export default class createGroceryItem extends Component {
 
 
                     </div>
+
+                    {
+                        this.state.showModal?
+                                     <div id="child-input-container" style={{height:"30rem", backgroundColor: "#4b1b1b", marginTop:"-30rem", marginLeft:"4rem"}}>
+                                         <h3>Truck driver</h3>
+                                         <div className="review-content">
+
+                                                 <h5>Position Description:</h5>
+                                                 <h6 style={{fontSize:"20px"}}>Pickup and drop grocery boxes from the food distribution stores to the food pantry. The volunteer will be loading and unloading heavy boxes.</h6>
+
+
+
+                                                 <h5>Position Qualifications and Requirements:</h5>
+                                                 <h6 style={{fontSize:"20px"}}>Must have an unexpired truck driver's licence and are able to carry more than 10kg of boxes</h6>
+
+                                                 <h5>Schedules:</h5>
+                                                 <h6 style={{fontSize:"20px"}}>Monday: 10:00 - 11:00</h6>
+                                                 <h6 style={{fontSize:"20px"}}>Tuesday: 12:00 - 15:00</h6>
+
+
+
+                                                 <button
+
+                                                       type="button" className="btn btn-success popup-btn" style={{backgroundColor:"#b88043"}}
+                                                       onClick={() =>this.closeModal()}>Close
+                                                 </button>
+
+                                         </div>
+
+
+                                     </div>
+                                                     :null
+                            }
+
+
                 </div>
             </div>
 

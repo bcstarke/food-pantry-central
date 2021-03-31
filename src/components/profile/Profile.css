@@ -82,10 +82,9 @@ h6{
     margin-left: 6rem;
 }
 
-.btn-profile{
-    position: absolute;
-    top: 20px;
-    right: 10px;
+.btn-in-profile{
+
+margin-right: 3rem;
     background-color: #ce9466;
     color: #4b1b1b;
     font-size: 30px;

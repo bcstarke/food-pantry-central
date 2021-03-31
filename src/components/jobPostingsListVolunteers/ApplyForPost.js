@@ -16,6 +16,8 @@ export default class createJobPost extends Component {
         this.onValueChange3 = this.onValueChange3.bind(this);
 
         this.onClickAvailability1 = this.onClickAvailability1.bind(this);
+        this.onClickAvailability2 = this.onClickAvailability1.bind(this);
+        this.onClickAvailability3 = this.onClickAvailability1.bind(this);
         this.state={
             showModal:false,
             showModal2:false,
@@ -291,15 +293,47 @@ export default class createJobPost extends Component {
 
     onClickAvailability1(e) {
 
-        if (e.target.checked && !this.state.radioButton) {
+        if (e.target.checked && !this.state.radioButton1) {
             this.setState({
-                              radioButton: true,
+                              radioButton1: true,
 
                           })
-        } else if (e.target.checked && this.state.radioButton) {
+        } else if (e.target.checked && this.state.radioButton1) {
             this.setState({
-                              radioButton: false,
+                              radioButton1: false,
                               option1:"",
+                          })
+
+        }
+    }
+
+    onClickAvailability2(e) {
+
+        if (e.target.checked && !this.state.radioButton2) {
+            this.setState({
+                              radioButton2: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton2) {
+            this.setState({
+                              radioButton2: false,
+                              option2:"",
+                          })
+
+        }
+    }
+
+    onClickAvailability3(e) {
+
+        if (e.target.checked && !this.state.radioButton3) {
+            this.setState({
+                              radioButton3: true,
+
+                          })
+        } else if (e.target.checked && this.state.radioButton3) {
+            this.setState({
+                              radioButton3: false,
+                              option3:"",
                           })
 
         }
@@ -368,7 +402,7 @@ export default class createJobPost extends Component {
                                         <input type="radio"
                                                value="Tuesday 10:00 AM - 12:00 PM"
                                                name="option1"
-                                               checked={this.state.radioButton}
+                                               checked={this.state.radioButton1}
                                                onClick={this.onClickAvailability1}
                                                onChange={this.onValueChange1}/>
                                             Tuesday 10:00 AM - 12:00 PM
@@ -378,15 +412,20 @@ export default class createJobPost extends Component {
                                         <label>
                                             <input type="radio"
                                                    value="Thursday 10:00 AM - 4:00 PM"
-                                                   // checked={this.state.option2 === "Thursday 10:00 AM - 4:00 PM"}PM
+                                                   name="option2"
+                                                   checked={this.state.radioButton2}
+                                                   onClick={this.onClickAvailability2}
                                                    onChange={this.onValueChange2}/>
                                             Thursday 10:00 AM - 4:00 PM
                                         </label>
                                             </div>
                                                 <div className="radio-button-background">
                                         <label>
-                                            <input type="radio" value="Saturday 8:00 AM - 10:00 AM"
-                                                   checked={this.state.option3 === "Saturday 8:00 AM - 10:00 AM"}
+                                            <input type="radio"
+                                                   value="Saturday 8:00 AM - 10:00 AM"
+                                                   name="option3"
+                                                   checked={this.state.radioButton3}
+                                                   onClick={this.onClickAvailability3}
                                                    onChange={this.onValueChange3}/>
                                             Saturday 8:00 AM - 10:00 AM
                                         </label>
@@ -416,16 +455,20 @@ export default class createJobPost extends Component {
                                     <h2>Please enter your contact information here:</h2>
                                     <div>
 
-                                        <div className="form-floating col-sm-8">
+                                        <div className="row" style={{marginLeft: "6rem"}}>
+                                            <div className="form-floating col-sm-5">
                                             <label style={{color:"#ce9466"}}>
                                                 Phone #  </label>
                                             <input type="text" className="form-control form-font"
                                                    placeholder="Phone #" value={appPhone} name="appPhone" onChange={this.handleInputName}/>
-                                            <label style={{color:"#ce9466"}}>
+                                            </div>
+                                                <div className="form-floating col-sm-5">
+                                                   <label style={{color:"#ce9466"}}>
                                                 Email  </label>
                                             <input type="text" className="form-control form-font"
                                                    placeholder="Email" value={appEmail} name="appEmail" onChange={this.handleInputName}/>
-                                        </div>
+                                                </div>
+                                                </div>
 
                                     </div>
 
@@ -474,10 +517,22 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showOpen?
                                 <div id="child-input-container">
-                                    <h2>Please enter number of open positions:</h2>
-                                    <div className="form-floating col-sm-8">
-                                        <input type="number" id="quantity" name="quantity" min="1" max="100" className="form-control form-font"
-                                               placeholder="# here" name="postOpen" style={{width:"10rem", fontSize:"40px", marginLeft:"20rem"}} onChange={this.handleInputName}/>
+                                    <h2>Do you fulfill the qualifcations and requirements of this volunteer position</h2>
+                                    <div className="row" style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
+                                    <label>
+                                        <input type="radio"
+                                               value="true"
+                                               name="qualifications"
+                                               style={{marginLeft:"20rem"}}/>
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio"
+                                               value="true"
+                                               name="qualifications"
+                                               style={{marginLeft:"10rem"}}/>
+                                        No
+                                    </label>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1"  onClick={() =>this.backToSchedule()}>
@@ -510,29 +565,32 @@ export default class createJobPost extends Component {
                                             <h5>Phone Number:</h5>
                                             <h6>{appPhone}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideDescription()}>edit
+                                                    onClick={() => this.editDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
                                             <h5>Email:</h5>
                                             <h6>{appEmail}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideDescription()}>edit
+                                                    onClick={() => this.editDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
                                             <h5>Date of Birth:</h5>
                                             <h6>{birthName}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.editOpen()}>edit
+                                                    onClick={() => this.editQualifications()}>edit
                                             </button>
 
                                         </div>
                                         <div className="row">
                                             <h5>Schedules:</h5>
-                                            <h6>{appDay}{option1}{option2}{option3}</h6>
+                                            <h6></h6>
+                                            <h6>{option1}</h6>
+                                            <h6>{option2}</h6>
+                                            <h6>{option3}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideSchedule()}>edit
+                                                    onClick={() => this.editSchedule()}>edit
                                             </button>
                                         </div>
 
@@ -659,13 +717,13 @@ export default class createJobPost extends Component {
                             <h4 className="modal-title">Congratulations!</h4>
                         </div>
                         <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                            <p>You have succesfully added  new item!</p>
+                            <p>You have successfully applied to this volunteer position!</p>
                         </div>
                         <div className="modal-footer">
                             <Link to={{
                                 pathname: "/jobPostingsVolunteer",
                                 state: {
-                                    pantryName: {pantryName}
+                                    pantryName: pantryName
                                 }
                             }}
                                type="button" className="btn btn-success popup-btn"
