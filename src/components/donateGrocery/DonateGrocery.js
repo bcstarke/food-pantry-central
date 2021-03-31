@@ -13,7 +13,8 @@ export default class DonateGrocery extends Component {
         super(props, context);
         this.state = {
             showModal: false,
-            showDownload: false
+            showDownload: false,
+            showDetailsModal: false
         };
 
         this.open = this.open.bind(this);
@@ -21,6 +22,9 @@ export default class DonateGrocery extends Component {
 
         this.download = this.download.bind(this);
         this.closeDownload = this.closeDownload.bind(this)
+
+        this.showDetailsModal = this.showDetailsModal.bind(this)
+        this.closeDetailsModal = this.closeDetailsModal.bind(this)
     }
 
     open() {
@@ -37,6 +41,14 @@ export default class DonateGrocery extends Component {
 
     closeDownload(){
         this.setState({showDownload: false});
+    }
+
+    details(){
+        this.setState({showDetails:true});
+    }
+
+    closeDetails(){
+        this.setState({showDetails:false});
     }
 
 
@@ -76,7 +88,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -96,7 +108,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -116,7 +128,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -136,7 +148,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -156,7 +168,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -176,7 +188,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -196,7 +208,7 @@ export default class DonateGrocery extends Component {
                                         </tbody>
                                     </table>
                                 </div>
-                                <Link to="/choosePantry"
+                                <Link to="/"
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
                                       type="button">
                                     GO BACK TO MAIN
@@ -217,17 +229,11 @@ export default class DonateGrocery extends Component {
                                            onHide={this.closeDownload}
                                            animation={true}
                                            bsSize="small">
-                                        <Modal.Header closeButton>
+                                        <Modal.Header>
                                             LIST DOWNLOADED
                                         </Modal.Header>
                                         <Modal.Body>
                                             <div className="row container-fluid">
-                                                {/*<div className="progress">*/}
-                                                {/*<div className="progress-bar progress-bar-striped"*/}
-                                                {/*     role="progressbar" style="width: 10%"*/}
-                                                {/*     aria-valuenow="10" aria-valuemin="0"*/}
-                                                {/*     aria-valuemax="100"></div>*/}
-                                                {/*</div>*/}
                                                 <h3>100 %</h3>
                                             </div>
                                         </Modal.Body>
@@ -241,7 +247,7 @@ export default class DonateGrocery extends Component {
                             </div>
 
                             <div className="col-4">
-                                <h4>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
+                                <h4 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
                                 <Link to="/buyGroceryOnline"
                                       className="btn btn-dark btn-lg donate-options"
                                       type="button">
@@ -259,7 +265,7 @@ export default class DonateGrocery extends Component {
                                            onHide={this.close}
                                            animation={true}
                                            bsSize="small">
-                                        <Modal.Header closeButton>
+                                        <Modal.Header>
                                             <Modal.Title>
                                                 DROP ITEMS AT:
                                             </Modal.Title>

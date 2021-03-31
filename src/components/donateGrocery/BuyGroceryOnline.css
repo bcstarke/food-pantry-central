@@ -1,3 +1,9 @@
 .store{
     margin-bottom: 20px;
 }
+
+.text{
+    color: #ce9466;
+    font-size: larger;
+    font-weight: bold;
+}

@@ -57,13 +57,13 @@ export default class BuyGroceryOnline extends Component {
                             <div className="col-6">
                                 <h1>DELIVER ITEMS TO:</h1>
                                 <br/>
-                                <h4>
+                                <h4 className={"text"}>
                                     ADDRESS: 125 HOLLYWOOD ST.
                                     <br/>
                                     02145, MA
                                 </h4>
                                 <br/>
-                                <h4>
+                                <h4 className={"text"}>
                                     PHONE:123-457-7685
                                 </h4>
                             </div>
@@ -72,7 +72,7 @@ export default class BuyGroceryOnline extends Component {
                         <br/>
                         <div className="row">
                             <div className="col">
-                                <Link to="/choosePantry"
+                                <Link to="/"
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
                                       type="button">
                                     GO BACK TO MAIN
