@@ -73,10 +73,6 @@ class App extends Component {
                     <Route exact path="/groceryList" component={GroceryList}/>
                     <Route exact path="/applyPost" component={ApplyPost}/>
                     <Route exact path="/choosePantryV" component={ChoosePantryV}/>
-
-
-
-
                 </div>
             </Router>
         );

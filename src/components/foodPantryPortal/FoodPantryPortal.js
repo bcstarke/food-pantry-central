@@ -40,15 +40,15 @@ export default class createGroceryItem extends Component {
                         <div className="btn-wrapper">
                             <div className="row">
                                 <Link to="/createItem" type="button" className="btn btn-success buttonPortal" >
-                                    Add new item to My Grocery List
+                                    Add new item to Grocery List
                                 </Link>
                                 <Link to="/groceryList" type="button" className="btn btn-success buttonPortal" >
-                                    Go to My Grocery List
+                                    Go to Grocery List
                                 </Link>
                             </div>
                             <div className="row">
                                 <Link to="/goToVolunteerPosting" type="button" className="btn btn-success buttonPortal" >
-                                    Go to My Volunteer Postings
+                                    Go to Volunteer Postings
                                 </Link>
                                 <Link to="/createPost" type="button" className="btn btn-success buttonPortal" >
                                     Create a new Volunteer Posting
