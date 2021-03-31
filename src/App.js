@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainMenu from "./components/mainMenu/MainMenu";
 import ChoosePantry from "./components/choosePantry/ChoosePantry";
 import ChoosePantryV from "./components/choosePantryVolunteer/ChoosePantryVolunteer";
+import ChoosePantryG from "./components/choosePantryDonateGrocery/ChoosePantryDonateGrocery"
 import CreateGroceryItem from "./components/createGroceryItem/CreateGroceryItem";
 import DonateGrocery from "./components/donateGrocery/DonateGrocery";
-import EmployeePortal from "./components/mainMenu/EmployeePortal";
 import AcceptApplication from "./components/acceptApplication/AcceptApplication";
 import ApplicationList from "./components/acceptApplication/ApplicationList";
 import FoodPantryPortal from "./components/foodPantryPortal/FoodPantryPortal";
@@ -61,7 +61,6 @@ class App extends Component {
                     <Route exact path="/createItem" component={CreateGroceryItem}/>
                     <Route exact path="/donateGrocery" component={DonateGrocery}/>
                     <Route exact path="/buyGroceryOnline" component={BuyGroceryOnline}/>
-                    <Route exact path="/employeePortal" component={EmployeePortal}/>
                     <Route exact path="/goToVolunteerPosting" component={AcceptApplication}/>
                     <Route exact path="/applicationDetails" component={ApplicationList}/>
                     <Route exact path="/foodPantryPortal" component={FoodPantryPortal}/>
@@ -73,10 +72,7 @@ class App extends Component {
                     <Route exact path="/groceryList" component={GroceryList}/>
                     <Route exact path="/applyPost" component={ApplyPost}/>
                     <Route exact path="/choosePantryV" component={ChoosePantryV}/>
-
-
-
-
+                    <Route exact path="/choosePantryG" component={ChoosePantryG}/>
                 </div>
             </Router>
         );

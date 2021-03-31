@@ -33,7 +33,7 @@ export default class ChooseDonationType extends Component {
                                     Donate Money
                                 </Link>
 
-                                <Link to="/donateGrocery"
+                                <Link to="/choosePantryG"
                                       className="btn btn-dark btn-lg option-select-button"
                                       type="button">
                                     Donate Groceries

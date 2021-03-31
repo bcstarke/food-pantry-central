@@ -3,6 +3,7 @@ import logo from "../images/food-pantry-logo-b.png";
 import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import "./ApplicationList.css"
 
 export default class BuyGroceryOnline extends Component {
     constructor(props, context) {
@@ -61,7 +62,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -81,7 +82,6 @@ export default class BuyGroceryOnline extends Component {
                                                     onclick={this.openDetails}>
                                                         See Details
                                                     </Button>
-
                                                 </div>
                                             </div>
                                         </td>
@@ -89,7 +89,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -116,7 +116,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -143,7 +143,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -170,7 +170,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -197,7 +197,7 @@ export default class BuyGroceryOnline extends Component {
                                     <tr>
                                         <td>
                                             <div className="row">
-                                                <div className="col-3">
+                                                <div className="col-3 text">
                                                     Alice
                                                 </div>
                                                 <div className="col-9">
@@ -225,7 +225,7 @@ export default class BuyGroceryOnline extends Component {
                                 </table>
                             </div>
                             <br/>
-                            <Link to="/employeePortal"
+                            <Link to="/foodPantryPortal"
                                   className="btn btn-dark btn-md"
                                   type="button">
                                 GO BACK TO EMPLOYEE
@@ -234,13 +234,14 @@ export default class BuyGroceryOnline extends Component {
                             </Link>
                         </div>
                     </div>
+
                     <div>
                         <Modal className="modal-container"
                                show={this.state.showConfirmationModal}
                                onHide={this.closeConfirmation}
                                animation={true}
                                bsSize="small">
-                            <Modal.Header closeButton>
+                            <Modal.Header>
                                 <Modal.Title>
                                     Congratulations! You accept Alice's application!
                                 </Modal.Title>
@@ -262,30 +263,30 @@ export default class BuyGroceryOnline extends Component {
                         </Modal>
                     </div>
 
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showDetailsModal}
-                               onHide={this.closeDetails}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header closeButton>
-                                <Modal.Title>
-                                    Alice
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="row container-fluid">
+                    {/*<div>*/}
+                    {/*    <Modal className="modal-container"*/}
+                    {/*           show={this.state.showDetailsModal}*/}
+                    {/*           onHide={this.closeDetails}*/}
+                    {/*           animation={true}*/}
+                    {/*           bsSize="small">*/}
+                    {/*        <Modal.Header>*/}
+                    {/*            <Modal.Title>*/}
+                    {/*                Alice*/}
+                    {/*            </Modal.Title>*/}
+                    {/*        </Modal.Header>*/}
+                    {/*        <Modal.Body>*/}
+                    {/*            <div className="row container-fluid">*/}
+                    
+                    {/*            </div>*/}
+                    {/*        </Modal.Body>*/}
+                    {/*        <Modal.Footer>*/}
+                    {/*            <Button*/}
+                    {/*                onClick={this.closeDetails}>Close</Button>*/}
+                    {/*        </Modal.Footer>*/}
+                    {/*    </Modal>*/}
+                    {/*</div>*/}
 
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button
-                                    onClick={this.closeDetails}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
                 </div>
-
             </div>
         )
     }

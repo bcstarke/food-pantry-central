@@ -23,8 +23,8 @@ export default class DonateGrocery extends Component {
         this.download = this.download.bind(this);
         this.closeDownload = this.closeDownload.bind(this)
 
-        this.showDetailsModal = this.showDetailsModal.bind(this)
-        this.closeDetailsModal = this.closeDetailsModal.bind(this)
+        this.details = this.details.bind(this)
+        this.closeDetails = this.closeDetails.bind(this)
     }
 
     open() {
@@ -44,13 +44,12 @@ export default class DonateGrocery extends Component {
     }
 
     details(){
-        this.setState({showDetails:true});
+        this.setState({showDetailsModal:true});
     }
 
     closeDetails(){
-        this.setState({showDetails:false});
+        this.setState({showDetailsModal:false});
     }
-
 
     render() {
         return (
@@ -98,7 +97,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -118,7 +118,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -138,7 +139,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -158,7 +160,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -178,7 +181,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -198,7 +202,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -300,6 +305,32 @@ export default class DonateGrocery extends Component {
                             </div>
                         </div>
                         </div>
+
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showDetailsModal}
+                               onHide={this.closeDetails}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header>
+                                ITEM DETAILS:
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+                                    <b>Item Name: Tuna Cans
+                                    <br/>
+                                    <br/>
+                                    Quantity: 10
+                                    </b>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeDetails}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+
                     </div>
                 </div>
         )
