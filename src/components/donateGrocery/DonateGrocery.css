@@ -19,3 +19,9 @@
 .download-pdf-list{
     margin-left: 2rem;
 }
+
+.items{
+    color: #ce9466;
+    font-weight: bold;
+    font-size: x-large;
+}

@@ -13,7 +13,8 @@ export default class DonateGrocery extends Component {
         super(props, context);
         this.state = {
             showModal: false,
-            showDownload: false
+            showDownload: false,
+            showDetailsModal: false
         };
 
         this.open = this.open.bind(this);
@@ -21,6 +22,9 @@ export default class DonateGrocery extends Component {
 
         this.download = this.download.bind(this);
         this.closeDownload = this.closeDownload.bind(this)
+
+        this.details = this.details.bind(this)
+        this.closeDetails = this.closeDetails.bind(this)
     }
 
     open() {
@@ -39,6 +43,13 @@ export default class DonateGrocery extends Component {
         this.setState({showDownload: false});
     }
 
+    details(){
+        this.setState({showDetailsModal:true});
+    }
+
+    closeDetails(){
+        this.setState({showDetailsModal:false});
+    }
 
     render() {
         return (
@@ -76,7 +87,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -86,7 +97,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -96,7 +108,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -106,7 +118,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -116,7 +129,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -126,7 +139,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -136,7 +150,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -146,7 +160,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -156,7 +171,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -166,7 +181,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -176,7 +192,7 @@ export default class DonateGrocery extends Component {
                                         <tr>
                                             <td>
                                                 <div className="row">
-                                                    <div className="col-5">
+                                                    <div className="col-5 items">
                                                         TUNA CANS
                                                         <br/>
                                                         CURRENT QUANTITY: 10
@@ -186,7 +202,8 @@ export default class DonateGrocery extends Component {
                                                                type="checkbox" value=""
                                                                id="flexCheckDefault"/>
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn">
+                                                                className="btn btn-primary details-btn"
+                                                                onClick={this.details}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -196,7 +213,7 @@ export default class DonateGrocery extends Component {
                                         </tbody>
                                     </table>
                                 </div>
-                                <Link to="/choosePantry"
+                                <Link to="/"
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
                                       type="button">
                                     GO BACK TO MAIN
@@ -217,17 +234,11 @@ export default class DonateGrocery extends Component {
                                            onHide={this.closeDownload}
                                            animation={true}
                                            bsSize="small">
-                                        <Modal.Header closeButton>
+                                        <Modal.Header>
                                             LIST DOWNLOADED
                                         </Modal.Header>
                                         <Modal.Body>
                                             <div className="row container-fluid">
-                                                {/*<div className="progress">*/}
-                                                {/*<div className="progress-bar progress-bar-striped"*/}
-                                                {/*     role="progressbar" style="width: 10%"*/}
-                                                {/*     aria-valuenow="10" aria-valuemin="0"*/}
-                                                {/*     aria-valuemax="100"></div>*/}
-                                                {/*</div>*/}
                                                 <h3>100 %</h3>
                                             </div>
                                         </Modal.Body>
@@ -241,7 +252,7 @@ export default class DonateGrocery extends Component {
                             </div>
 
                             <div className="col-4">
-                                <h4>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
+                                <h4 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
                                 <Link to="/buyGroceryOnline"
                                       className="btn btn-dark btn-lg donate-options"
                                       type="button">
@@ -259,7 +270,7 @@ export default class DonateGrocery extends Component {
                                            onHide={this.close}
                                            animation={true}
                                            bsSize="small">
-                                        <Modal.Header closeButton>
+                                        <Modal.Header>
                                             <Modal.Title>
                                                 DROP ITEMS AT:
                                             </Modal.Title>
@@ -294,6 +305,32 @@ export default class DonateGrocery extends Component {
                             </div>
                         </div>
                         </div>
+
+                    <div>
+                        <Modal className="modal-container"
+                               show={this.state.showDetailsModal}
+                               onHide={this.closeDetails}
+                               animation={true}
+                               bsSize="small">
+                            <Modal.Header>
+                                ITEM DETAILS:
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div className="row container-fluid">
+                                    <b>Item Name: Tuna Cans
+                                    <br/>
+                                    <br/>
+                                    Quantity: 10
+                                    </b>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button
+                                    onClick={this.closeDetails}>Close</Button>
+                            </Modal.Footer>
+                        </Modal>
+                    </div>
+
                     </div>
                 </div>
         )
