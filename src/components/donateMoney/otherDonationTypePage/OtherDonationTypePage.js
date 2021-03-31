@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import '@fortawesome/react-fontawesome'
 import './OtherDonationTypePage.css'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
+import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 
 export default class OtherDonationTypePage extends Component {
 
@@ -41,7 +41,7 @@ export default class OtherDonationTypePage extends Component {
                             <div className="col-6">
                                 Drop money at:
                             </div>
-                            </div>
+                        </div>
                         <div className="row">
                             <div className="col-6">
                                 Account Number: XXXX-XXXX-XXXX-XXXX
@@ -49,19 +49,34 @@ export default class OtherDonationTypePage extends Component {
                             <div className="col-6">
                                 125 Hollywood Street, 02139, Cambridge MA
                             </div>
-                            </div>
+                        </div>
                     </div>
-                    <div className="col-6">
-                        <Link to="/donateMoney"
-                              class="btn btn-dark btn-lg other-payment-page-button"
-                              type="button">
-                            <div className="button-text-other-payment">
-                                <div className="left-arrow-icon">
-                                    <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
+                    <div className="row">
+                        <div className="col-6">
+                            <Link to="/donateMoney"
+                                  class="btn btn-dark btn-lg other-payment-page-button"
+                                  type="button">
+                                <div className="button-text-other-payment">
+                                    <div className="left-arrow-icon">
+                                        <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
+                                    </div>
+                                    Go Back
                                 </div>
-                                Go Back
-                            </div>
-                        </Link>
+                            </Link>
+                        </div>
+                        <div className="col-6">
+                            <Link to="/thankYouPayment"
+                                  className="btn btn-success btn-lg other-payment-page-button"
+                                  type="button">
+                                <div className="button-text-other-payment">
+                                    I Donated
+                                    <div className="right-arrow-icon">
+                                        <FontAwesomeIcon icon={faArrowRight} size='2x'/>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

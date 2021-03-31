@@ -47,19 +47,19 @@ export default class VenmoPage extends Component {
                                 </div>
                             </Link>
                         </div>
-                        {/*<div className="col-3">*/}
-                        {/*    <Link to="/creditCardReview"*/}
-                        {/*          className="btn btn-success btn-lg venmo-page-button"*/}
-                        {/*          type="button">*/}
-                        {/*        <div className="button-text-venmo-page">*/}
-                        {/*            Finish*/}
-                        {/*            <div className="right-arrow-icon">*/}
-                        {/*                <FontAwesomeIcon icon={faArrowRight} size='2x'/>*/}
-                        {/*            </div>*/}
-                        {/*        </div>*/}
+                        <div className="col-3">
+                            <Link to="/thankYouPayment"
+                                  className="btn btn-success btn-lg venmo-page-button"
+                                  type="button">
+                                <div className="button-text-venmo-page">
+                                    I Donated
+                                    <div className="right-arrow-icon">
+                                        <FontAwesomeIcon icon={faArrowRight} size='2x'/>
+                                    </div>
+                                </div>
 
-                        {/*    </Link>*/}
-                        {/*</div>*/}
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
