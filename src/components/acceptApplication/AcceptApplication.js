@@ -41,7 +41,9 @@ export default class BuyGroceryOnline extends Component {
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <Link to="/profile" type="button"
                               className="btn btn-profile"
                               onClick={this.open}>See

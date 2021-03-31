@@ -319,8 +319,8 @@ export default class createGroceryItem extends Component {
                                 <p>Everything you have filled out so far in this for is going to be lost.</p>
                             </div>
                             <div className="modal-footer">
-                                <Link to="/foodPantryPortal" type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Yes, take me to portal
+                                <Link to="/groceryList" type="button" className="btn btn-success popup-btn"
+                                        onClick={() =>this.closeModal()}>Yes, take me to Grocery list
                                 </Link>
                                 <button type="button" className="btn btn-success popup-btn1"
                                         onClick={() =>this.closeModal()}>No, cancel action
@@ -339,13 +339,18 @@ export default class createGroceryItem extends Component {
                             <h4 className="modal-title">Congratulations!</h4>
                         </div>
                         <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                            <p>You have succesfully added  new item!</p>
+                            <p>You have successfully added  new item!</p>
                         </div>
                         <div className="modal-footer">
-                            <Link to="/foodPantryPortal"
+                            <Link to="/groceryList"
                                type="button" className="btn btn-success popup-btn"
-                                        onClick={() =>this.closeModal()}>Close and take me to portal
+                                        onClick={() =>this.closeModal()}>Close and take me to grocery list
                                 </Link>
+
+                            <Link to="/foodPantryPortal"
+                                  type="button" className="btn btn-success popup-btn"
+                                  onClick={() =>this.closeModal()}>Close and take me to portal
+                            </Link>
                         </div>
                     </div>
                                          :null}

@@ -65,7 +65,11 @@ export default class createGroceryItem extends Component {
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
                         <h1>Grocery List</h1>
-
+                        <Link to="/profile" type="button"
+                              className="btn btn-profile"
+                              onClick={this.open}>See
+                            Profile
+                        </Link>
                         <div className="volunteer-list">
                                 <div className="col-10">
                                     <div className="list-group" id="list-tab" role="tablist">
@@ -74,7 +78,7 @@ export default class createGroceryItem extends Component {
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                       <p>Current Quantity: 8 kg</p>
+
                                                     </div>
 
                                                     <div className="col-6">
@@ -90,12 +94,16 @@ export default class createGroceryItem extends Component {
                                                         </Button>
                                                     </div>
                                                 </div>
+                                                <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
+                                                    <p>Current Quantity: 8 kg</p>
+                                                </div>
+
                                             </li>
                                             <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                        <p>Current Quantity: 8 kg</p>
+
                                                     </div>
 
                                                     <div className="col-6">
@@ -111,12 +119,16 @@ export default class createGroceryItem extends Component {
                                                         </Button>
                                                     </div>
                                                 </div>
+                                                <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
+                                                    <p>Current Quantity: 8 kg</p>
+                                                </div>
+
                                             </li>
                                             <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                        <p>Current Quantity: 8 kg</p>
+
                                                     </div>
 
                                                     <div className="col-6">
@@ -132,12 +144,41 @@ export default class createGroceryItem extends Component {
                                                         </Button>
                                                     </div>
                                                 </div>
+                                                <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
+                                                    <p>Current Quantity: 8 kg</p>
+                                                </div>
+
                                             </li>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <div className="row button-row">
+                                                <div className="col-6 pantry-name">
+                                                    <h1 style={{color:"#4b1b1b"}}>Flour</h1>
+
+                                                </div>
+
+                                                <div className="col-6">
+                                                    <Button type="button"
+                                                            className="btn btn-success details-btn see-details-btn"
+                                                            onClick={() =>this.openDetails()}>See
+                                                        Details
+                                                    </Button>
+                                                    <Button
+                                                        className="btn btn-success details-btn apply-btn"
+                                                        type="button" onClick={() =>this.openDelete()}>
+                                                        Delete
+                                                    </Button>
+                                                </div>
+                                            </div>
+                                            <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
+                                                <p>Current Quantity: 8 kg</p>
+                                            </div>
+
+                                        </li>
                                             <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                        <p>Current Quantity: 8 kg</p>
+
                                                     </div>
 
                                                     <div className="col-6">
@@ -153,54 +194,21 @@ export default class createGroceryItem extends Component {
                                                         </Button>
                                                     </div>
                                                 </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                        <p>Current Quantity: 8 kg</p>
-                                                    </div>
-
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openDetails()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Button
-                                                            className="btn btn-success details-btn apply-btn"
-                                                            type="button" onClick={() =>this.openDelete()}>
-                                                            Delete
-                                                        </Button>
-                                                    </div>
+                                                <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
+                                                    <p>Current Quantity: 8 kg</p>
                                                 </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Flour</h1>
-                                                        <p>Current Quantity: 8 kg</p>
-                                                    </div>
 
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openDetails()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Button
-                                                            className="btn btn-success details-btn apply-btn"
-                                                            type="button" onClick={() =>this.openDelete()}>
-                                                            Delete
-                                                        </Button>
-                                                    </div>
-                                                </div>
                                             </li>
+
+
+
 
 
                                         </ul>
                                     </div>
+
                                 </div>
+
                         </div>
 
 
@@ -279,8 +287,13 @@ export default class createGroceryItem extends Component {
                             </div>
                         </div>
                                              :null}
-
+                    <Link to="/foodPantryPortal" type="button"
+                          className="btn btn-in-profile" style={{marginTop:"1rem"}}>
+                        Go back to food Pantry portal
+                    </Link>
                 </div>
+
+
             </div>
 
 

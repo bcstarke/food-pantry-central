@@ -38,9 +38,12 @@ export default class ThankYouPage extends Component {
                                 <div className="col-2">
                                 </div>
                                 <div className="col-5">
-                                    <Link to="/choosePantry"
+                                    <Link to="/donationType"
                                           className="btn btn-dark thank-you-button"
                                           type="button">
+                                        <div className="button-text">
+                                            Donate to another pantry
+                                        </div>
                                     </Link>
                                 </div>
                             </div>
