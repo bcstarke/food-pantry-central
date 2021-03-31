@@ -6,16 +6,26 @@ import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 
 export default class createGroceryItem extends Component {
 
     constructor(props) {
         super(props);
-
+        this.back = this.back.bind(this);
 
     }
 
+    back = () =>{
+        this.props.history.goBack();
+
+    }
+
+    edit = () =>{
+        alert('Final version will allow you to edit this field')
+
+    }
 
 
     render() {
@@ -25,10 +35,7 @@ export default class createGroceryItem extends Component {
 
             <div className="main-container" id="home">
                 <div className="container-fluid" id="mainMenuBox">
-                    <Link to="/foodPantryPortal"type="button"
-                            className="btn btn-profile"
-                           >Go to Portal
-                    </Link>
+
                     <div className="header-box container header">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
@@ -39,25 +46,32 @@ export default class createGroceryItem extends Component {
                                 <div className="row">
                                     <h5>Food Pantry Name:</h5>
                                     <h6> Salvation Army Food Pantry</h6>
-                                    <button  className="btn edit-btn" size="sm">edit
+                                    <button  className="btn edit-btn" size="sm" onClick={this.edit}>edit
 
                                     </button>
                                 </div>
                                 <div className="row">
-                                    <h5>Adress:</h5>
+                                    <h5>Address:</h5>
                                     <h6>123 Cherry st, Ma, 02139</h6>
                                     <button className="btn edit-btn" size="sm"
-                                            >edit
+                                            onClick={this.edit}>edit
                                     </button>
                                 </div>
                                 <div className="row">
                                     <h5>Bank information:</h5>
                                     <h6>xxxxxxxxx</h6>
                                     <button className="btn edit-btn" size="sm"
-                                            o>edit
+                                            onClick={this.edit}>edit
                                     </button>
 
                                 </div>
+                                <button type="button"
+                                        className="btn btn-in-profile"
+                                        onClick={this.back}>Back</button>
+                                <Link to="/foodPantryPortal"type="button"
+                                      className="btn btn-in-profile"
+                                >Go to Portal
+                                </Link>
 
                             </div>
 
