@@ -339,7 +339,7 @@ export default class createGroceryItem extends Component {
                             <h4 className="modal-title">Congratulations!</h4>
                         </div>
                         <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
-                            <p>You have succesfully added  new item!</p>
+                            <p>You have successfully added  new item!</p>
                         </div>
                         <div className="modal-footer">
                             <Link to="/groceryList"
