@@ -575,14 +575,14 @@ export default class createJobPost extends Component {
                                             <h5>Position Description:</h5>
                                             <h6>{postDescription}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideDescription()}>edit
+                                                    onClick={() => this.editDescription()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
                                             <h5>Position Qualifications and Requirements:</h5>
                                             <h6>{postQualifications}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideQualifications()}>edit
+                                                    onClick={() => this.editQualifications()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
@@ -590,7 +590,7 @@ export default class createJobPost extends Component {
                                             <h6>Monday: 10:00 - 11:00</h6>
                                             <h6>Tuesday: 12:00 - 15:00</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideSchedule()}>edit
+                                                    onClick={() => this.editSchedule()}>edit
                                             </button>
                                         </div>
                                         <div className="row">

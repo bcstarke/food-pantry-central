@@ -22,10 +22,10 @@ export default class createGroceryItem extends Component {
             showCheckQuantity:false,
             showCheckAddNotes:false,
             showCheckReview:false,
-            productName:" Eggs",
+            productName:"Product name",
             productQuantity:0,
             productUnit:"Select unit",
-            productAddNotes:"It can't be broken or expired",
+            productAddNotes:"Write here",
             backgroundPointName:"red",
             backgroundPointQuantity:"red",
             backgroundPointAddNotes:"red",
@@ -116,6 +116,47 @@ export default class createGroceryItem extends Component {
                       })
     }
 
+    editName() {
+        this.setState({
+                          showName:true,
+                          showQuantity:false,
+                          showAddNotes:false,
+                          showReview:false,
+
+                      })
+    }
+
+    editQuantity() {
+        this.setState({
+                          showName:false,
+                          showQuantity:true,
+                          showAddNotes:false,
+                          showReview:false,
+
+                      })
+    }
+
+    editAddNotes() {
+        this.setState({
+                          showName:false,
+                          showQuantity:false,
+                          showAddNotes:true,
+                          showReview:false,
+
+                      })
+    }
+
+    editReview() {
+        this.setState({
+                          showName:false,
+                          showQuantity:false,
+                          showAddNotes:false,
+                          showReview:true,
+
+                      })
+    }
+
+
     render() {
         const {productName} = this.state
         const {productQuantity} = this.state
@@ -138,7 +179,7 @@ export default class createGroceryItem extends Component {
                                     <h2>Please enter the name of the product you wish to add:</h2>
                                     <div className="form-floating col-sm-8">
                                         <input type="text" className="form-control form-font"
-                                               placeholder="Product Name here" name="productName" onChange={this.handleInputName}/>
+                                               placeholder="Product Name here" value={productName} name="productName" onChange={this.handleInputName}/>
                                     </div>
                                     <div className="wrapper">
                                         <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
@@ -155,14 +196,14 @@ export default class createGroceryItem extends Component {
                             {
                                 this.state.showQuantity?
                                 <div id="child-input-container">
-                                    <h2>Please enter the name of the product you wish to add:</h2>
+                                    <h2>Please enter current amount available:</h2>
                                     <div>
                                         <div className="row user-input-row form-div">
                                             <div className="form-floating col-sm-3">
-                                                <input type="text" className="form-control form-font" placeholder="Product quantity here" name="productQuantity" onChange={this.handleInputQuantity}/>
+                                                <input type="text" className="form-control form-font"  placeholder="Product quantity here" value={productQuantity} name="productQuantity" onChange={this.handleInputQuantity}/>
                                             </div>
                                             <div className="col-sm-1.2">
-                                                <select className="form-control form-font" value={productUnit}>
+                                                <select className="form-control form-font" value={productUnit}  name="productUnit" onChange={this.handleInputQuantity}>
                                                     <option selected value="Unit(s)">Unit(s)</option>
                                                     <option value="Box(es)">Box(es)</option>
                                                     <option value="Kg">Kg</option>
@@ -190,11 +231,11 @@ export default class createGroceryItem extends Component {
                             {
                                 this.state.showAddNotes?
                                 <div id="child-input-container">
-                                    <h2>Please enter any additional comments:</h2>
+                                    <h2>Please enter any additional comments (ex. Any required health guidelines):</h2>
                                     <div>
 
                                             <div className="form-floating form-text-area">
-                                                <textarea type="text" className="form-control form-font" placeholder="Product quantity here" name="productAddNotes" onChange={this.handleInputQuantity}/>
+                                                <textarea type="text" className="form-control form-font" placeholder="Product quantity here" value={productAddNotes} name="productAddNotes" onChange={this.handleInputQuantity}/>
                                             </div>
 
                                     </div>
@@ -223,21 +264,21 @@ export default class createGroceryItem extends Component {
                                             <h5>Product Name:</h5>
                                             <h6>{productName}</h6>
                                             <button  className="btn edit-btn" size="sm"
-                                                    onClick={() =>this.hideName()}>edit
+                                                     onClick={() => this.editName()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
                                             <h5>Product Quantity:</h5>
                                             <h6>{productQuantity} {productUnit}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideName()}>edit
+                                                    onClick={() => this.editQuantity()}>edit
                                             </button>
                                         </div>
                                         <div className="row">
                                             <h5>Additional comments:</h5>
                                             <h6>{productAddNotes}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.hideName()}>edit
+                                                    onClick={() => this.editAddNotes()}>edit
                                             </button>
 
                                         </div>
@@ -262,7 +303,7 @@ export default class createGroceryItem extends Component {
                                 <h3>Index</h3>
                                 <div className="timeline">
                                     <ul>
-                                        <li>
+                                        <li onClick={() => this.editName()}>
 
                                             <div className="point" style={{backgroundColor:this.state.backgroundPointName}}></div>
                                             {
@@ -271,7 +312,7 @@ export default class createGroceryItem extends Component {
                                                 :null}
                                             Product Name
                                         </li>
-                                        <li>
+                                        <li onClick={() => this.editQuantity()}>
 
                                             <div className="point" style={{backgroundColor:this.state. backgroundPointQuantity}}></div>
                                             {
@@ -280,7 +321,7 @@ export default class createGroceryItem extends Component {
                                                                         :null}
                                             Quantity
                                         </li>
-                                        <li>
+                                        <li onClick={() => this.editAddNotes()}>
 
                                             <div className="point" style={{backgroundColor:this.state.backgroundPointAddNotes}}></div>
                                             {
@@ -289,7 +330,7 @@ export default class createGroceryItem extends Component {
                                                                             :null}
                                             Additional Notes
                                         </li>
-                                        <li>
+                                        <li onClick={() => this.editReview()}>
 
                                             <div className="point" style={{backgroundColor:this.state.backgroundPointReview}}></div>
                                             {

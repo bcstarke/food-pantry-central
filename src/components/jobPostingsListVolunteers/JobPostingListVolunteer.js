@@ -52,6 +52,11 @@ export default class createGroceryItem extends Component {
                     <div className="header-box container header">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
+                        <Link to="/" type="button"
+                              className="btn btn-profile"
+                              onClick={this.open}>
+                            Go back to main
+                        </Link>
                         <h1>VOLUNTEER POSTINGS</h1>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">

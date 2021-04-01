@@ -52,6 +52,10 @@ export default class createGroceryItem extends Component {
                       })
     }
 
+    edit() {
+        alert("Final version item will have the functionality of being edited")
+    }
+
 
 
     render() {
@@ -229,7 +233,7 @@ export default class createGroceryItem extends Component {
                                         <h5 style={{color:"#4b1b1b", fontSize:"20px"}}>Product Name:</h5>
                                         <h6 style={{color:"#4b1b1b", fontSize:"20px"}}>Flour</h6>
                                         <button  className="btn edit-btn" size="sm"
-                                                 onClick={() =>this.hideName()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>
+                                                 onClick={() =>this.edit()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>
                                             edit
                                         </button>
                                     </div>
@@ -237,14 +241,14 @@ export default class createGroceryItem extends Component {
                                         <h5 style={{color:"#4b1b1b", fontSize:"20px"}}>Product Quantity:</h5>
                                         <h6 style={{color:"#4b1b1b", fontSize:"20px"}}>8 Kg</h6>
                                         <button className="btn edit-btn" size="sm"
-                                                onClick={() => this.hideName()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>edit
+                                                onClick={() => this.edit()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>edit
                                         </button>
                                     </div>
                                     <div className="row">
                                         <h5 style={{color:"#4b1b1b", fontSize:"20px"}}>Additional comments:</h5>
                                         <h6 style={{color:"#4b1b1b", fontSize:"20px"}}>The package needs to be unopened and not expired</h6>
                                         <button className="btn edit-btn" size="sm"
-                                                onClick={() => this.hideName()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>edit
+                                                onClick={() => this.edit()} style={{color:"#4b1b1b", borderColor:"#4b1b1b", marginTop:"-1px", verticalAlign:"middle"}}>edit
                                         </button>
 
                                     </div>

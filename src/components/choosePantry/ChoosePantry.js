@@ -55,7 +55,9 @@ export default class ChoosePantry extends Component {
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
                         {/*<h1>Welcome to Food Pantry Central!</h1>*/}
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
                         <h2>Please choose a pantry</h2>
                         <div className="row user-input-row">

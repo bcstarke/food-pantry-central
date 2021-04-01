@@ -81,7 +81,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>
@@ -107,7 +107,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>
@@ -133,7 +133,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>
@@ -159,7 +159,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>
@@ -185,7 +185,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>
@@ -211,7 +211,7 @@ export default class BuyGroceryOnline extends Component {
                                                     <Link to="/applicationDetails"
                                                           className="btn btn-dark btn-sm"
                                                           type="button">
-                                                        See Applications (2)
+                                                        See Applications (4)
                                                     </Link>
                                                 </div>
                                             </div>

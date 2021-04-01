@@ -33,6 +33,7 @@ export default class ApplicationList extends Component {
     }
 
     openDetails(){
+        console.log("open")
         this.setState({showDetailsModal: true});
     }
 
@@ -88,75 +89,21 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                    onclick={this.openDetails}>
+                                                    onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <div className="row">
-                                                <div className="col-3 text">
-                                                    Alice
-                                                </div>
-                                                <div className="col-9">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
 
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
 
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div className="row">
-                                                <div className="col-3 text">
-                                                    Alice
-                                                </div>
-                                                <div className="col-9">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
                                     <tr>
                                         <td>
                                             <div className="row">
@@ -245,6 +192,13 @@ export default class ApplicationList extends Component {
                                 </table>
                             </div>
                             <br/>
+                            <Link to="/goToVolunteerPosting"
+                                  className="btn btn-dark btn-md"
+                                  type="button" style={{marginRight:"1rem"}}>
+                                GO BACK VOLUNTEER
+                                <br/>
+                                POSTS
+                            </Link>
                             <Link to="/foodPantryPortal"
                                   className="btn btn-dark btn-md"
                                   type="button">
@@ -256,6 +210,7 @@ export default class ApplicationList extends Component {
                     </div>
 
                     <div>
+
                         <Modal className="modal-container"
                                show={this.state.showConfirmationModal}
                                onHide={this.closeConfirmation}
