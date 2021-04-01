@@ -10,6 +10,7 @@ import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 export default class OtherDonationTypePage extends Component {
 
     render() {
+        const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="chooseDonationType">
                 <div className="container">
@@ -53,7 +54,12 @@ export default class OtherDonationTypePage extends Component {
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            <Link to="/donateMoney"
+                            <Link to={{
+                                pathname: "/donateMoney",
+                                state: {
+                                    pantryName: pantryName
+                                }
+                            }}
                                   class="btn btn-dark btn-lg other-payment-page-button"
                                   type="button">
                                 <div className="button-text-other-payment">

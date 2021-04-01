@@ -52,6 +52,7 @@ export default class DonateGrocery extends Component {
     }
 
     render() {
+        const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="donateGroceryList">
                 <div className="container-fluid">
@@ -60,9 +61,9 @@ export default class DonateGrocery extends Component {
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: XXX</h2>
+                                <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
-                                    <Link to="/choosePantry"
+                                    <Link to="/choosePantryG"
                                           className="btn btn-info button1"
                                           type="button"
                                           style={{fontSize:"20px"}}>
@@ -253,7 +254,13 @@ export default class DonateGrocery extends Component {
 
                             <div className="col-4">
                                 <h4 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
-                                <Link to="/buyGroceryOnline"
+                                <Link
+                                      to={{
+                                          pathname: "/buyGroceryOnline",
+                                          state: {
+                                              pantryName: pantryName
+                                          }
+                                          }}
                                       className="btn btn-dark btn-lg donate-options"
                                       type="button">
                                     BUY ONLINE

@@ -103,7 +103,13 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateGrocery"
+                                                        <Link
+                                                              to={{
+                                                                  pathname: "/donateGrocery",
+                                                                  state: {
+                                                                      pantryName: "The Greater Boston Food Bank"
+                                                                  }
+                                                              }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -162,7 +168,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateGrocery"
+                                                        <Link  to={{
+                                                            pathname: "/donateGrocery",
+                                                            state: {
+                                                                pantryName: "St. Anthony Shrine / Franscician Food"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -184,7 +195,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateGrocery"
+                                                        <Link to={{
+                                                            pathname: "/donateGrocery",
+                                                            state: {
+                                                                pantryName: "Salvation Army / South End Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -205,7 +221,12 @@ export default class ChoosePantryVolunteer extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateGrocery"
+                                                        <Link to={{
+                                                            pathname: "/donateGrocery",
+                                                            state: {
+                                                                pantryName: "Haley House Food Pantry"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose

@@ -13,6 +13,7 @@ import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 export default class CreditCardPage extends Component {
 
     render() {
+        const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
@@ -119,7 +120,13 @@ export default class CreditCardPage extends Component {
                         {/*<div className="button-row">*/}
                         <div className="col-12 button-row">
                             <div className="col-3">
-                                <Link to="/donateMoney"
+                                <Link
+                                      to={{
+                                          pathname: "/donateMoney",
+                                          state: {
+                                              pantryName: pantryName
+                                          }
+                                      }}
                                       class="btn btn-dark btn-lg"
                                       type="button">
                                     <div className="button-text-cc-page">
@@ -131,7 +138,13 @@ export default class CreditCardPage extends Component {
                                 </Link>
                             </div>
                             <div className="col-3">
-                                <Link to="/creditCardReview"
+                                <Link
+                                      to={{
+                                          pathname: "/creditCardReview",
+                                          state: {
+                                              pantryName: pantryName
+                                          }
+                                      }}
                                       className="btn btn-success btn-lg cc-page-button"
                                       type="button">
                                     <div className="button-text-cc-page">

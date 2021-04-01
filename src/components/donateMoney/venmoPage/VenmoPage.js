@@ -12,6 +12,7 @@ import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 export default class VenmoPage extends Component {
 
     render() {
+        const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
@@ -36,7 +37,13 @@ export default class VenmoPage extends Component {
                     </div>
                     <div className="col-12 button-row">
                         <div className="col-3">
-                            <Link to="/donateMoney"
+                            <Link
+                                  to={{
+                                      pathname: "/donateMoney",
+                                      state: {
+                                          pantryName: pantryName
+                                      }
+                                  }}
                                   class="btn btn-dark btn-lg venmo-page-button"
                                   type="button">
                                 <div className="button-text-venmo-page">

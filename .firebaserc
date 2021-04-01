@@ -1,9 +1,6 @@
 {
   "projects": {
-
-    "foodpantrynew": "food-pantry-central"
-    "foodpantrycentral": "food-pantry-central",
-    "default": "food-pantry-central"
+    "default": "food-pantry-central-efd89",
+    "firebase-react-deploy": "food-pantry-central-efd89"
   }
 }
-

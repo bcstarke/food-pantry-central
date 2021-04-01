@@ -173,7 +173,12 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to={{
+                                                            pathname: "/donateMoney",
+                                                            state: {
+                                                                pantryName: "St. Anthony Shrine / Franscician Food"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -195,7 +200,12 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to={{
+                                                            pathname: "/donateMoney",
+                                                            state: {
+                                                                pantryName: "Salvation Army / South End Food Bank"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose
@@ -216,7 +226,12 @@ export default class ChoosePantry extends Component {
                                                                 onClick={this.open}>See
                                                             Details
                                                         </Button>
-                                                        <Link to="/donateMoney"
+                                                        <Link to={{
+                                                            pathname: "/donateMoney",
+                                                            state: {
+                                                                pantryName: "Haley House Food Pantry"
+                                                            }
+                                                        }}
                                                               className="btn btn-success details-btn"
                                                               type="button">
                                                             Choose

@@ -11,7 +11,9 @@ export default class ChooseDonationType extends Component {
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
                         <div className="row">
                             {/*<div className="pantry-info-container container-fluid">*/}
@@ -25,17 +27,18 @@ export default class ChooseDonationType extends Component {
                             {/*    </div>*/}
                             {/*</div>*/}
                         </div>
-                        <div className="row">
+                        <div>
                             <div className="d-grid gap-3 button-row">
                                 <Link to="/choosePantry"
-                                      className="btn btn-dark btn-lg option-select-button"
-                                      type="button">
+                                      className="btn btn-success buttonPortal"
+                                      type="button" style={{fontSize: "5rem", paddingTop:"1rem", height:"8rem", width:"40rem"}}>
                                     Donate Money
                                 </Link>
-
+                            </div>
+                            <div className="d-grid gap-3 button-row">
                                 <Link to="/choosePantryG"
-                                      className="btn btn-dark btn-lg option-select-button"
-                                      type="button">
+                                      className="btn btn-success buttonPortal"
+                                      type="button" style={{fontSize: "5rem", paddingTop:"1rem", height:"8rem", width:"40rem"}}>
                                     Donate Groceries
                                 </Link>
 

@@ -20,7 +20,7 @@ export default class MainMenu extends Component {
                                       className="btn btn-success buttonPortal"
                                       type="button"
                                       style={{height:"10rem", fontSize:"70px", paddingTop: "2rem"}}>
-                                    Donate!!!!
+                                    Donate
                                 </Link>
                                 <Link to="/choosePantryV"
                                       className="btn btn-success buttonPortal"

@@ -17,17 +17,21 @@ export default class DonateMoney extends Component {
         const pantryName = this.props.location.state
     }
 
+
     render() {
+
+    const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="choosePaymentMethod">
                 <div className="container-fluid">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: {this.props.pantryName}</h2>
-                                <div>{this.props.pantryName}</div>
+                                <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
                                     {/*<Route path="/choosePantry" exact={true} render={(props) =>*/}
                                     {/*    <div>*/}
@@ -52,13 +56,27 @@ export default class DonateMoney extends Component {
                                 <div className="payment-methods">
                                         <div className="row">
                                             <div className="col-6">
-                                                <Link to="/creditCard"
+                                                <Link
+                                                      to=
+                                                          {{
+                                                              pathname: "/creditCard",
+                                                              state: {
+                                                                  pantryName: pantryName
+                                                              }
+                                                          }}
                                                       className="btn btn-dark option-select-button"
                                                       type="button">
                                                     <img src={creditCard} alt={"Credit Card"}
                                                          height="200rem"/>
                                                 </Link>
-                                                <Link to="/paypal"
+                                                <Link
+                                                      to=
+                                                          {{
+                                                              pathname: "/paypal",
+                                                              state: {
+                                                                  pantryName: pantryName
+                                                              }
+                                                          }}
                                                       className="btn btn-dark option-select-button"
                                                       type="button">
                                                     <img src={paypal} alt={"PayPal"} height="200rem"/>
@@ -67,13 +85,25 @@ export default class DonateMoney extends Component {
                                         </div>
                                     <div className="row">
                                         <div className="col-6">
-                                            <Link to="/venmo"
+                                            <Link  to=
+                                                  {{
+                                                      pathname: "/venmo",
+                                                      state: {
+                                                          pantryName: pantryName
+                                                      }
+                                                  }}
                                                   className="btn btn-dark option-select-button"
                                                   type="button">
                                                 <img src={venmo} alt={"Venmo"} height="200rem"/>
 
                                             </Link>
-                                            <Link to="/otherDonationType"
+                                            <Link to=
+                                                  {{
+                                                      pathname: "/otherDonationType",
+                                                      state: {
+                                                          pantryName: pantryName
+                                                      }
+                                                  }}
                                                   className="btn btn-dark option-select-button"
                                                   type="button">
                                                 <div className="row">

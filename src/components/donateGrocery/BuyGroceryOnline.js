@@ -11,6 +11,7 @@ import "./BuyGroceryOnline.css"
 export default class BuyGroceryOnline extends Component {
 
     render() {
+        const {pantryName} = this.props.location.state
         return (
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
@@ -81,7 +82,13 @@ export default class BuyGroceryOnline extends Component {
                                 </Link>
                             </div>
                             <div className="col">
-                                <Link to="/donateGrocery"
+                                <Link
+                                      to={{
+                                          pathname: "/donateGrocery",
+                                          state: {
+                                              pantryName: pantryName
+                                          }
+                                      }}
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
                                       type="button">
                                     GO BACK TO GROCERY
