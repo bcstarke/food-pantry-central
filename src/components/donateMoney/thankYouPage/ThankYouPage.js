@@ -18,6 +18,7 @@ export default class ThankYouPage extends Component {
                             <h1 className="thank-you"><i>Thank you for your donation!</i></h1>
                             <br/>
                         </div>
+                        <p className="info-text">Every $3 donated buys enough food to feed a family of four</p>
                         <br/>
                         <h2>A confirmation email will be sent to name@example.com</h2>
                     </div>
@@ -32,7 +33,6 @@ export default class ThankYouPage extends Component {
                                         <div className="button-text">
                                             Go to Main Page
                                         </div>
-
                                     </Link>
                                 </div>
                                 <div className="col-2">

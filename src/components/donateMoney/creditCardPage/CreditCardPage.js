@@ -18,8 +18,26 @@ export default class CreditCardPage extends Component {
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
+                        <Link to="/donateMoney" type="button"
+                              className="btn go-back-btn-left"
+                              onClick={this.open}>
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn"
+                                      onClick={this.open}>
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
                                 <img src={creditCardsLong} alt={"Credit Cards"} height="80rem"/>
@@ -119,24 +137,6 @@ export default class CreditCardPage extends Component {
                         {/*<div className="row">*/}
                         {/*<div className="button-row">*/}
                         <div className="col-12 button-row">
-                            <div className="col-3">
-                                <Link
-                                      to={{
-                                          pathname: "/donateMoney",
-                                          state: {
-                                              pantryName: pantryName
-                                          }
-                                      }}
-                                      class="btn btn-dark btn-lg"
-                                      type="button">
-                                    <div className="button-text-cc-page">
-                                        <div className="left-arrow-icon">
-                                            <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
-                                        </div>
-                                        Go Back
-                                    </div>
-                                </Link>
-                            </div>
                             <div className="col-3">
                                 <Link
                                       to={{

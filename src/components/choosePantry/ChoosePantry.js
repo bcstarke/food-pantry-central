@@ -42,7 +42,6 @@ export default class ChoosePantry extends Component {
         this.setState({showModal: false});
     }
 
-
     setPantryState = (newPantryName) => {
         this.setState(prevState => ({
             pantryName: newPantryName
@@ -54,22 +53,40 @@ export default class ChoosePantry extends Component {
             <div className="main-container" id="choosePantry">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        {/*<h1>Welcome to Food Pantry Central!</h1>*/}
                         <Link to="/">
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
                         <br/>
-                        <h2>Please choose a pantry</h2>
+                        <Link to="/donationType" type="button"
+                              className="btn go-back-btn-left"
+                              onClick={this.open}>
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn"
+                                      onClick={this.open}>
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
+                        {/*</div>*/}
+                        <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">
                                 <input type="text" className="form-control"
                                        placeholder="Please enter your zip"/>
                             </div>
-                            <div className="show-results-text col-sm-3">
-                                <h5>Show results within...</h5>
+                            <div className="show-results-text-choosePantry col-sm-3">
+                                <h5 className="show-results-within-choosePantry">Show results
+                                    within...</h5>
                             </div>
                             <div className="radius-drop-down col-sm-3">
-                                <select className="form-select" aria-label="Default select example"
+                                <select className="form-select" size="1"
+                                        aria-label="Default select example"
                                         value={this.state.radius}>
                                     <option value="1">1 Mile</option>
                                     <option value="2">2 Miles</option>
@@ -79,14 +96,17 @@ export default class ChoosePantry extends Component {
                                 </select>
                             </div>
                             <div className="btn-search-pantry">
-                                <button type="button" className="btn btn-success"
+                                <button type="button" className="btn btn-success btn-lg"
                                         onClick={this._showTable.bind(null, true)}>Search
                                 </button>
                             </div>
                         </div>
                         <div className="row results-list">
+                            {!this.state.showMessage && (
+                                <div className="before-search-text">Results will appear here</div>
+                            )}
                             {this.state.showMessage && (
-                                <div className="col-10">
+                                <div className="col-12">
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
                                             <li className="list-group-item"
@@ -110,17 +130,10 @@ export default class ChoosePantry extends Component {
                                                         }}
                                                               className="btn btn-success details-btn"
                                                               type="button"
-                                                              onClick={() => this.setPantryState("The Greater Boston Food Bank")}>
+                                                              onClick={() => this.setPantryState(
+                                                                  "The Greater Boston Food Bank")}>
                                                             Choose
                                                         </Link>
-                                                        {/*onClick={(e) => this.setPantryState(*/}
-                                                        {/*e)}*/}
-
-                                                        {/*<Button type="button" onClick={(e) => this.setPantryState("The Greater Boston Food Bank")}>click here</Button>*/}
-                                                        {/*<div className="alert alert-primary"*/}
-                                                        {/*     role="alert">*/}
-                                                        {/*    {this.state.pantryName}*/}
-                                                        {/*</div>*/}
                                                         <div>
                                                             <Modal className="modal-container"
                                                                    show={this.state.showModal}
@@ -162,6 +175,9 @@ export default class ChoosePantry extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="row dist-text1">
+                                                    <p className="dist-text">0.6 miles away</p>
+                                                </div>
                                             </li>
                                             <li className="list-group-item">
                                                 <div className="row button-row">
@@ -188,6 +204,9 @@ export default class ChoosePantry extends Component {
                                                         <div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div className="row dist-text1">
+                                                    <p className="dist-text">1.4 miles away</p>
                                                 </div>
                                             </li>
                                             <li className="list-group-item">
@@ -216,7 +235,11 @@ export default class ChoosePantry extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div className="row dist-text">
+                                                    <p>2.2 miles away</p>
+                                                </div>
                                             </li>
+
                                             <li className="list-group-item">
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
@@ -241,6 +264,9 @@ export default class ChoosePantry extends Component {
                                                         <div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div className="row dist-text1">
+                                                    <p className="dist-text">5.3 miles away</p>
                                                 </div>
                                             </li>
                                         </ul>
