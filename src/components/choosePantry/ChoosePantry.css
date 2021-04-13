@@ -128,6 +128,13 @@
     color: #ce9466;
 }
 
+.main-container .see-details-btn {
+    background-color: #4b1b1b;
+    color:#ce9466;
+    border: none;
+    font-size: 30px;
+}
+
 .main-container .dist-text {
     margin-top: -0.5rem;
     margin-left: 10rem;

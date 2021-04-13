@@ -110,15 +110,16 @@ export default class ChoosePantry extends Component {
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
                                             <li className="list-group-item"
-                                                value="greater_boston_food_bank">
+                                                value="greater_boston_food_bank"
+                                                style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
-                                                        <h5>The Greater Boston Food Bank</h5>
+                                                        <h5 style={{color:"#4b1b1b"}}>The Greater Boston Food Bank</h5>
                                                     </div>
                                                     <div className="col-6">
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn"
-                                                                onClick={this.open}>See
+                                                                className="btn btn-success details-btn see-details-btn"
+                                                                onClick={() =>this.open()}>See
                                                             Details
                                                         </Button>
                                                         <Link to={{
@@ -128,8 +129,9 @@ export default class ChoosePantry extends Component {
                                                                             + " Food Bank"
                                                             }
                                                         }}
-                                                              className="btn btn-success details-btn"
+                                                              className="btn btn-success details-btn see-details-btn"
                                                               type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#4b1b1b"}}
                                                               onClick={() => this.setPantryState(
                                                                   "The Greater Boston Food Bank")}>
                                                             Choose
@@ -182,13 +184,13 @@ export default class ChoosePantry extends Component {
                                             <li className="list-group-item">
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
-                                                        <h5>St. Anthony Shrine / Franscician Food
+                                                        <h5 style={{color:"#4b1b1b"}}>St. Anthony Shrine / Franscician Food
                                                             Bank</h5>
                                                     </div>
                                                     <div className="col-6">
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn"
-                                                                onClick={this.open}>See
+                                                                className="btn btn-success details-btn see-details-btn"
+                                                                onClick={() =>this.open()}>See
                                                             Details
                                                         </Button>
                                                         <Link to={{
@@ -197,8 +199,9 @@ export default class ChoosePantry extends Component {
                                                                 pantryName: "St. Anthony Shrine / Franscician Food"
                                                             }
                                                         }}
-                                                              className="btn btn-success details-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#4b1b1b"}}>
                                                             Choose
                                                         </Link>
                                                         <div>
@@ -212,13 +215,13 @@ export default class ChoosePantry extends Component {
                                             <li className="list-group-item">
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
-                                                        <h5>Salvation Army / South End Food
+                                                        <h5 style={{color:"#4b1b1b"}}>Salvation Army / South End Food
                                                             Bank</h5>
                                                     </div>
                                                     <div className="col-6">
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn"
-                                                                onClick={this.open}>See
+                                                                className="btn btn-success details-btn see-details-btn"
+                                                                onClick={() =>this.open()}>See
                                                             Details
                                                         </Button>
                                                         <Link to={{
@@ -227,8 +230,9 @@ export default class ChoosePantry extends Component {
                                                                 pantryName: "Salvation Army / South End Food Bank"
                                                             }
                                                         }}
-                                                              className="btn btn-success details-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#4b1b1b"}}>
                                                             Choose
                                                         </Link>
                                                         <div>
@@ -243,12 +247,12 @@ export default class ChoosePantry extends Component {
                                             <li className="list-group-item">
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
-                                                        <h5>Haley House Food Pantry</h5>
+                                                        <h5 style={{color:"#4b1b1b"}}>Haley House Food Pantry</h5>
                                                     </div>
                                                     <div className="col-6">
                                                         <Button type="button"
-                                                                className="btn btn-primary details-btn"
-                                                                onClick={this.open}>See
+                                                                className="btn btn-success details-btn see-details-btn"
+                                                                onClick={() =>this.open()}>See
                                                             Details
                                                         </Button>
                                                         <Link to={{
@@ -257,8 +261,9 @@ export default class ChoosePantry extends Component {
                                                                 pantryName: "Haley House Food Pantry"
                                                             }
                                                         }}
-                                                              className="btn btn-success details-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#4b1b1b"}}>
                                                             Choose
                                                         </Link>
                                                         <div>
