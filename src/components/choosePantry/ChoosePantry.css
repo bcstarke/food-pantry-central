@@ -7,13 +7,22 @@
     width: 20rem;
 }
 
-.main-container .show-results-text {
-    padding-top: 2rem;
+.main-container .show-results-text-choosePantry {
+    padding-top: 1rem;
+    color: #ce9466;
+}
+
+.main-container .show-results-within-choosePantry{
+    padding-top: 1rem;
+    /*padding-left: 1rem;*/
+    margin-right: -7rem;
+    color: #ce9466
 }
 
 .main-container .radius-drop-down{
     padding-top: 2rem;
     padding-left: -3rem;
+    font-size: 25px;
 }
 .main-container .btn-search-pantry{
     padding-top: 2rem;
@@ -23,13 +32,21 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    width: 90vw;
+    margin-left: -15%;
 }
 
 .main-container .results-list {
-    padding-top: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     align-items: center;
     display: flex;
     justify-content: center;
+    background-color: #4b1b1b;
+}
+
+.main-container .list-group{
+    /*overflow-y: scroll;*/
 }
 
 .main-container .pantry-option{
@@ -60,3 +77,67 @@
     margin-left: -10rem;
 }
 
+.main-container .go-back-btn-left{
+    align-items: flex-start;
+    float: left;
+    position: relative;
+    background-color: #ce9466;
+    color: #4b1b1b;
+    font-size: 30px;
+    margin-left: -8rem;
+    margin-top: -7rem;
+    /*margin-top: -5rem;*/
+}
+
+.main-container .go-to-volunteer-btn{
+    align-items: center;
+    float: right;
+    position: relative;
+    background-color: #ce9466;
+    color: #4b1b1b;
+    font-size: 30px;
+    left: 20%;
+    /*margin-left: 0rem;*/
+    /*margin-top: -0rem;*/
+    /*margin-left: 0rem;*/
+}
+
+.main-container .volunteer-box{
+    float: right;
+    color: #ce9466; /*beige*/
+    background-color: transparent;
+    margin-right: -7rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2rem;
+    /*margin-right: -2rem;*/
+}
+
+.main-container .vol-text {
+    margin-top: -7rem;
+    font-size: 25px;
+    color: #fff;
+}
+
+.main-container .form-select{
+    width: 10rem;
+}
+
+.main-container .before-search-text{
+    font-size: 50px;
+    color: #ce9466;
+}
+
+.main-container .see-details-btn {
+    background-color: #4b1b1b;
+    color:#ce9466;
+    border: none;
+    font-size: 30px;
+}
+
+.main-container .dist-text {
+    margin-top: -0.5rem;
+    margin-left: 10rem;
+    margin-bottom: -0.5rem;
+    /*text-align: center;*/
+}
