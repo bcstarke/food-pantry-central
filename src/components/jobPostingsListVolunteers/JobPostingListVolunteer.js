@@ -37,6 +37,11 @@ export default class createGroceryItem extends Component {
                       })
     }
 
+    back = () =>{
+        this.props.history.goBack();
+
+    }
+
     componentDidMount() {
         const {handle} = this.props.match.params
         const {pantryName} = this.props.location.state
@@ -52,10 +57,17 @@ export default class createGroceryItem extends Component {
                     <div className="header-box container header">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
+                        <p className="go-donate-tittle">Want to donate instead?</p>
+
                         <Link to="/" type="button"
-                              className="btn btn-profile"
-                              onClick={this.open}>
-                            Go back to main
+                              className="btn btn-go-donate"
+                              onClick={this.back}>
+                            Click here
+                        </Link>
+                        <Link to="/" type="button"
+                              className="btn btn-go-back"
+                              onClick={this.back}>
+                            Go back
                         </Link>
                         <h1>VOLUNTEER POSTINGS</h1>
                         <div className="row">
@@ -71,11 +83,11 @@ export default class createGroceryItem extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="volunteer-list">
+                        <div className="volunteer-list" style={{marginLeft:"6rem"}}>
                                 <div className="col-10">
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Truck driver</h1>
@@ -93,14 +105,16 @@ export default class createGroceryItem extends Component {
                                                                       pantryName: pantryName
                                                                   }
                                                               }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}
+                                                        >
                                                             Apply
                                                         </Link>
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator</h1>
@@ -118,8 +132,9 @@ export default class createGroceryItem extends Component {
                                                                           pantryName: pantryName
                                                                       }
                                                                   }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Apply
                                                         </Link>
 
@@ -128,7 +143,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1  style={{color:"#4b1b1b"}}>Shelf organizer</h1>
@@ -146,8 +161,9 @@ export default class createGroceryItem extends Component {
                                                                           pantryName: pantryName
                                                                       }
                                                                   }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Apply
                                                         </Link>
                                                         <div>
@@ -155,7 +171,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Food distributor</h1>
@@ -173,8 +189,9 @@ export default class createGroceryItem extends Component {
                                                                           pantryName: pantryName
                                                                       }
                                                                   }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Apply
                                                         </Link>
                                                         <div>
@@ -182,7 +199,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 2</h1>
@@ -200,8 +217,9 @@ export default class createGroceryItem extends Component {
                                                                           pantryName: pantryName
                                                                       }
                                                                   }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Apply
                                                         </Link>
                                                         <div>
@@ -209,7 +227,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ce9466"}}>
+                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 3</h1>
@@ -228,8 +246,9 @@ export default class createGroceryItem extends Component {
                                                                           pantryName: pantryName
                                                                       }
                                                                   }}
-                                                              className="btn btn-success details-btn apply-btn"
-                                                              type="button">
+                                                              className="btn btn-success details-btn see-details-btn"
+                                                              type="button"
+                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Apply
                                                         </Link>
                                                         <div>
