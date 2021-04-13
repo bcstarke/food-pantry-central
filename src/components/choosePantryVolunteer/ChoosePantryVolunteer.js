@@ -65,6 +65,18 @@ export default class ChoosePantryVolunteer extends Component {
                         <Link to="/">
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
+                        <p className="go-donate-tittle">Want to donate instead?</p>
+
+                        <Link to="/donationType" type="button"
+                              className="btn btn-go-donate"
+                              onClick={this.back}>
+                            Click here
+                        </Link>
+                        <Link to="/" type="button"
+                              className="btn btn-go-back"
+                              onClick={this.back}>
+                            Go back
+                        </Link>
                         <br/>
                         <h2>Please choose a pantry</h2>
                         <div className="row user-input-row">

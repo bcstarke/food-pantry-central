@@ -59,7 +59,7 @@ export default class createGroceryItem extends Component {
                         <br/>
                         <p className="go-donate-tittle">Want to donate instead?</p>
 
-                        <Link to="/" type="button"
+                        <Link to="/donationType" type="button"
                               className="btn btn-go-donate"
                               onClick={this.back}>
                             Click here
