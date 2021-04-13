@@ -8,19 +8,32 @@ import thankYou from "../../images/thankyou.png"
 export default class ThankYouPage extends Component {
 
     render() {
+        const {ccEmail} = this.props.location.state
+
         return (
             <div className="main-container" id="choosePaymentMethod">
                 <div className="container-fluid">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                         <div className="thank-you-text">
                             <h1 className="thank-you"><i>Thank you for your donation!</i></h1>
                             <br/>
                         </div>
                         <p className="info-text">Every $3 donated buys enough food to feed a family of four</p>
                         <br/>
-                        <h2>A confirmation email will be sent to name@example.com</h2>
+                        <h2>A confirmation email will be sent to {ccEmail}</h2>
                     </div>
                     <div className="row nav-buttons">
                         {/*<div className="nav-buttons">*/}

@@ -11,9 +11,29 @@ import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 
 export default class CreditCardPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
 
+        }
+    }
+
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        this.setState({
+                          [event.target.name]: event.target.value
+                      })
+    }
     render() {
         const {pantryName} = this.props.location.state
+        const {ccName} = this.state
+        const {ccDollarAmount} = this.state
+        const {ccNumber} = this.state
+        const {ccExpDate} = this.state
+        const {ccSecurityCode} = this.state
+        const {ccZip} = this.state
+        const {ccEmail} = this.state
         return (
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
@@ -22,9 +42,15 @@ export default class CreditCardPage extends Component {
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
                         <br/>
-                        <Link to="/donateMoney" type="button"
-                              className="btn go-back-btn-left"
-                              onClick={this.open}>
+                        <Link to=
+                              {{
+                                  pathname: "/donateMoney",
+                                  state: {
+                                      pantryName: pantryName
+                                  }
+                              }}
+                              type="button"
+                              className="btn go-back-btn-left">
                             Go back
                         </Link>
 
@@ -32,8 +58,7 @@ export default class CreditCardPage extends Component {
                             <div className="row vol-text">Interested in volunteering?</div>
                             <div className="row">
                                 <Link to="/choosePantryV" type="button"
-                                      className="btn go-to-volunteer-btn"
-                                      onClick={this.open}>
+                                      className="btn go-to-volunteer-btn">
                                     Click here
                                 </Link>
                             </div>
@@ -59,7 +84,10 @@ export default class CreditCardPage extends Component {
                                                     </div>
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter amount..."/>
+                                                           placeholder="Enter amount..."
+                                                           value={ccDollarAmount}
+                                                           name="ccDollarAmount"
+                                                           onChange={this.handleInputName}/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -69,7 +97,10 @@ export default class CreditCardPage extends Component {
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter name..."/>
+                                                           placeholder="Enter name..."
+                                                           value={ccName}
+                                                           name="ccName"
+                                                           onChange={this.handleInputName}/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -79,7 +110,10 @@ export default class CreditCardPage extends Component {
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter Card Number..."/>
+                                                           placeholder="Enter Card Number..."
+                                                           value={ccNumber}
+                                                           name="ccNumber"
+                                                           onChange={this.handleInputName}/>
                                                 </div>
                                             </div>
                                         </form>
@@ -94,7 +128,10 @@ export default class CreditCardPage extends Component {
                                                     <div className="input-group mb-2">
                                                         <input type="text" className="form-control"
                                                                id="inlineFormInputGroup"
-                                                               placeholder="MM/YYYY"/>
+                                                               placeholder="MM/YYYY"
+                                                               value={ccExpDate}
+                                                               name="ccExpDate"
+                                                               onChange={this.handleInputName}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
@@ -104,7 +141,10 @@ export default class CreditCardPage extends Component {
                                                     <div className="input-group mb-2">
                                                         <input type="text" className="form-control"
                                                                id="inlineFormInputGroup"
-                                                               placeholder="XXX"/>
+                                                               placeholder="XXX"
+                                                               value={ccSecurityCode}
+                                                               name="ccSecurityCode"
+                                                               onChange={this.handleInputName}/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,7 +155,10 @@ export default class CreditCardPage extends Component {
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter zip code..."/>
+                                                           placeholder="Enter zip code..."
+                                                           value={ccZip}
+                                                           name="ccZip"
+                                                           onChange={this.handleInputName}/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -125,7 +168,10 @@ export default class CreditCardPage extends Component {
                                                 <div className="input-group mb-2">
                                                     <input type="text" className="form-control"
                                                            id="inlineFormInputGroup"
-                                                           placeholder="Enter Email..."/>
+                                                           placeholder="Enter Email..."
+                                                           value={ccEmail}
+                                                           name="ccEmail"
+                                                           onChange={this.handleInputName}/>
                                                 </div>
                                             </div>
                                         </form>
@@ -142,7 +188,14 @@ export default class CreditCardPage extends Component {
                                       to={{
                                           pathname: "/creditCardReview",
                                           state: {
-                                              pantryName: pantryName
+                                              pantryName: this.state.pantryName,
+                                              ccName: this.state.ccName,
+                                              ccDollarAmount: this.state.ccDollarAmount,
+                                              ccNumber: this.state.ccNumber,
+                                              ccExpDate: this.state.ccExpDate,
+                                              ccSecurityCode: this.state.ccSecurityCode,
+                                              ccZip: this.state.ccZip,
+                                              ccEmail: this.state.ccEmail
                                           }
                                       }}
                                       className="btn btn-success btn-lg cc-page-button"
