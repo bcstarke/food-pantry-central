@@ -57,7 +57,7 @@ export default class ChoosePantry extends Component {
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
                         <br/>
-                        <Link to="/donationType" type="button"
+                        <Link to="/" type="button"
                               className="btn go-back-btn-left"
                               onClick={this.open}>
                             Go back
@@ -123,7 +123,7 @@ export default class ChoosePantry extends Component {
                                                             Details
                                                         </Button>
                                                         <Link to={{
-                                                            pathname: "/donateMoney",
+                                                            pathname: "/jobPostingsVolunteer",
                                                             state: {
                                                                 pantryName: "The Greater Boston"
                                                                             + " Food Bank"
@@ -194,7 +194,7 @@ export default class ChoosePantry extends Component {
                                                             Details
                                                         </Button>
                                                         <Link to={{
-                                                            pathname: "/donateMoney",
+                                                            pathname: "/jobPostingsVolunteer",
                                                             state: {
                                                                 pantryName: "St. Anthony Shrine / Franscician Food"
                                                             }
@@ -225,7 +225,7 @@ export default class ChoosePantry extends Component {
                                                             Details
                                                         </Button>
                                                         <Link to={{
-                                                            pathname: "/donateMoney",
+                                                            pathname: "/jobPostingsVolunteer",
                                                             state: {
                                                                 pantryName: "Salvation Army / South End Food Bank"
                                                             }
@@ -256,7 +256,7 @@ export default class ChoosePantry extends Component {
                                                             Details
                                                         </Button>
                                                         <Link to={{
-                                                            pathname: "/donateMoney",
+                                                            pathname: "/jobPostingsVolunteer",
                                                             state: {
                                                                 pantryName: "Haley House Food Pantry"
                                                             }
