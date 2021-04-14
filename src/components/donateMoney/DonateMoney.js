@@ -20,7 +20,7 @@ export default class DonateMoney extends Component {
 
     render() {
 
-    const {pantryName} = this.props.location.state
+    const {pantryName} = (this.props.location.state != undefined ? this.props.location.state : " ")
         return (
             <div className="main-container" id="choosePaymentMethod">
                 <div className="container-fluid">
@@ -29,6 +29,20 @@ export default class DonateMoney extends Component {
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
                         <br/>
+                        <Link to="/choosePantry" type="button"
+                              className="btn go-back-btn-left">
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
                                 <h2>Pantry you chose: {pantryName}</h2>
