@@ -15,17 +15,34 @@ export default class VenmoPage extends Component {
         const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="chooseDonationType">
-                <div className="container-fluid" id="choosePantryBox">
+                <div className="container" id="choosePantryBox">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
-                        <br/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>                        <br/>
+                        <Link to="/donateMoney" type="button"
+                              className="btn go-back-btn-left">
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <div className="row username-row">
                         <h2><b>@boston-food-pantry</b></h2>
                     </div>
                     <div className="row col-12">
-                        <div className="img-row">
-                            <img src={barcode} alt={"Bar Code"} width="380rem"/>
+                        <div className="col-6 barcode-box">
+                            <div className="img-row">
+                                <img src={barcode} alt={"Bar Code"} width="380rem"/>
+                            </div>
                         </div>
                     </div>
                     <div className="row">
@@ -37,34 +54,15 @@ export default class VenmoPage extends Component {
                     </div>
                     <div className="col-12 button-row">
                         <div className="col-3">
-                            <Link
-                                  to={{
-                                      pathname: "/donateMoney",
-                                      state: {
-                                          pantryName: pantryName
-                                      }
-                                  }}
-                                  class="btn btn-dark btn-lg venmo-page-button"
-                                  type="button">
-                                <div className="button-text-venmo-page">
-                                    <div className="left-arrow-icon">
-                                        <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
-                                    </div>
-                                    Go Back
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-3">
                             <Link to="/thankYouPayment"
-                                  className="btn btn-success btn-lg venmo-page-button"
+                                  className="btn btn-success btn-lg cc-page-button"
                                   type="button">
-                                <div className="button-text-venmo-page">
-                                    I Donated
+                                <div className="button-text-cc-page">
+                                    Donate
                                     <div className="right-arrow-icon">
                                         <FontAwesomeIcon icon={faArrowRight} size='2x'/>
                                     </div>
                                 </div>
-
                             </Link>
                         </div>
                     </div>
