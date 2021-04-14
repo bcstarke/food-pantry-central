@@ -36,6 +36,7 @@ export default class ApplicationList extends Component {
     }
 
     openConfirmation() {
+        console.log("open")
         this.setState({showConfirmationModal: true});
     }
 
@@ -53,6 +54,7 @@ export default class ApplicationList extends Component {
     }
 
     openDecline(){
+        console.log("open")
         this.setState({showDeclineModal: true});
     }
 
@@ -101,13 +103,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -131,13 +133,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -161,13 +163,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -191,13 +193,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -221,13 +223,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -251,13 +253,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -266,6 +268,53 @@ export default class ApplicationList extends Component {
                                     </ul>
                                 </div>
                             </div>
+
+                            <div>
+                                <Modal className="modal-container"
+                                       show={this.state.showDetailsModal}
+                                       onHide={this.closeDetails}
+                                       animation={true}
+                                       bsSize="small">
+                                    <Modal.Header>
+                                        <Modal.Title>
+                                            Alice
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <div className="row container-fluid">
+
+                                        </div>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button
+                                            onClick={this.closeDetails}>Close</Button>
+                                    </Modal.Footer>
+                                </Modal>
+                            </div>
+
+                            <div>
+                                <Modal className="modal-container"
+                                       show={this.state.showDeclineModal}
+                                       onHide={this.closeDecline}
+                                       animation={true}
+                                       bsSize="small">
+                                    <Modal.Header>
+                                        <Modal.Title>
+                                            Alice
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <div className="row container-fluid">
+
+                                        </div>
+                                    </Modal.Body>
+                                    <Modal.Footer>
+                                        <Button
+                                            onClick={this.closeDecline}>Close</Button>
+                                    </Modal.Footer>
+                                </Modal>
+                            </div>
+
                         </div>
                     </div>
                     <div>
@@ -334,51 +383,51 @@ export default class ApplicationList extends Component {
                         </Modal>
                     </div>
 
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showDetailsModal}
-                               onHide={this.closeDetails}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Alice
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="row container-fluid">
+                    {/*<div>*/}
+                    {/*    <Modal className="modal-container"*/}
+                    {/*           show={this.state.showDetailsModal}*/}
+                    {/*           onHide={this.closeDetails}*/}
+                    {/*           animation={true}*/}
+                    {/*           bsSize="small">*/}
+                    {/*        <Modal.Header>*/}
+                    {/*            <Modal.Title>*/}
+                    {/*                Alice*/}
+                    {/*            </Modal.Title>*/}
+                    {/*        </Modal.Header>*/}
+                    {/*        <Modal.Body>*/}
+                    {/*            <div className="row container-fluid">*/}
 
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button
-                                    onClick={this.closeDetails}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
+                    {/*            </div>*/}
+                    {/*        </Modal.Body>*/}
+                    {/*        <Modal.Footer>*/}
+                    {/*            <Button*/}
+                    {/*                onClick={this.closeDetails}>Close</Button>*/}
+                    {/*        </Modal.Footer>*/}
+                    {/*    </Modal>*/}
+                    {/*</div>*/}
 
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showDeclineModal}
-                               onHide={this.closeDecline}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Alice
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="row container-fluid">
+                    {/*<div>*/}
+                    {/*    <Modal className="modal-container"*/}
+                    {/*           show={this.state.showDeclineModal}*/}
+                    {/*           onHide={this.closeDecline}*/}
+                    {/*           animation={true}*/}
+                    {/*           bsSize="small">*/}
+                    {/*        <Modal.Header>*/}
+                    {/*            <Modal.Title>*/}
+                    {/*                Alice*/}
+                    {/*            </Modal.Title>*/}
+                    {/*        </Modal.Header>*/}
+                    {/*        <Modal.Body>*/}
+                    {/*            <div className="row container-fluid">*/}
 
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button
-                                    onClick={this.closeDecline}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
+                    {/*            </div>*/}
+                    {/*        </Modal.Body>*/}
+                    {/*        <Modal.Footer>*/}
+                    {/*            <Button*/}
+                    {/*                onClick={this.closeDecline}>Close</Button>*/}
+                    {/*        </Modal.Footer>*/}
+                    {/*    </Modal>*/}
+                    {/*</div>*/}
 
                 </div>
             </div>
