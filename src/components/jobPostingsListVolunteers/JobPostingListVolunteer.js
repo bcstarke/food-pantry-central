@@ -59,7 +59,7 @@ export default class createGroceryItem extends Component {
                         <br/>
                         <p className="go-donate-tittle">Want to donate instead?</p>
 
-                        <Link to="/" type="button"
+                        <Link to="/donationType" type="button"
                               className="btn btn-go-donate"
                               onClick={this.back}>
                             Click here
@@ -87,7 +87,7 @@ export default class createGroceryItem extends Component {
                                 <div className="col-10">
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Truck driver</h1>
@@ -114,7 +114,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator</h1>
@@ -143,7 +143,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1  style={{color:"#4b1b1b"}}>Shelf organizer</h1>
@@ -171,7 +171,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Food distributor</h1>
@@ -199,7 +199,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 2</h1>
@@ -227,7 +227,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 3</h1>
