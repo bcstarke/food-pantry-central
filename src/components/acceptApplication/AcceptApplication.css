@@ -8,4 +8,21 @@
 
 .option{
     margin-right: 1rem;
+    color: #ff252a;
+}
+
+.volunteer-list::-webkit-scrollbar {
+    display: none;
+}
+
+.volunteer-box{
+    background-color: rgb(107, 114, 78);
+    border-color: #4b1b1b;
+}
+
+.volunteer-list{
+    overflow: scroll;
+    /*height: 25rem;*/
+    /*width: 70rem;*/
+    /*margin-left: 3rem;*/
 }
