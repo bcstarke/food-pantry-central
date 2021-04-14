@@ -62,16 +62,15 @@ export default class ChoosePantry extends Component {
                               onClick={this.open}>
                             Go back
                         </Link>
+                        <p className="go-donate-tittle">Want to donate instead?</p>
 
+                        <Link to="/donationType" type="button"
+                              className="btn btn-go-donate"
+                              onClick={this.back}>
+                            Click here
+                        </Link>
                         <div className="volunteer-box">
-                            <div className="row vol-text">Interested in volunteering?</div>
-                            <div className="row">
-                                <Link to="/choosePantryV" type="button"
-                                      className="btn go-to-volunteer-btn"
-                                      onClick={this.open}>
-                                    Click here
-                                </Link>
-                            </div>
+
                         </div>
                         {/*</div>*/}
                         <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>

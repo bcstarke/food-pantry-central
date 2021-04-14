@@ -61,7 +61,7 @@ export default class createGroceryItem extends Component {
 
                         <Link to="/donationType" type="button"
                               className="btn btn-go-donate"
-                              onClick={this.back}>
+                             >
                             Click here
                         </Link>
                         <Link to="/" type="button"
