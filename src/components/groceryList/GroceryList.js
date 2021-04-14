@@ -262,13 +262,13 @@ export default class createGroceryItem extends Component {
                                 <h5 style={{marginLeft:"20rem"}}>Product Suggestion:</h5>
 
                                 <a
-                                    href="https://www.walmart.com/ip/Great-Value-All-Purpose-Flour-5-lb/10403017">
+                                    href="https://www.walmart.com/ip/Great-Value-All-Purpose-Flour-5-lb/10403017" target="_blank">
                                     <img style={{height:"5rem", width:"5rem", borderRadius: "50%", marginTop: "-1rem"}} src="https://i5.walmartimages.com/asr/3b38c066-8ec5-41be-8548-e5c413478d7a_4.a7ee29201ea1b52b086a97db4227b273.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff" alt="Italian Trulli"/>
                                 </a>
 
                                     <a
-                                        href="https://www.walmart.com/ip/Great-Value-All-Purpose-Flour-5-lb/10403017">
-                                        <img style={{height:"5rem", width:"5rem", borderRadius: "50%", marginTop: "-1rem"}} src="https://i5.walmartimages.com/asr/3b38c066-8ec5-41be-8548-e5c413478d7a_4.a7ee29201ea1b52b086a97db4227b273.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff" alt="Italian Trulli"/>
+                                        href="https://www.walmart.com/ip/King-Arthur-Flour-Unbleached-Bread-Flour-80-oz/10535108" target="_blank">
+                                        <img style={{height:"5rem", width:"5rem", borderRadius: "50%", marginTop: "-1rem"}} src="https://i5.walmartimages.com/asr/000e6f83-2c72-42d6-9eb6-4a8fe4bcf3cf.106481bdfd7af01e42a0e9ec7b035706.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff" alt="Italian Trulli"/>
                                     </a>
                                 </div>
 
