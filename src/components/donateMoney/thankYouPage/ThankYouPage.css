@@ -8,8 +8,13 @@
     font-size: 4rem;
 }
 
+.info-text{
+    font-size: 28px;
+    color: #fff;
+}
+
 .thank-you-button {
-    height: 15rem;
+    height: 10rem;
     width: 25rem;
 }
 

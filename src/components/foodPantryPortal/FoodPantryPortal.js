@@ -31,6 +31,10 @@ export default class createGroceryItem extends Component {
                         Profile
                     </Link>
                     <div className="header-box container header">
+                        <Link to="/"
+                                className="btn btn-go-back" style={{marginTop:"-15px"}}>
+                            Go to Main
+                        </Link>
                         <Link to="/">
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>

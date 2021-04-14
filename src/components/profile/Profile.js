@@ -40,43 +40,45 @@ export default class createGroceryItem extends Component {
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
                         <h1>Your Profile information</h1>
-                        <div className="btn-wrapper">
-
-                            <div className="review-content">
-                                <div className="row">
+                        <div className="btn-wrapper" >
+                        <div style={{backgroundColor:"#4b1b1b", padding:"10px", height:"20rem"}}>
+                            <div className="review-content" >
+                                <div className="row" style={{marginTop:"30px"}}>
                                     <h5>Food Pantry Name:</h5>
                                     <h6> Salvation Army Food Pantry</h6>
-                                    <button  className="btn edit-btn" size="sm" onClick={this.edit}>edit
+                                    {/*<button  className="btn edit-btn" size="sm" onClick={this.edit}>edit*/}
 
-                                    </button>
+                                    {/*</button>*/}
                                 </div>
-                                <div className="row">
+                                <div className="row" style={{marginTop:"30px"}}>
                                     <h5>Address:</h5>
                                     <h6>123 Cherry st, Ma, 02139</h6>
-                                    <button className="btn edit-btn" size="sm"
-                                            onClick={this.edit}>edit
-                                    </button>
+                                    {/*<button className="btn edit-btn" size="sm"*/}
+                                    {/*        onClick={this.edit}>edit*/}
+                                    {/*</button>*/}
                                 </div>
-                                <div className="row">
+                                <div className="row" style={{marginTop:"30px"}}>
                                     <h5>Bank information:</h5>
                                     <h6>xxxxxxxxx</h6>
-                                    <button className="btn edit-btn" size="sm"
-                                            onClick={this.edit}>edit
-                                    </button>
+                                    {/*<button className="btn edit-btn" size="sm"*/}
+                                    {/*        onClick={this.edit}>edit*/}
+                                    {/*</button>button*/}
 
                                 </div>
+                            </div>
+
+                            </div>
+                            <div style={{marginTop:"10px"}}>
                                 <button type="button"
                                         className="btn btn-in-profile"
                                         onClick={this.back}>Back</button>
                                 <Link to="/foodPantryPortal"type="button"
                                       className="btn btn-in-profile"
                                 >Go to Portal
+
                                 </Link>
 
                             </div>
-
-
-
 
                         </div>
 

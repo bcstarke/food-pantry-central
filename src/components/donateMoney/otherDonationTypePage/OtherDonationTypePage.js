@@ -15,8 +15,23 @@ export default class OtherDonationTypePage extends Component {
             <div className="main-container" id="chooseDonationType">
                 <div className="container">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
-                        <br/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>                        <br/>
+                        <Link to="/donateMoney" type="button"
+                              className="btn go-back-btn-left">
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <br/><br/><br/>
                     <div className="other-info">
@@ -54,21 +69,6 @@ export default class OtherDonationTypePage extends Component {
                     </div>
                     <div className="row">
                         <div className="col-6">
-                            <Link to={{
-                                pathname: "/donateMoney",
-                                state: {
-                                    pantryName: pantryName
-                                }
-                            }}
-                                  class="btn btn-dark btn-lg other-payment-page-button"
-                                  type="button">
-                                <div className="button-text-other-payment">
-                                    <div className="left-arrow-icon">
-                                        <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
-                                    </div>
-                                    Go Back
-                                </div>
-                            </Link>
                         </div>
                         <div className="col-6">
                             <Link to="/thankYouPayment"
