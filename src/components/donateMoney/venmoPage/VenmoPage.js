@@ -54,7 +54,7 @@ export default class VenmoPage extends Component {
                     </div>
                     <div className="col-12 button-row">
                         <div className="col-3">
-                            <Link to="/thankYouPayment"
+                            <Link to="/thankYouVenmo"
                                   className="btn btn-success btn-lg cc-page-button"
                                   type="button">
                                 <div className="button-text-cc-page">

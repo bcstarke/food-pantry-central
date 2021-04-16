@@ -71,7 +71,7 @@ export default class OtherDonationTypePage extends Component {
                         <div className="col-6">
                         </div>
                         <div className="col-6">
-                            <Link to="/thankYouPayment"
+                            <Link to="/thankYouVenmo"
                                   className="btn btn-success btn-lg other-payment-page-button"
                                   type="button">
                                 <div className="button-text-other-payment">
