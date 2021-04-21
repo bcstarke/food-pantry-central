@@ -6,6 +6,7 @@ import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import ReactTooltip from 'react-tooltip';
+import firebase from "../../utils/firebase";
 
 
 export default class createGroceryItem extends Component {
@@ -33,6 +34,7 @@ export default class createGroceryItem extends Component {
             productLink: "",
             productImage: "",
             productUnit:"Select unit",
+            productUnitN:"Select unit",
             productAddNotes:"Write here",
             backgroundPointName:"red",
             backgroundPointQuantity:"red",
@@ -40,9 +42,9 @@ export default class createGroceryItem extends Component {
             backgroundPointReview:"red",
             backgroundPointLink:"red",
             showButton:true,
-
             nameError: "",
-
+            dataFire: [],
+            values: [],
         }
     }
 
@@ -51,7 +53,6 @@ export default class createGroceryItem extends Component {
         this.setState({
                           showModal:true,
                           showButton:false
-
                       })
     }
 
@@ -225,6 +226,116 @@ export default class createGroceryItem extends Component {
     }
 
 
+    createItem = () =>{
+        const todoRef = firebase.database().ref("groceries");
+        const item ={
+            name: this.state.productName,
+            currentQuantity: this.state.productQuantity,
+            currentUnit:this.state.productUnit,
+            needQuantity:this.state.productNeeded,
+            needUnit:this.state.productUnitN,
+            notes: this.state.productAddNotes,
+        }
+        this.setState({
+                          dataFire: [],
+                      })
+        const ref  = todoRef.push(item);
+        const key = ref.getKey();
+
+        const todoRefLink = firebase.database().ref("groceries").child(key).child("links");
+        this.state.values.map((value) =>
+            todoRefLink.push(value)
+        )
+        this.hideReview();
+
+    }
+
+    componentDidMount() {
+
+        const todoRef = firebase.database().ref("groceries");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+            const values = snapshot.val();
+            const list = [];
+            for(let id in values){
+                list.push(values[id])
+
+                this.setState(prevState => ({
+                    dataFire: [...prevState.dataFire, values[id]]
+                }))
+            }
+            console.log(snapshot.val());
+
+        });
+    }
+
+
+    createUI(){
+        return this.state.values.map((el, i) =>
+
+                                         <div key={i} className="row user-input-row-sche" style={{marginTop:"-50px"}}>
+                                             <div className="row" style={{marginLeft: "6rem",marginTop: "4rem"}}>
+                                                 <div className="form-floating col-sm-5">
+
+                                                     <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
+                                                            placeholder="" value={el.link} data-id={i} name="link" onChange={this.handleChange.bind(this, i)}/>
+                                                 </div>
+
+                                                 <ReactTooltip id="registerTip" place="top" effect="solid" class='mySepecialClass'>
+                                                     To get the image link: Click right button over the product image online and click on "Copy image address"
+                                                 </ReactTooltip>
+                                                 <div className="form-floating col-sm-5" >
+
+                                                     <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
+                                                            placeholder="" value={el.image} data-id={i} name="image" onChange={this.handleChange.bind(this, i)}/>
+                                                 </div>
+                                                 <button className="btn edit-btn" size="m"
+                                                         onClick={this.removeClick.bind(this, i)}>Remove Schedule
+                                                 </button>
+                                             </div>
+                                         </div>
+        )
+    }
+
+
+    handleChange(i, event) {
+        let values = [...this.state.values];
+        // values[i] = event.target.value;
+        // this.setState({ values });
+        // console.log("values " + values)
+        // const values = [...fields];
+        const { name, value } = event.target;
+        values[i][name] = value;
+        this.setState({values});
+
+        // alert('A name was submitted: ' + this.state.values[i].day + " " + this.state.values[i].to + " " + this.state.values[i].from);
+
+    }
+
+    addClick(){
+        this.setState(prevState => ({ values: [...prevState.values, {link: '', image:''}]}))
+    }
+
+    removeClick(i){
+        let values = [...this.state.values];
+        values.splice(i,1);
+        this.setState({ values });
+    }
+
+    handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.values.join(', '));
+        event.preventDefault();
+    }
+
+
+
+
+
+
+
+
+
+
 
     render() {
         const {productName} = this.state
@@ -330,15 +441,17 @@ export default class createGroceryItem extends Component {
                             {
                                 this.state.showLink?
                                 <div id="child-input-container">
-                                    <h2>Please add product link suggestions:</h2>
+                                    <h2>Please add product link suggestions: <button className="btn edit-btn" size="m"
+                                                                                     onClick={this.addClick.bind(this)}>Add new suggestion
+                                    </button></h2>
+
                                     <div>
 
                                         <div className="row" style={{marginLeft: "6rem"}}>
                                             <div className="form-floating col-sm-5">
                                                 <label style={{color:"#ce9466"}}>
                                                     Product link  (optional)</label>
-                                                <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
-                                                       placeholder="" value={productLink} name="productLink" onChange={this.handleInputName}/>
+
                                             </div>
 
 
@@ -350,10 +463,10 @@ export default class createGroceryItem extends Component {
                                                     product image link (optional)</label>
                                                 <img data-tip data-for="registerTip" style={{height:"1.5rem", width:"1.5rem", borderRadius: "50%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZmEQb5_W_d63kRpr6DKBMx8ZPFo-M8N5y1w&usqp=CAU" alt="Italian Trulli"/>
 
-                                                <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
-                                                       placeholder="" value={productImage} name="productImage" onChange={this.handleInputName}/>
                                             </div>
                                         </div>
+
+                                        {this.createUI()}
 
                                     </div>
 
@@ -427,7 +540,11 @@ export default class createGroceryItem extends Component {
                                         </div>
                                         <div className="row">
                                             <h5>Product Image:</h5>
-                                            <img style={{height:"5rem", width:"5rem", borderRadius: "50%"}} src={productImage} alt="Italian Trulli"/>
+                                            {this.state.values.map((value, index) => (
+                                                <a href={value.link} target="_blank">
+                                                <img style={{height:"5rem", width:"5rem", borderRadius: "50%"}} src={value.image} alt="Italian Trulli"/>
+                                                </a>
+                                            ))}
                                             <button className="btn edit-btn" size="sm"
                                                     onClick={() => this.editLink()}>edit
                                             </button>
@@ -447,7 +564,7 @@ export default class createGroceryItem extends Component {
                                             Cancel Item
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()}>Add item
+                                                onClick={() =>this.createItem()}>Add item
                                         </button>
                                     </div>
                                 </div>

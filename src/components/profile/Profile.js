@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, useEffect} from "react";
 import "./Profile.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
@@ -7,6 +7,10 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
+import DataJson from "./dataVolunteerApplic.json";
+import $ from 'jquery';
+import firebase from "../../utils/firebase";
+
 
 
 export default class createGroceryItem extends Component {
@@ -14,6 +18,10 @@ export default class createGroceryItem extends Component {
     constructor(props) {
         super(props);
         this.back = this.back.bind(this);
+
+        this.state={
+            dataFire: [],
+        }
 
     }
 
@@ -27,8 +35,48 @@ export default class createGroceryItem extends Component {
 
     }
 
+    createItem = () =>{
+        const todoRef = firebase.database().ref("groceries");
+        const item ={
+            name: "cheese",
+            currentQuantity:4,
+            needQuantity:4,
+            notes: "",
+            link:"",
+        }
+        this.setState({
+            dataFire: [],
+        })
+        todoRef.push(item);
+    }
+
+
+    componentDidMount() {
+
+        const todoRef = firebase.database().ref("groceries");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+            const values = snapshot.val();
+            const list = [];
+            for(let id in values){
+                list.push(values[id])
+
+                this.setState(prevState => ({
+                    dataFire: [...prevState.dataFire, values[id]]
+                }))
+            }
+            // this.setState({
+            //                   dataFire:list,
+            //               })
+          console.log(snapshot.val());
+
+        });
+    }
+
+
 
     render() {
+        // const {dataFire} = this.state;
 
 
         return (
@@ -79,8 +127,12 @@ export default class createGroceryItem extends Component {
                                 </Link>
 
                             </div>
-
+                            <input type="text" className="form-control form-font"   style={{backgroundColor:"#ffffff"}}/>
+                            <button onClick={() =>this.createItem()}>test</button>
                         </div>
+                        {this.state.dataFire.map((value, index) => (
+                            <h6>{value.name}</h6>
+                        ))}
 
 
                     </div>

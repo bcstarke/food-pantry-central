@@ -1,10 +1,11 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import "./CreateJobPost.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Link} from 'react-router-dom'
 import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown'
+import firebase from "../../utils/firebase";
 
 
 export default class createJobPost extends Component {
@@ -43,8 +44,6 @@ export default class createJobPost extends Component {
             showInputSchedule2:false,
             showInputSchedule3:false,
             schedulerCount:0,
-
-            values: [],
 
 
         }
