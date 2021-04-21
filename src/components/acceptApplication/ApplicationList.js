@@ -94,20 +94,20 @@ export default class ApplicationList extends Component {
 
                                                 <div className="col-7">
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
+                                                            className="btn btn-dark btn-sm accept"
                                                             onClick={this.openConfirmation}>
                                                         Accept
                                                     </Button>
 
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            className="btn btn-dark btn-sm decline"
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -131,13 +131,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -161,13 +161,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -191,13 +191,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -221,13 +221,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -251,13 +251,13 @@ export default class ApplicationList extends Component {
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDecline}>
+                                                            onClick={this.openDecline}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onclick={this.openDetails}>
+                                                            onClick={this.openDetails}>
                                                         See Details
                                                     </Button>
                                                 </div>

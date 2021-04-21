@@ -21,3 +21,19 @@
     /*width: 70rem;*/
     /*margin-left: 3rem;*/
 }
+
+.accept{
+    background-color: rgb(107, 114, 78);
+    color:#ce9466;
+    border: none;
+    font-size: 30px;
+    margin-left: 10px
+}
+
+.decline{
+    background-color: indianred;
+    color:#ce9466;
+    border: none;
+    font-size: 30px;
+    margin-left: 10px
+}

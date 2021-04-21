@@ -215,13 +215,7 @@ export default class createGroceryItem extends Component {
                                                 <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
                                                     <p>Current Quantity: 8 kg</p>
                                                 </div>
-
                                             </li>
-
-
-
-
-
                                         </ul>
                                     </div>
 

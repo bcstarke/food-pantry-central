@@ -69,7 +69,7 @@ export default class BuyGroceryOnline extends Component {
 
                                                 <div className="col-8">
                                                     <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
+                                                            className="btn btn-dark btn-sm delete"
                                                             onClick={this.openDeleteConfirmation}>
                                                     {/*// style={{backgroundColor:'#ff252a', color:'white'}}>*/}
                                                         Delete
