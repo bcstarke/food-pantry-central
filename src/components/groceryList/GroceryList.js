@@ -24,6 +24,7 @@ export default class createGroceryItem extends Component {
             productUnit:"Select unit",
             productUnitN:"Select unit",
             productAddNotes:"Write here",
+            currentItem:"",
             showDetails: false,
             showDelete: false,
             dataFire: [],
@@ -49,7 +50,12 @@ export default class createGroceryItem extends Component {
         this.removeClick();
     }
 
-    openDelete() {
+    openDelete(value) {
+        const size = this.state.dataFire.length
+        this.setState({
+                          currentItem:size - 1 - value,
+
+                      })
         console.log("helloooooo");
         this.setState({
                           showDelete:true,
@@ -63,6 +69,15 @@ export default class createGroceryItem extends Component {
                           showDelete:false,
 
                       })
+    }
+
+    closeDelete2() {
+        console.log("helloooooo");
+        this.setState({
+                          showDelete:false,
+
+                      })
+        this.deleteProduct()
     }
 
     removeClick(){
@@ -118,20 +133,47 @@ export default class createGroceryItem extends Component {
         todoRef.on('value', snapshot => {
             // convert messages list from snapshot
             const values = snapshot.val();
-            const list = [];
-            for(let id in values){
-                list.push(values[id])
 
+            const list = [];
+
+            snapshot.forEach(userSnapshot => {
+                console.log("key " + userSnapshot.key);
+                const value = snapshot.child(userSnapshot.key).val();
+                const key = {key:userSnapshot.key};
+                Object.assign(value, key);
+                console.log("key2" + value.key);
                 this.setState(prevState => ({
-                    dataFire: [...prevState.dataFire, values[id]]
+                    dataFire: [...prevState.dataFire, value]
                 }))
-            }
+
+
+                        });
+            // for(let id in values){
+            //
+            //     list.push(values[id])
+            //
+            //     this.setState(prevState => ({
+            //         dataFire: [...prevState.dataFire, values[id]]
+            //     }))
+            // }
             // this.setState({
             //                   dataFire:list,
             //               })
-            console.log(snapshot.val());
+            // console.log(snapshot.val());
 
         });
+    }
+
+    deleteProduct(){
+
+        // let values = [...this.state.dataFire];
+        const index = this.state.currentItem;
+        // values.splice(index,1);
+        this.setState({dataFire: [] });
+
+        const item = (this.state.dataFire[index]);
+        firebase.database().ref("groceries").child(item.key).remove();
+
     }
 
 
@@ -184,7 +226,7 @@ export default class createGroceryItem extends Component {
                                                         <Button
                                                               className="btn btn-success details-btn see-details-btn"
                                                               type="button"
-                                                              onClick={() =>this.openDelete()}
+                                                              onClick={() =>this.openDelete(index)}
                                                               style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
                                                             Delete
                                                         </Button>
@@ -291,7 +333,7 @@ export default class createGroceryItem extends Component {
                                 </Button>
                                 <Button to="/foodPantryPortal"
                                       type="button" className="btn btn-success popup-btn1"
-                                      onClick={() =>this.closeDelete()}>Delete
+                                      onClick={() =>this.closeDelete2()}>Delete
                                 </Button>
                             </div>
                         </div>
