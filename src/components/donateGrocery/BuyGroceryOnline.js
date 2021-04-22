@@ -43,8 +43,9 @@ export default class BuyGroceryOnline extends Component {
                                 <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantryG"
-                                          className="btn btn-info change-pantry-btn"
-                                          type="button">
+                                          className="btn btn-info button1"
+                                          type="button"
+                                          style={{fontSize:"20px"}}>
                                         Change Food Pantry
                                     </Link>
                                 </div>
@@ -89,32 +90,31 @@ export default class BuyGroceryOnline extends Component {
                                 </h2>
                             </div>
                         </div>
-
-                        <br/>
-                        <div className="row">
-                            <div className="col">
-                                <Link to="/"
-                                      className="btn btn-dark btn-lg go-back-to-main-menu"
-                                      type="button" style={{marginBottom:'40px'}}>
-                                    GO BACK TO MAIN
-                                    <br/>
-                                    MENU
-                                </Link>
-                            </div>
-                            <div className="col">
-                                <Link
-                                      to="/donateGrocery"
-                                          // state: {
-                                          //     pantryName: pantryName
-                                          // }
-                                      className="btn btn-dark btn-lg go-back-to-main-menu"
-                                      type="button">
-                                    GO BACK TO GROCERY
-                                    <br/>
-                                    LIST
-                                </Link>
-                            </div>
-                        </div>
+                        {/*<br/>*/}
+                        {/*<div className="row">*/}
+                        {/*    <div className="col">*/}
+                        {/*        <Link to="/"*/}
+                        {/*              className="btn btn-dark btn-lg go-back-to-main-menu"*/}
+                        {/*              type="button" style={{marginBottom:'40px'}}>*/}
+                        {/*            GO BACK TO MAIN*/}
+                        {/*            <br/>*/}
+                        {/*            MENU*/}
+                        {/*        </Link>*/}
+                        {/*    </div>*/}
+                        {/*    <div className="col">*/}
+                        {/*        <Link*/}
+                        {/*              to="/donateGrocery"*/}
+                        {/*                  // state: {*/}
+                        {/*                  //     pantryName: pantryName*/}
+                        {/*                  // }*/}
+                        {/*              className="btn btn-dark btn-lg go-back-to-main-menu"*/}
+                        {/*              type="button">*/}
+                        {/*            GO BACK TO GROCERY*/}
+                        {/*            <br/>*/}
+                        {/*            LIST*/}
+                        {/*        </Link>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
         )
