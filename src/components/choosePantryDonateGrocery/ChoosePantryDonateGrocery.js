@@ -21,7 +21,7 @@ export default class ChoosePantry extends Component {
             showMessage: false,
             showModal: false,
             pantryName: "hello123",
-            radius: 1
+            radius: 1,
         };
 
         this.open = this.open.bind(this);
@@ -57,23 +57,18 @@ export default class ChoosePantry extends Component {
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
                         <br/>
-                        <Link to="/" type="button"
-                              className="btn go-back-btn-left"
-                              onClick={this.open}>
+                        <p className="go-donate-tittle">Want to volunteer instead?</p>
+
+                        <Link to="/choosePantryV" type="button"
+                              className="btn btn-go-donate"
+                              onClick={this.back}>
+                            Click here
+                        </Link>
+                        <Link to="/donationType" type="button"
+                              className="btn btn-go-back"
+                              onClick={this.back}>
                             Go back
                         </Link>
-
-                        <div className="volunteer-box">
-                            <div className="row vol-text">Interested in volunteering?</div>
-                            <div className="row">
-                                <Link to="/choosePantryV" type="button"
-                                      className="btn go-to-volunteer-btn"
-                                      onClick={this.open}>
-                                    Click here
-                                </Link>
-                            </div>
-                        </div>
-                        {/*</div>*/}
                         <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">

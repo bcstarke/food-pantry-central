@@ -1,3 +1,7 @@
+body{
+    padding-right: 10rem;
+}
+
 .option{
     background-color: #4b1b1b;
     color:#ce9466;
@@ -19,7 +23,6 @@
     overflow: scroll;
     /*height: 25rem;*/
     /*width: 70rem;*/
-    /*margin-left: 3rem;*/
 }
 
 .accept{

@@ -80,34 +80,36 @@ export default class ApplicationList extends Component {
                         </Link>
                         <h1>Volunteer Applicants</h1>
                         <br/>
-                        <div className="container-fluid">
 
+                        <div className="container-fluid">
                             <div className="col-11">
                                 <div className="list-group" id="list-tab" role="tablist">
                                     <ul className="list-group volunteer-list">
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
+                                        <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
                                             <div className="row button-row">
 
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
+                                                <div className="col-6 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
                                                  Alice
                                                 </div>
 
-                                                <div className="col-7">
+                                                <div className="col-6">
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm accept"
-                                                            onClick={this.openConfirmation}>
+                                                            onClick={() => this.openConfirmation()}
+                                                    style={{marginRight:'40px'}}>
                                                         Accept
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm decline"
-                                                            onClick={this.openDecline}>
+                                                            onClick={()=>this.openDecline()}
+                                                            style={{marginRight:'40px'}}>
                                                         Decline
                                                     </Button>
 
                                                     <Button type="button"
                                                             className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
+                                                            onClick={()=>this.openDetails()}>
                                                         See Details
                                                     </Button>
                                                 </div>
@@ -115,271 +117,120 @@ export default class ApplicationList extends Component {
                                             </div>
                                         </li>
 
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
 
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-7">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-7">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-7">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-7">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-5 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-7">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openConfirmation}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDecline}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDetails}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showConfirmationModal}
-                               onHide={this.closeConfirmation}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Are you sure you want to accept Alice's application ?
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
+
+                    {
+                        this.state.showConfirmationModal?
+                        <div className="modal-content popup" style={{marginTop:"-25rem"}}>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Are you sure you want to accept the application ?</h4>
+                            </div>
+
+                            {/*<div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>*/}
+                            {/*    <p>Are you sure yo want to delete this item?</p>*/}
+                            {/*</div>*/}
+
+                            <div className="modal-footer">
                                 <Button  type="button"
-                                         className="btn btn-dark btn-sm" onClick={this.showMessageModal}>
-                                    YES
+                                         className="btn btn-dark btn-sm" onClick={() => this.showMessageModal()}>
+                                    Yes, accept
                                 </Button>
                                 <Button  type="button"
-                                         className="btn btn-dark btn-sm" onClick={this.closeConfirmation} style={{float:'right'}}>
-                                    NO
+                                         className="btn btn-dark btn-sm" onClick={() => this.closeConfirmation()} style={{float:'right'}}>
+                                    No, don't accept
                                 </Button>
-                            </Modal.Body>
-                        </Modal>
-                    </div>
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showMessageModal}
-                               onHide={this.showMessageModal}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Congratulation! You accept Alice's application. You can send message to her.
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
+                            </div>
+                        </div>
+                                             :null}
+
+                    {
+                        this.state.showMessageModal?
+                        <div className="modal-content popup" style={{marginTop:"-25rem"}}>
+                            {/*<div className="modal-header">*/}
+                            {/*    <h4 className="modal-title">Congratulation! You accept the application. You can send message to the candidate</h4>*/}
+                            {/*</div>*/}
+                            <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
+                                {/*<p>Congratulation! You accept the application. You can send message to the candidate</p>*/}
                                 <div className="row container-fluid">
                                     <label>Enter Email Address:</label>
                                     <input className='form-control' type="email" id="email" name="email" placeholder='optional'
-                                    style={{marginBottom:'20px'}}/>
-                                        <br/>
+                                           style={{marginBottom:'20px'}}/>
+                                    <br/>
                                     <label>Message:</label>
-                                        <textarea className='form-control' rows="4" cols="25" placeholder='optional'
-                                                  style={{marginBottom:'20px'}}>
+                                    <textarea className='form-control' rows="4" cols="25" placeholder='optional'
+                                              style={{marginBottom:'20px'}}>
                                         </textarea>
                                     <br/>
                                 </div>
-                            </Modal.Body>
-                            <Modal.Footer>
+                            </div>
+
+                            <div className="modal-footer">
                                 <Button type="button"
                                         className="btn btn-dark btn-sm"
-                                        onClick={this.closeMessageModal}
-                                        onClickCapture={this.closeConfirmation}
+                                        onClick={() => this.closeMessageModal()}
+                                        onClickCapture={() =>this.closeConfirmation()}
                                         style={{marginRight:'187px'}}>
-                                    Send Message
+                                    Send message
                                 </Button>
                                 <Button
                                     type="button"
                                     className="btn btn-dark btn-sm"
-                                    onClick={this.closeMessageModal}
-                                    onClickCapture={this.closeConfirmation}>
-                                    Don't Send Message
+                                    onClick={() => this.closeMessageModal()}
+                                    onClickCapture={() => this.closeConfirmation()}>
+                                    Don't need to send message
                                 </Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
+                            </div>
+                        </div>
+                                                        :null}
 
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showDetailsModal}
-                               onHide={this.closeDetails}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Alice
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="row container-fluid">
+                    {
+                        this.state.showDeclineModal?
+                        <div className="modal-content popup" style={{marginTop:"-25rem"}}>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Are you sure you want to decline the application ?</h4>
+                            </div>
 
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button
-                                    onClick={this.closeDetails}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
+                            {/*<div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>*/}
+                            {/*    <p>Are you sure yo want to delete this item?</p>*/}
+                            {/*</div>*/}
 
-                    <div>
-                        <Modal className="modal-container"
-                               show={this.state.showDeclineModal}
-                               onHide={this.closeDecline}
-                               animation={true}
-                               bsSize="small">
-                            <Modal.Header>
-                                <Modal.Title>
-                                    Alice
-                                </Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="row container-fluid">
+                            <div className="modal-footer">
+                                <Button  type="button"
+                                         className="btn btn-dark btn-sm" onClick={() => this.closeDecline()}>
+                                    Yes, decline
+                                </Button>
+                                <Button  type="button"
+                                         className="btn btn-dark btn-sm" onClick={() => this.closeDecline()} style={{float:'right'}}>
+                                    No, keep it
+                                </Button>
+                            </div>
+                        </div>
+                                                        :null}
 
-                                </div>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button
-                                    onClick={this.closeDecline}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>
-                    </div>
+                    {
+                        this.state.showDetailsModal?
+                        <div className="modal-content popup" style={{marginTop:"-25rem"}}>
+                            <div className="modal-header">
+                                <h4 className="modal-title">Applicant details...</h4>
+                            </div>
 
+                            {/*<div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>*/}
+                            {/*    <p>Are you sure yo want to delete this item?</p>*/}
+                            {/*</div>*/}
+
+                            <div className="modal-footer">
+                                <Button  type="button"
+                                         className="btn btn-dark btn-sm" onClick={() => this.closeDetails()}>
+                                    close
+                                </Button>
+                            </div>
+                        </div>
+                                                        :null}
                 </div>
             </div>
         )

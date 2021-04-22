@@ -4,13 +4,15 @@ import {Link} from "react-router-dom";
 import "./AcceptApplication.css";
 import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
+import firebase from "../../utils/firebase";
 
 export default class BuyGroceryOnline extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             // showEditConfirmation: false,
-            showDeleteConfirmation: false
+            showDeleteConfirmation: false,
+            dataFire: [],
         };
 
         // this.openEditConfirmation = this.openEditConfirmation.bind(this);
@@ -34,6 +36,29 @@ export default class BuyGroceryOnline extends Component {
 
     closeDeleteConfirmation() {
         this.setState({showDeleteConfirmation: false});
+    }
+
+    componentDidMount() {
+        this.setState({
+                          dataFire: [],
+                      })
+        const todoRef = firebase.database().ref("post");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+            // const values = snapshot.val();
+            //
+            // const list = [];
+            snapshot.forEach(userSnapshot => {
+                console.log("key " + userSnapshot.key);
+                const value = snapshot.child(userSnapshot.key).val();
+                const key = {key:userSnapshot.key};
+                Object.assign(value, key);
+                console.log("key2" + value.key);
+                this.setState(prevState => ({
+                    dataFire: [...prevState.dataFire, value]
+                }))
+            });
+        });
     }
 
     render() {
@@ -60,174 +85,30 @@ export default class BuyGroceryOnline extends Component {
                             <div className="col-11 volunteer-list">
                                 <div className="list-group" id="list-tab" role="tablist">
                                     <ul className="list-group">
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
+                                        {this.state.dataFire.reverse().map((value, index) => (
 
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
+                                            <li className="list-group-item volunteer-box" key={index} data-id={value.id} style={{backgroundColor:"#ffffff"}} >
+                                                <div className="row button-row">
+                                                    <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
+                                                        {value.tittle}
+                                                    </div>
+
+                                                    <div className="col-8">
+                                                        <Button type="button"
+                                                                className="btn btn-dark btn-sm delete"
+                                                                onClick={this.openDeleteConfirmation}>
+                                                                {/*style={{backgroundColor:'#ff252a', color:'white'}}>*/}
+                                                            Delete
+                                                        </Button>
+                                                        <Link to="/applicationDetails"
+                                                              className="btn btn-dark btn-sm option"
+                                                              type="button">
+                                                            See Applications (4)
+                                                        </Link>
+                                                    </div>
                                                 </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm delete"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                    {/*// style={{backgroundColor:'#ff252a', color:'white'}}>*/}
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
-
-                                        <li className="list-group-item volunteer-box" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
-
-                                                <div className="col-4 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                    Alice
-                                                </div>
-
-                                                <div className="col-8">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={this.openDeleteConfirmation}>
-                                                        Delete
-                                                    </Button>
-                                                    {/*<Button type="button"*/}
-                                                    {/*        className="btn btn-dark btn-sm option"*/}
-                                                    {/*        onClick={this.openEditConfirmation}>*/}
-                                                    {/*    Edit*/}
-                                                    {/*</Button>*/}
-                                                    <Link to="/applicationDetails"
-                                                          className="btn btn-dark btn-sm option"
-                                                          type="button">
-                                                        See Applications (4)
-                                                    </Link>
-                                                </div>
-
-                                            </div>
-                                        </li>
+                                            </li>
+                                        ))}
                                     </ul>
                     <div>
                         <Modal className="modal-container"
@@ -252,29 +133,6 @@ export default class BuyGroceryOnline extends Component {
                             </Modal.Footer>
                         </Modal>
                     </div>
-
-                    {/*<div>*/}
-                    {/*    <Modal className="modal-container"*/}
-                    {/*           show={this.state.showEditConfirmation}*/}
-                    {/*           onHide={this.closeEditConfirmation}*/}
-                    {/*           animation={true}*/}
-                    {/*           bsSize="small">*/}
-                    {/*        <Modal.Body>*/}
-                    {/*            <div className="row container-fluid">*/}
-                    {/*                <div className="map-container">*/}
-                    {/*                    Edit this volunteer posting here...*/}
-                    {/*                </div>*/}
-                    {/*            </div>*/}
-                    {/*        </Modal.Body>*/}
-                    {/*        <Modal.Footer>*/}
-                    {/*            <Button*/}
-                    {/*                onClick={this.closeEditConfirmation}>Edit</Button>*/}
-                    {/*            <Button*/}
-                    {/*                onClick={this.closeEditConfirmation}>Close</Button>*/}
-                    {/*        </Modal.Footer>*/}
-                    {/*    </Modal>*/}
-                    {/*</div>*/}
-
                 </div>
                             </div>
                         </div>
