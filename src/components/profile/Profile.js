@@ -127,13 +127,7 @@ export default class createGroceryItem extends Component {
                                 </Link>
 
                             </div>
-                            <input type="text" className="form-control form-font"   style={{backgroundColor:"#ffffff"}}/>
-                            <button onClick={() =>this.createItem()}>test</button>
                         </div>
-                        {this.state.dataFire.map((value, index) => (
-                            <h6>{value.name}</h6>
-                        ))}
-
 
                     </div>
                 </div>

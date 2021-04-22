@@ -45,9 +45,41 @@ export default class createJobPost extends Component {
             showInputSchedule3:false,
             schedulerCount:0,
 
+            postName:"",
+            postDescription:"",
+            postQualifications:"",
+            postOpen:"",
+
+            dataFire: [],
+            values: [],
+
 
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    createPost = () =>{
+        const todoRef = firebase.database().ref("post");
+        const item ={
+            tittle: this.state.postName,
+            description: this.state.postDescription,
+            qualifications:this.state.postQualifications,
+            open:this.state.postOpen,
+        }
+        this.setState({
+                          dataFire: [],
+                      })
+        const ref  = todoRef.push(item);
+        const key = ref.getKey();
+
+        const todoRefLink = firebase.database().ref("post").child(key).child("dates");
+        this.state.values.map((value) =>
+                                  todoRefLink.push(value)
+        )
+
+        this.hideReview();
+
+
     }
 
     openModal() {
@@ -259,13 +291,11 @@ export default class createJobPost extends Component {
 
 
     addScheduleInput = () =>{
-
         if (this.state.schedulerCount === 0){
             console.log("count")
         this.setState({
                           schedulerCount: 1,
                           showInputSchedule1:true,
-
                       })
         }
         if (this.state.schedulerCount === 1){
@@ -432,7 +462,7 @@ export default class createJobPost extends Component {
                                     <div>
 
                                         <div className="form-floating form-text-area">
-                                            <textarea type="text" className="form-control form-font" placeholder="Volunteer description here" name="postDescription" onChange={this.handleInputDescription} style={{backgroundColor:"#ffffff"}}/>
+                                            <textarea type="text" className="form-control form-font" placeholder="Volunteer description here" name="postDescription" onChange={this.handleInputName} style={{backgroundColor:"#ffffff"}}/>
                                         </div>
 
                                     </div>
@@ -551,7 +581,7 @@ export default class createJobPost extends Component {
                                             Cancel Item
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>Add item
+                                                onClick={() =>this.createPost()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>Add item
                                         </button>
                                     </div>
                                 </div>
