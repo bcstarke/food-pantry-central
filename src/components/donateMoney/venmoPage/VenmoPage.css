@@ -21,5 +21,11 @@
     margin-top: -5rem;
     margin-left: -1.5rem;
 }
+.main-container .barcode-box{
+    background-color: #ce9466; /*beige*/
+    align-items: center;
+    left: 25%;
+    border-radius: 12px;
+}
 
 

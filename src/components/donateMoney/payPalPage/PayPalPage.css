@@ -2,14 +2,22 @@
     float: left;
 }
 
+.main-container .amount-label-text{
+    font-size: 40px;
+    color: #4b1b1b;
+}
+
 .main-container .paypal-img-row {
     margin-top: -1rem;
+}
+.main-container .paypal-amount-text {
+    font-size: 40px;
 }
 
 .main-container .paypal-info {
     margin-top: 1rem;
     width: 50rem;
-    background-color: lightgrey;
+    background-color: #ce9466;
     border-radius:10px;
     align-items: center;
     display: flex;

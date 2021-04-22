@@ -83,10 +83,15 @@ h6{
 
 .volunteer-list{
     overflow: scroll;
-
     height: 25rem;
     width: 70rem;
     margin-left: 3rem;
+
+}
+
+.apply-btn{
+    backgroundColor:#6b724e;
+    color:#4b1b1b
 
 }
 
@@ -95,13 +100,8 @@ h6{
     display: none;
 }
 
-.volunteer-list {
-    -ms-overflow-style: none;  /* IE 10+ */
-    scrollbar-width: none;  /* Firefox */
 
-}
-
-.volunteer-box{
+.volunteer-box2{
     background-color: rgb(107, 114, 78);
     border-color: #4b1b1b;
 
@@ -117,10 +117,31 @@ h6{
 
 }
 
-.apply-btn{
-    border-color: #4b1b1b;
-    background-color: transparent;
-    color:#4b1b1b;
+.btn-go-back{
+    position: absolute;
+    top: 35px;
+    left: 10px;
+    background-color: #ce9466;
+    color: #4b1b1b;
     font-size: 30px;
+    border: none;
+}
 
+.btn-go-donate{
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    background-color: #ce9466;
+    color: #4b1b1b;
+    font-size: 30px;
+    border: none;
+}
+
+.go-donate-tittle{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    border: none;
 }

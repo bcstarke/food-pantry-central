@@ -52,7 +52,6 @@ export default class DonateGrocery extends Component {
     }
 
     render() {
-        const {pantryName} = this.props.location.state
         return (
             <div className="main-container" id="donateGroceryList">
                 <div className="container-fluid">
@@ -61,9 +60,9 @@ export default class DonateGrocery extends Component {
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: {pantryName}</h2>
+                                <h2>Pantry you chose: XXX</h2>
                                 <div className="change-pantry-container">
-                                    <Link to="/choosePantryG"
+                                    <Link to="/choosePantry"
                                           className="btn btn-info button1"
                                           type="button"
                                           style={{fontSize:"20px"}}>
@@ -254,13 +253,7 @@ export default class DonateGrocery extends Component {
 
                             <div className="col-4">
                                 <h4 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h4>
-                                <Link
-                                      to={{
-                                          pathname: "/buyGroceryOnline",
-                                          state: {
-                                              pantryName: pantryName
-                                          }
-                                          }}
+                                <Link to="/buyGroceryOnline"
                                       className="btn btn-dark btn-lg donate-options"
                                       type="button">
                                     BUY ONLINE
@@ -311,7 +304,7 @@ export default class DonateGrocery extends Component {
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
 
                     <div>
                         <Modal className="modal-container"
@@ -325,9 +318,9 @@ export default class DonateGrocery extends Component {
                             <Modal.Body>
                                 <div className="row container-fluid">
                                     <b>Item Name: Tuna Cans
-                                    <br/>
-                                    <br/>
-                                    Quantity: 10
+                                        <br/>
+                                        <br/>
+                                        Quantity: 10
                                     </b>
                                 </div>
                             </Modal.Body>
@@ -338,8 +331,8 @@ export default class DonateGrocery extends Component {
                         </Modal>
                     </div>
 
-                    </div>
                 </div>
+            </div>
         )
     }
 }

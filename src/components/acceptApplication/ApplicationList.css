@@ -1,5 +1,23 @@
-.text{
-    color: #ce9466;
-    font-weight: bold;
-    font-size: x-large;
+.option{
+    background-color: #4b1b1b;
+    color:#ce9466;
+    border: none;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.volunteer-list::-webkit-scrollbar {
+    display: none;
+}
+
+.volunteer-box{
+    background-color: rgb(107, 114, 78);
+    border-color: #4b1b1b;
+}
+
+.volunteer-list{
+    overflow: scroll;
+    /*height: 25rem;*/
+    /*width: 70rem;*/
+    /*margin-left: 3rem;*/
 }

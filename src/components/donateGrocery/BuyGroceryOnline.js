@@ -11,10 +11,23 @@ import "./BuyGroceryOnline.css"
 export default class BuyGroceryOnline extends Component {
 
     render() {
-        const {pantryName} = this.props.location.state
+        // const {pantryName} = this.props.location.state
         return (
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
+                    <p className="go-donate-tittle">Want to volunteer instead?</p>
+
+                    <Link to="/" type="button"
+                          className="btn btn-go-donate"
+                          onClick={this.back}>
+                        Click here
+                    </Link>
+                    <Link to="/donateGrocery" type="button"
+                          className="btn btn-go-back"
+                          onClick={this.back}>
+                        Go back
+                    </Link>
+                </div>
                     <div className="header-box container">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
@@ -36,23 +49,23 @@ export default class BuyGroceryOnline extends Component {
                             <div className="col-6">
                                 <h1>TAKE ME TO:</h1>
 
-                                <Link to=""
+                                <a href="https://www.amazon.com/"
                                       type="button"
                                 className="store">
-                                    <img src={amazon} alt={"Amazon"} height="90rem"/>
-                                </Link>
+                                    <img src={amazon} alt={"Amazon"} height="100rem"/>
+                                </a>
 
-                                <Link to=""
+                                <a href="https://www.walmart.com/?&adid=22222222220800010149&wmlspartner=wmtlabs&wl0=e&wl1=g&wl2=c&wl3=505346679064&wl4=kwd-13273026&wl5=9009732&wl6=&wl7=&wl8=&veh=sem&gclid=Cj0KCQjwgtWDBhDZARIsADEKwgMny5NQx2oztsNJsLnQNHb4a8_GjiNGeI4YBWJsuWFZpPN5QF2cnkoaAlSkEALw_wcB&gclsrc=aw.ds"
                                       type="button"
                                       className="store">
-                                    <img src={target} alt={"Target"} height="90rem"/>
-                                </Link>
+                                    <img src={target} alt={"Target"} height="100rem"/>
+                                </a>
 
-                                <Link to=""
+                                <a href="https://www.target.com/"
                                       type="button"
                                       className="store">
-                                    <img src={walmart} alt={"Walmart"} height="90rem"/>
-                                </Link>
+                                    <img src={walmart} alt={"Walmart"} height="100rem"/>
+                                </a>
                             </div>
 
                             <div className="col-6">
@@ -83,12 +96,10 @@ export default class BuyGroceryOnline extends Component {
                             </div>
                             <div className="col">
                                 <Link
-                                      to={{
-                                          pathname: "/donateGrocery",
-                                          state: {
-                                              pantryName: pantryName
-                                          }
-                                      }}
+                                      to="/donateGrocery"
+                                          // state: {
+                                          //     pantryName: pantryName
+                                          // }
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
                                       type="button">
                                     GO BACK TO GROCERY
@@ -99,7 +110,6 @@ export default class BuyGroceryOnline extends Component {
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }

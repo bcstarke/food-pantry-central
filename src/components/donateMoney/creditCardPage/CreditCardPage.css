@@ -24,8 +24,9 @@
 }
 
 .main-container .button-text-cc-page {
-    margin-top: 1rem;
-    align-items: center;
+    /*margin-top: 1rem;*/
+    /*align-items: center;*/
+    margin: auto;
     display: flex;
     justify-content: center;
 }

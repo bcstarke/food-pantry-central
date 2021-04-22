@@ -197,12 +197,15 @@ h6{
 
 .edit-btn{
     font-size: 15px;
-    color: #6b724e;
-    border-color: #6b724e;
+    color: #ce9466;
+    border-color: #ce9466;
     padding: 1px;
     height: 1.3rem;
     position: relative;
-    margin-top: 17px;
+    border: solid;
+    padding-bottom: 20px;
+    background-color:#4b1b1b;
+    margin-top: 10px;
 }
 
 

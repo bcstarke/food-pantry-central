@@ -14,6 +14,10 @@ export default class ChooseDonationType extends Component {
                         <Link to="/">
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
+                        <Link to="/"
+                              className="btn go-back-btn-left" style={{marginTop:"-15px"}}>
+                            Go back
+                        </Link>
                         <br/>
                         <div className="row">
                             {/*<div className="pantry-info-container container-fluid">*/}
@@ -28,6 +32,7 @@ export default class ChooseDonationType extends Component {
                             {/*</div>*/}
                         </div>
                         <div>
+                            {/*<h6 style={{color:"#ffffff", fontSize:"40px"}} className="thank-you"><i>With the help of your donations we have fed more than 645 people</i></h6>*/}
                             <div className="d-grid gap-3 button-row">
                                 <Link to="/choosePantry"
                                       className="btn btn-success buttonPortal"
@@ -43,6 +48,9 @@ export default class ChooseDonationType extends Component {
                                 </Link>
 
                             </div>
+
+                            <h6 style={{color:"#BFA675", fontSize:"40px"}} className="thank-you"><i>With the help of your donations we have fed more than 645 people</i></h6>
+                            <h1 style={{color:"#BFA675"}} className="thank-you"><i>Thank you!</i></h1>
                         </div>
                     </div>
                 </div>

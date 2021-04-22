@@ -21,6 +21,7 @@ export default class createJobPost extends Component {
         this.state={
             showModal:false,
             showModal2:false,
+            showModal3:false,
             appName:"Name",
             showName:true,
             showDescription:false,
@@ -49,7 +50,6 @@ export default class createJobPost extends Component {
             showInputSchedule2:false,
             showInputSchedule3:false,
             schedulerCount:0,
-            // option1:"Saturday 8:00 AM - 10:00 AM"
 
         }
     }
@@ -66,6 +66,22 @@ export default class createJobPost extends Component {
     closeModal() {
         this.setState({
                           showModal:false,
+                          showButton:true
+                      })
+    }
+
+    openModal3() {
+        console.log("helloooooo");
+        this.setState({
+                          showModal3:true,
+                          showButton:false
+
+                      })
+    }
+
+    closeModal3() {
+        this.setState({
+                          showModal3:false,
                           showButton:true
                       })
     }
@@ -313,6 +329,7 @@ export default class createJobPost extends Component {
             this.setState({
                               radioButton2: true,
 
+
                           })
         } else if (e.target.checked && this.state.radioButton2) {
             this.setState({
@@ -357,6 +374,10 @@ export default class createJobPost extends Component {
                     <div className="header-box container form">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
+                        <button type="button"
+                              className="btn btn-go-back" onClick={() =>this.openModal3()}>
+                            Go to Main
+                        </button>
                         <h1>Apply for a volunteer posting</h1>
 
                         <div id="input-container">
@@ -369,21 +390,21 @@ export default class createJobPost extends Component {
                                         <div className="form-floating col-sm-5">
                                             <label style={{color:"#ce9466"}}>
                                                 Name  </label>
-                                            <input type="text" className="form-control form-font"
+                                            <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
                                                    placeholder="Name" value={appName} name="appName" onChange={this.handleInputName}/>
                                         </div>
                                         <div className="form-floating col-sm-5">
-                                            <label style={{color:"#ce9466"}}>
+                                            <label style={{color:"#ce9466", textAlign:"start"}}>
                                                 Last name  </label>
-                                            <input type="text" className="form-control form-font"
+                                            <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
                                                    placeholder="Last Name" value={appLastName} name="appLastName" onChange={this.handleInputName}/>
                                         </div>
                                     </div>
                                     <div className="wrapper">
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}} onClick={() =>this.openModal()}>
                                             Take me to my Volunteer Postings
                                         </button>
-                                        <button type="button" className="btn btn-success button1"
+                                        <button type="button" className="btn btn-success button1" style={{border:"solid", color:"#4b1b1b", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
                                                 onClick={() =>this.hideName()}>next
                                         </button>
                                     </div>
@@ -399,20 +420,22 @@ export default class createJobPost extends Component {
                                     <div style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
                                         <div className="radio-button-background">
                                         <label>
-                                        <input type="radio"
+                                        <input type="checkbox"
                                                value="Tuesday 10:00 AM - 12:00 PM"
                                                name="option1"
+                                               style={{verticalAlign:"middle", zoom:"1.5"}}
                                                checked={this.state.radioButton1}
-                                               onClick={this.onClickAvailability1}
+                                               // onClick={this.onClickAvailability1}
                                                onChange={this.onValueChange1}/>
                                             Tuesday 10:00 AM - 12:00 PM
                                         </label>
                                         </div>
                                             <div className="radio-button-background">
                                         <label>
-                                            <input type="radio"
+                                            <input type="checkbox"
                                                    value="Thursday 10:00 AM - 4:00 PM"
                                                    name="option2"
+                                                   style={{verticalAlign:"middle", zoom:"1.5"}}
                                                    checked={this.state.radioButton2}
                                                    onClick={this.onClickAvailability2}
                                                    onChange={this.onValueChange2}/>
@@ -421,9 +444,10 @@ export default class createJobPost extends Component {
                                             </div>
                                                 <div className="radio-button-background">
                                         <label>
-                                            <input type="radio"
+                                            <input type="checkbox"
                                                    value="Saturday 8:00 AM - 10:00 AM"
                                                    name="option3"
+                                                   style={{verticalAlign:"middle", zoom:"1.5"}}
                                                    checked={this.state.radioButton3}
                                                    onClick={this.onClickAvailability3}
                                                    onChange={this.onValueChange3}/>
@@ -435,13 +459,13 @@ export default class createJobPost extends Component {
 
 
                                     <div className="wrapper" style={{marginTop:"-0.5rem"}}>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToQualifications()}>
-                                            Back
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToQualifications()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>
+                                            Previous
                                         </button>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()} style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}}>
                                             Take me to my Volunteer Postings
                                         </button>
-                                        <button type="button" className="btn btn-success button1"
+                                        <button type="button" className="btn btn-success button1" style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
                                                 onClick={() =>this.hideSchedule()}>next
                                         </button>
                                     </div>
@@ -459,13 +483,13 @@ export default class createJobPost extends Component {
                                             <div className="form-floating col-sm-5">
                                             <label style={{color:"#ce9466"}}>
                                                 Phone #  </label>
-                                            <input type="text" className="form-control form-font"
+                                            <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
                                                    placeholder="Phone #" value={appPhone} name="appPhone" onChange={this.handleInputName}/>
                                             </div>
                                                 <div className="form-floating col-sm-5">
                                                    <label style={{color:"#ce9466"}}>
                                                 Email  </label>
-                                            <input type="text" className="form-control form-font"
+                                            <input type="text" className="form-control form-font" style={{backgroundColor:"#ffffff"}}
                                                    placeholder="Email" value={appEmail} name="appEmail" onChange={this.handleInputName}/>
                                                 </div>
                                                 </div>
@@ -473,13 +497,13 @@ export default class createJobPost extends Component {
                                     </div>
 
                                     <div className="wrapper">
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToName()}>
-                                            Back
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToName()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>
+                                            Previous
                                         </button>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()} style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}}>
                                             Take me to my Volunteer Postings
                                         </button>
-                                        <button type="button" className="btn btn-success button1"
+                                        <button type="button" className="btn btn-success button1" style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
                                                 onClick={() =>this.hideDescription()}>next
                                         </button>
                                     </div>
@@ -493,22 +517,22 @@ export default class createJobPost extends Component {
                                     <h2>Please enter your date of birth here:</h2>
                                     <div>
 
-                                        <div className="form-floating">
-                                            <input type="date" className="form-control form-font"
+                                        <div className="form-floating col-sm-5">
+                                            <input type="date" className="form-control form-font" style={{backgroundColor:"#ffffff", marginLeft:"15rem"}}
                                                    placeholder="date" name="birthName" onChange={this.handleInputName}/>
                                         </div>
 
                                     </div>
 
                                     <div className="wrapper">
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToDescription()}>
-                                            Back
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.backToDescription()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>
+                                            Previous
                                         </button>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()} style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}}>
                                             Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideQualifications()}>next
+                                                onClick={() =>this.hideQualifications()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>next
                                         </button>
                                     </div>
                                 </div>
@@ -535,14 +559,14 @@ export default class createJobPost extends Component {
                                     </label>
                                     </div>
                                     <div className="wrapper">
-                                        <button type="button" className="btn btn-success button1"  onClick={() =>this.backToSchedule()}>
+                                        <button type="button" className="btn btn-success button1"  onClick={() =>this.backToSchedule()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>
                                             Back
                                         </button>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()} style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}}>
                                             Take me to my Volunteer Postings
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideOpen()}>next
+                                                onClick={() =>this.hideOpen()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>next
                                         </button>
                                     </div>
                                 </div>
@@ -551,7 +575,7 @@ export default class createJobPost extends Component {
 
                             {
                                 this.state.showReview?
-                                <div id="child-input-container" style={{height:"30rem"}}>
+                                <div id="child-input-container" style={{height:"33rem", width:"60rem"}}>
                                     <h3>Review form</h3>
                                     <div className="review-content">
                                         <div className="row">
@@ -590,18 +614,18 @@ export default class createJobPost extends Component {
                                             <h6>{option2}</h6>
                                             <h6>{option3}</h6>
                                             <button className="btn edit-btn" size="sm"
-                                                    onClick={() => this.editSchedule()}>edit
+                                                    onClick={() => this.editSchedule()} style={{backgroundColor:"#4b1b1b",  color:"#ce9466", border:"solid", textAlign:"center", paddingBottom:"20px"}}>edit
                                             </button>
                                         </div>
 
 
                                     </div>
                                     <div className="wrapper" style={{marginTop:"1rem"}}>
-                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()}>
+                                        <button type="button" className="btn btn-success button1" onClick={() =>this.openModal()} style={{backgroundColor:"#4b1b1b", borderColor:"#ce9466", border:"solid"}}>
                                             Cancel Application
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()}>Apply
+                                                onClick={() =>this.hideReview()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>Apply
                                         </button>
                                     </div>
                                 </div>
@@ -732,6 +756,35 @@ export default class createJobPost extends Component {
                         </div>
                     </div>
                                          :null}
+
+
+                    {
+                        this.state.showModal3?
+                        <div className="modal-content popup">
+                            <div className="modal-header">
+
+                                <h4 className="modal-title">Are you sure you want to go back to Main Page?</h4>
+                            </div>
+                            <div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>
+                                <p>Everything you have filled out so far in this form is going to be lost.</p>
+                            </div>
+                            <div className="modal-footer">
+                                <Link to={{
+                                    pathname: "/",
+                                    state: {
+                                        pantryName: pantryName,
+                                    }
+                                }}
+                                      type="button" className="btn btn-success popup-btn"
+                                      onClick={() =>this.closeModal3()}>Yes, take me to Main Page
+                                </Link>
+
+                                <button type="button" className="btn btn-success popup-btn1"
+                                        onClick={() =>this.closeModal3()}>No, cancel action
+                                </button>
+                            </div>
+                        </div>
+                                             :null}
                 </div>
             </div>
 

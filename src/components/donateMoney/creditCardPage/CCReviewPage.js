@@ -11,15 +11,50 @@ import {faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 
 
 export default class CCReviewPage extends Component {
+    constructor(props) {
+        super(props);
+
+    }
 
     render() {
         const {pantryName} = this.props.location.state
+        const {ccName} = this.props.location.state
+        const {ccDollarAmount} = this.props.location.state
+        const {ccNumber} = this.props.location.state
+        const {ccExpDate} = this.props.location.state
+        const {ccSecurityCode} = this.props.location.state
+        const {ccZip} = this.props.location.state
+        const {ccEmail} = this.props.location.state
+
         return (
             <div className="main-container" id="chooseDonationType">
                 <div className="container-fluid" id="choosePantryBox">
                     <div className="header-box container">
-                        <img src={logo} alt={"Logo"} width="800px"/>
+                        <Link to="/">
+                            <img src={logo} alt={"Logo"} width="800px"/>
+                        </Link>
                         <br/>
+                        <Link to=
+                                  {{
+                                      pathname: "/creditCard",
+                                      state: {
+                                          pantryName: pantryName,
+                                      }
+                                  }}
+                              type="button"
+                              className="btn go-back-btn-left">
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
                                 <img src={creditCardsLong} alt={"Credit Cards"} height="80rem"/>
@@ -41,8 +76,7 @@ export default class CCReviewPage extends Component {
                                                     </div>
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
-                                                           id="staticEmail"
-                                                           value="  25"/>
+                                                           value={ccDollarAmount}/>
 
                                                 </div>
                                             </div>
@@ -54,7 +88,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="Jane Doe"/>
+                                                           value={ccName}/>
 
                                                 </div>
                                             </div>
@@ -66,7 +100,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="5555-5555-5555-5555"/>
+                                                           value={ccNumber}/>
 
                                                 </div>
                                             </div>
@@ -83,7 +117,7 @@ export default class CCReviewPage extends Component {
                                                         <input type="text" readOnly
                                                                className="form-control-plaintext"
                                                                id="staticEmail"
-                                                               value="03/2025"/>
+                                                               value={ccExpDate}/>
                                                     </div>
                                                 </div>
                                                 <div className="col-6">
@@ -94,7 +128,7 @@ export default class CCReviewPage extends Component {
                                                         <input type="text" readOnly
                                                                className="form-control-plaintext"
                                                                id="staticEmail"
-                                                               value="367"/>
+                                                               value={ccSecurityCode}/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -106,7 +140,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="12345"/>
+                                                           value={ccZip}/>
                                                 </div>
                                             </div>
                                             <br/>
@@ -117,7 +151,7 @@ export default class CCReviewPage extends Component {
                                                     <input type="text" readOnly
                                                            className="form-control-plaintext"
                                                            id="staticEmail"
-                                                           value="name@example.com"/>
+                                                           value={ccEmail}/>
                                                 </div>
                                             </div>
                                         </form>
@@ -148,7 +182,14 @@ export default class CCReviewPage extends Component {
                                 </Link>
                             </div>
                             <div className="col-3">
-                                <Link to="/thankYouPayment"
+                                <Link to=
+                                          {{
+                                          pathname: "/thankYouPayment",
+                                          state: {
+                                              pantryName: pantryName,
+                                              ccEmail: ccEmail
+                                          }
+                                      }}
                                       className="btn btn-success btn-lg cc-page-button"
                                       type="button">
                                     <div className="button-text-cc-review">

@@ -13,12 +13,20 @@ export default class PayPalPage extends Component {
         amount: 0
     };
 
-    handleInput = event => {
-        this.setState({amount: event.target.value});
-    };
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        this.setState({
+                          [event.target.name]: event.target.value
+                      })
+    }
+
 
     render() {
         const {pantryName} = this.props.location.state
+        const {ccName} = this.props.location.state
+        const {ccEmail} = this.state
+        const {ccDollarAmount} = this.state
 
         return (
             <div className="main-container" id="chooseDonationType">
@@ -26,6 +34,20 @@ export default class PayPalPage extends Component {
                     <div className="header-box container">
                         <img src={logo} alt={"Logo"} width="800px"/>
                         <br/>
+                        <Link to="/donateMoney" type="button"
+                              className="btn go-back-btn-left">
+                            Go back
+                        </Link>
+
+                        <div className="volunteer-box">
+                            <div className="row vol-text">Interested in volunteering?</div>
+                            <div className="row">
+                                <Link to="/choosePantryV" type="button"
+                                      className="btn go-to-volunteer-btn">
+                                    Click here
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                     <div className="row username-row">
                         <div className="paypal-img-row">
@@ -33,101 +55,96 @@ export default class PayPalPage extends Component {
                         </div>
                     </div>
                     <div className="container paypal-info">
-                        <div className="row">
-                            <div className="col-12">
-                                <form>
-                                    <div className="col-auto">
-                                        <label className="amount-label"><h3>Email:</h3>
-                                        </label>
-                                        <div className="input-group mb-2">
-                                            <input type="text" className="form-control"
-                                                   id="inlineFormInputGroup"
-                                                   placeholder="Please enter your email..."/>
-                                        </div>
-                                        <label className="amount-label"><h3>Amount</h3>
-                                        </label>
-                                        <div className="input-group mb-2">
-                                            <div className="input-group-prepend">
-                                                <div className="input-group-text">
-                                                    $
-                                                </div>
+                        {/*<div className="row">*/}
+                        <div className="col-10">
+                            <form>
+                                <div className="col-auto">
+                                    <label className="amount-label">
+                                        <h3 className="amount-label-text">Email:</h3>
+                                    </label>
+                                    <div className="input-group mb-2">
+                                        <input type="text" className="form-control"
+                                               id="inlineFormInputGroup"
+                                               placeholder="Please enter your email..."
+                                               value={ccEmail}
+                                               name="ccEmail"
+                                               onChange={this.handleInputName}/>
+                                    </div>
+                                    <label className="amount-label">
+                                        <h3 className="amount-label-text">Amount:</h3>
+                                    </label>
+                                    <div className="input-group mb-2">
+                                        <div className="input-group-prepend">
+                                            <div className="input-group-text">
+                                                $
                                             </div>
-                                            <input type="text" className="form-control"
-                                                   id="inlineFormInputGroup"
-                                                   placeholder="Please enter an amount..."
-                                                   onChange={this.handleInput}/>
+                                        </div>
+                                        <input type="text" className="form-control"
+                                               id="inlineFormInputGroup"
+                                               placeholder="Please enter an amount..."
+                                               value={ccDollarAmount}
+                                               name="ccDollarAmount"
+                                               onChange={this.handleInputName}/>
+                                    </div>
+                                </div>
+                                {/*<br/>*/}
+                                <hr/>
+                                <div className="row">
+                                    <div className="col-4">
+                                        <div>
+                                            <h4><b>Amount: </b></h4>
                                         </div>
                                     </div>
-                                    {/*<br/>*/}
-                                    <hr/>
-                                    <div className="row">
-                                        <div className="col-4">
-                                            <div>
-                                                <h4><b>Amount: </b></h4>
-                                            </div>
-                                        </div>
-                                        <div className="col-5"></div>
-                                        <div className="col-3">
-                                            <div>
-                                               ${this.state.amount}
-                                            </div>
+                                    <div className="col-5"></div>
+                                    <div className="col-3">
+                                        <div className="paypal-amount-text">
+                                            ${ccDollarAmount}
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-4">
-                                            <div>
-                                                <h4><b>Fee: </b></h4>
-                                            </div>
-                                        </div>
-                                        <div className="col-5"></div>
-                                        <div className="col-3">
-                                            <div>
-                                                $0
-                                                {/*{this.state.amount}*/}
-                                            </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-4">
+                                        <div>
+                                            <h4><b>Fee: </b></h4>
                                         </div>
                                     </div>
-                                    <hr/>
-                                    <div className="row">
-                                        <div className="col-4">
-                                            <div>
-                                                <h4><b>You Pay: </b></h4>
-                                            </div>
-                                        </div>
-                                        <div className="col-5"></div>
-                                        <div className="col-3">
-                                            <div>
-                                                ${this.state.amount}
-                                                {/*{this.state.amount}*/}
-                                            </div>
+                                    <div className="col-5"></div>
+                                    <div className="col-3">
+                                        <div className="paypal-amount-text">
+                                            $0
+                                            {/*{this.state.amount}*/}
                                         </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <hr/>
+                                <div className="row">
+                                    <div className="col-4">
+                                        <div>
+                                            <h4><b>You Pay: </b></h4>
+                                        </div>
+                                    </div>
+                                    <div className="col-5"></div>
+                                    <div className="col-3">
+                                        <div className="paypal-amount-text">
+                                            ${ccDollarAmount}
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <br/>
-
                     </div>
                     <div className="col-12 button-row">
                         <div className="col-3">
                             <Link to={{
-                                pathname: "/donateMoney",
-                                state: {
-                                    pantryName: pantryName
-                                }
-                            }}
-                                  class="btn btn-dark btn-lg"
-                                  type="button">
-                                <div className="button-text-cc-page">
-                                    <div className="left-arrow-icon">
-                                        <FontAwesomeIcon icon={faArrowLeft} size='2x'/>
-                                    </div>
-                                    Go Back
-                                </div>
-                            </Link>
-                        </div>
-                        <div className="col-3">
-                            <Link to="/thankYouPayment"
+                                      pathname: "/thankYouPayment",
+                                      state: {
+                                          pantryName: this.state.pantryName,
+                                          ccName: this.state.ccName,
+                                          ccDollarAmount: this.state.ccDollarAmount,
+                                          ccEmail: this.state.ccEmail
+                                      }
+                                  }}
                                   className="btn btn-success btn-lg cc-page-button"
                                   type="button">
                                 <div className="button-text-cc-page">
@@ -136,7 +153,6 @@ export default class PayPalPage extends Component {
                                         <FontAwesomeIcon icon={faArrowRight} size='2x'/>
                                     </div>
                                 </div>
-
                             </Link>
                         </div>
                     </div>

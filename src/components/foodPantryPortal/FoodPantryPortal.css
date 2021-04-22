@@ -92,3 +92,9 @@ h6{
     border: none;
 
 }
+
+.mySepecialClass {
+    background: #ffffff !important;
+    font-size: 20px !important;
+    color: #4b1b1b !important;
+}
