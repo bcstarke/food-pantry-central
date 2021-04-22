@@ -23,7 +23,7 @@ export default class DonateGrocery extends Component {
             productUnitN:"Select unit",
             productAddNotes:"Write here",
             dataFire: [],
-            links: [],
+            links: []
         };
 
         this.open = this.open.bind(this);
@@ -35,6 +35,10 @@ export default class DonateGrocery extends Component {
         this.details = this.details.bind(this)
         this.closeDetails = this.closeDetails.bind(this)
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount() {
+        const pantryName = this.props.location.state
     }
 
     open() {
@@ -116,6 +120,8 @@ export default class DonateGrocery extends Component {
         const {productUnit} = this.state
         const {productAddNotes} = this.state
 
+        const {pantryName} = (this.props.location.state != undefined ? this.props.location.state : " ")
+
         return (
             <div className="main-container" id="donateGroceryList">
                 <div className="container-fluid">
@@ -136,7 +142,7 @@ export default class DonateGrocery extends Component {
                         </Link>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: XXX</h2>
+                                <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
                                     <Link to="/choosePantryG"
                                           className="btn btn-info button1"
@@ -223,7 +229,12 @@ export default class DonateGrocery extends Component {
                             <div className="col-4">
                                 <h1 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h1>
 
-                                <Link to="/buyGroceryOnline"
+                                <Link to={{
+                                    pathname: "/buyGroceryOnline",
+                                    state: {
+                                        pantryName: pantryName
+                                    }
+                                }}
                                       className="btn btn-dark btn-lg donate-options"
                                       type="button">
                                     BUY ONLINE

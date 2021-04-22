@@ -9,9 +9,16 @@ import walmart from '../images/walmart.png';
 import "./BuyGroceryOnline.css"
 
 export default class BuyGroceryOnline extends Component {
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    componentDidMount() {
+        const pantryName = this.props.location.state
+    }
 
     render() {
-        // const {pantryName} = this.props.location.state
+        const {pantryName} = (this.props.location.state != undefined ? this.props.location.state : " ")
         return (
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
@@ -33,9 +40,9 @@ export default class BuyGroceryOnline extends Component {
                         <br/>
                         <div className="row">
                             <div className="pantry-info-container container-fluid">
-                                <h2>Pantry you chose: XXX</h2>
+                                <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
-                                    <Link to="/choosePantry"
+                                    <Link to="/choosePantryG"
                                           className="btn btn-info change-pantry-btn"
                                           type="button">
                                         Change Food Pantry

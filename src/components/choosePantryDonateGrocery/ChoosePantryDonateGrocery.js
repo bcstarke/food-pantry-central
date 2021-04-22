@@ -21,7 +21,7 @@ export default class ChoosePantry extends Component {
             showMessage: false,
             showModal: false,
             pantryName: "hello123",
-            radius: 1
+            radius: 1,
         };
 
         this.open = this.open.bind(this);
@@ -69,23 +69,6 @@ export default class ChoosePantry extends Component {
                               onClick={this.back}>
                             Go back
                         </Link>
-                        {/*<Link to="/" type="button"*/}
-                        {/*      className="btn go-back-btn-left"*/}
-                        {/*      onClick={this.open}>*/}
-                        {/*    Go back*/}
-                        {/*</Link>*/}
-
-                        {/*<div className="volunteer-box">*/}
-                        {/*    <div className="row vol-text">Want to volunteer instead?</div>*/}
-                        {/*    <div className="row">*/}
-                        {/*        <Link to="/choosePantryV" type="button"*/}
-                        {/*              className="btn go-to-volunteer-btn"*/}
-                        {/*              onClick={this.open}>*/}
-                        {/*            Click here*/}
-                        {/*        </Link>*/}
-                        {/*    </div>*/}
-                        {/*</div>*/}
-                        {/*</div>*/}
                         <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">
