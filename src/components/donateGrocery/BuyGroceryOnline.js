@@ -17,7 +17,7 @@ export default class BuyGroceryOnline extends Component {
                 <div className="container-fluid">
                     <p className="go-donate-tittle">Want to volunteer instead?</p>
 
-                    <Link to="/" type="button"
+                    <Link to="choosePantryV" type="button"
                           className="btn btn-go-donate"
                           onClick={this.back}>
                         Click here
@@ -71,15 +71,15 @@ export default class BuyGroceryOnline extends Component {
                             <div className="col-6">
                                 <h1>DELIVER ITEMS TO:</h1>
                                 <br/>
-                                <h4 className={"text"}>
+                                <h2 className={"text"}>
                                     ADDRESS: 125 HOLLYWOOD ST.
                                     <br/>
                                     02145, MA
-                                </h4>
+                                </h2>
                                 <br/>
-                                <h4 className={"text"}>
+                                <h2 className={"text"}>
                                     PHONE:123-457-7685
-                                </h4>
+                                </h2>
                             </div>
                         </div>
 
@@ -88,7 +88,7 @@ export default class BuyGroceryOnline extends Component {
                             <div className="col">
                                 <Link to="/"
                                       className="btn btn-dark btn-lg go-back-to-main-menu"
-                                      type="button">
+                                      type="button" style={{marginBottom:'40px'}}>
                                     GO BACK TO MAIN
                                     <br/>
                                     MENU

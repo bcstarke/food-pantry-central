@@ -171,14 +171,12 @@ export default class createGroceryItem extends Component {
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
                                                         <h1 style={{color:"#4b1b1b"}}>{value.name}</h1>
-
                                                     </div>
 
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
                                                                 onClick={() => this.handleClick(index)}>See
-
                                                             Details
                                                         </Button>
                                                         <Button
@@ -196,11 +194,6 @@ export default class createGroceryItem extends Component {
 
                                             </li>
                                                 ))}
-
-
-
-
-
                                         </ul>
                                     </div>
 

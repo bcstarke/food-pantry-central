@@ -56,12 +56,6 @@ export default class ChoosePantry extends Component {
                         <Link to="/">
                             <img src={logo} alt={"Logo"} width="800px"/>
                         </Link>
-                        <br/>
-                        <Link to="/" type="button"
-                              className="btn go-back-btn-left"
-                              onClick={this.open}>
-                            Go back
-                        </Link>
                         <p className="go-donate-tittle">Want to donate instead?</p>
 
                         <Link to="/donationType" type="button"
@@ -69,10 +63,11 @@ export default class ChoosePantry extends Component {
                               onClick={this.back}>
                             Click here
                         </Link>
-                        <div className="volunteer-box">
-
-                        </div>
-                        {/*</div>*/}
+                        <Link to="/" type="button"
+                              className="btn btn-go-back"
+                              onClick={this.back}>
+                            Go back
+                        </Link>
                         <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">
