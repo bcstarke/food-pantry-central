@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "./ApplicationList.css"
+import firebase from "../../utils/firebase";
 
 export default class ApplicationList extends Component {
     constructor(props, context) {
@@ -12,7 +13,9 @@ export default class ApplicationList extends Component {
             showConfirmationModal: false,
             showDetailsModal: false,
             showDeclineModal: false,
-            showMessageModal: false
+            showMessageModal: false,
+            jobId: this.props.location.state.jobId,
+            dataFire: [],
         };
 
         this.openConfirmation = this.openConfirmation.bind(this);
@@ -60,7 +63,40 @@ export default class ApplicationList extends Component {
         this.setState({showDeclineModal: false});
     }
 
+    componentDidMount() {
+        this.setState({
+                          dataFire: [],
+                      })
+        const todoRef = firebase.database().ref("post").child(this.state.jobId).child("application");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+            // const values = snapshot.val();
+            //
+            // const list = [];
+            snapshot.forEach(userSnapshot => {
+                console.log("key " + userSnapshot.key);
+                const value = snapshot.child(userSnapshot.key).val();
+                const key = {key:userSnapshot.key};
+                Object.assign(value, key);
+                console.log("key2" + value.key);
+
+
+                //Logic for amount of applications
+
+
+
+
+
+                this.setState(prevState => ({
+                    dataFire: [...prevState.dataFire, value]
+                }))
+            });
+        });
+    }
+
     render() {
+
+
         return (
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
@@ -85,37 +121,39 @@ export default class ApplicationList extends Component {
                             <div className="col-11">
                                 <div className="list-group" id="list-tab" role="tablist">
                                     <ul className="list-group volunteer-list">
-                                        <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                            <div className="row button-row">
 
-                                                <div className="col-6 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
-                                                 Alice
+                                        {this.state.dataFire.reverse().map((value, index) => (
+
+                                            <li className="list-group-item volunteer-box" key={index} data-id={value.id} style={{backgroundColor:"#ffffff"}} >
+                                                <div className="row button-row">
+                                                    <div className="col-6 pantry-name" style={{fontSize:'2rem', color:"#4b1b1b", fontWeight:'bold'}}>
+                                                        {value.name}
+                                                    </div>
+
+                                                    <div className="col-6">
+                                                        <Button type="button"
+                                                                className="btn btn-dark btn-sm accept"
+                                                                onClick={() => this.openConfirmation()}
+                                                                style={{marginRight:'40px'}}>
+                                                            Accept
+                                                        </Button>
+
+                                                        <Button type="button"
+                                                                className="btn btn-dark btn-sm decline"
+                                                                onClick={()=>this.openDecline()}
+                                                                style={{marginRight:'40px'}}>
+                                                            Decline
+                                                        </Button>
+
+                                                        <Button type="button"
+                                                                className="btn btn-dark btn-sm option"
+                                                                onClick={()=>this.openDetails()}>
+                                                            See Details
+                                                        </Button>
+                                                    </div>
                                                 </div>
-
-                                                <div className="col-6">
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm accept"
-                                                            onClick={() => this.openConfirmation()}
-                                                    style={{marginRight:'40px'}}>
-                                                        Accept
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm decline"
-                                                            onClick={()=>this.openDecline()}
-                                                            style={{marginRight:'40px'}}>
-                                                        Decline
-                                                    </Button>
-
-                                                    <Button type="button"
-                                                            className="btn btn-dark btn-sm option"
-                                                            onClick={()=>this.openDetails()}>
-                                                        See Details
-                                                    </Button>
-                                                </div>
-
-                                            </div>
-                                        </li>
+                                            </li>
+                                        ))}
 
 
                                     </ul>

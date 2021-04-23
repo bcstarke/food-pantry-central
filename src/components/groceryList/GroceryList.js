@@ -266,10 +266,10 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
-                                                    <a>Pantry has: {value.currentQuantity} {value.currentUnit}</a>
+                                                    <a>Quantity Pantry has: {value.currentQuantity} {value.currentUnit}</a>
                                                 </div>
                                                 <div className="row" style={{marginTop:"0", marginLeft:"9rem"}}>
-                                                    <p>Pantry needs: {value.needQuantity} {value.currentUnit}</p>
+                                                    <p>Quantity Pantry needs: {value.needQuantity} {value.currentUnit}</p>
                                                 </div>
 
                                             </li>
@@ -304,7 +304,7 @@ to="/createItem"
                                 </div>
 
                                 <div className="row">
-                                    <h5  style={{marginLeft:"20rem"}}>Current product Quantity:</h5>
+                                    <h5  style={{marginLeft:"20rem"}}>Quantity Pantry has:</h5>
                                     <input type="number" id="quantity1" name="quantity1" min="1" max="100" className="form-control form-font"
                                            placeholder={productQuantity}  style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName} />
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productUnit}</h6>
@@ -320,7 +320,7 @@ to="/createItem"
                                 </div>
 
                                 <div className="row">
-                                    <h5 style={{marginLeft:"20rem"}}>Quantity needed:</h5>
+                                    <h5 style={{marginLeft:"20rem"}}>Quantity Pantry needs:</h5>
                                     <input type="number" id="quantity2" name="quantity2" min="1" max="100" className="form-control form-font"
                                            placeholder={productNeeded} style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName2} />
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productUnitN}</h6>

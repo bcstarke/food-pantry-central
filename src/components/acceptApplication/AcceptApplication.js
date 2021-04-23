@@ -54,9 +54,24 @@ export default class BuyGroceryOnline extends Component {
                 const key = {key:userSnapshot.key};
                 Object.assign(value, key);
                 console.log("key2" + value.key);
+
+                let count = 0;
+                const todoApp = firebase.database().ref("post").child(userSnapshot.key).child("application");
+                todoApp.on('value', snapshot1 => {
+                    count = 1 + count;
+
+
+                });
+
+                const countKey = {key:count};
+                Object.assign(value, key);
+
+
+
                 this.setState(prevState => ({
                     dataFire: [...prevState.dataFire, value]
                 }))
+
             });
         });
     }
@@ -100,7 +115,14 @@ export default class BuyGroceryOnline extends Component {
                                                                 {/*style={{backgroundColor:'#ff252a', color:'white'}}>*/}
                                                             Delete
                                                         </Button>
-                                                        <Link to="/applicationDetails"
+                                                        <Link
+                                                              to=
+                                                                  {{
+                                                                      pathname: "/applicationDetails",
+                                                                      state: {
+                                                                          jobId: value.key,
+                                                                      }
+                                                                  }}
                                                               className="btn btn-dark btn-sm option"
                                                               type="button">
                                                             See Applications (4)
