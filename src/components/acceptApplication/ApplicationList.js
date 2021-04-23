@@ -16,16 +16,18 @@ export default class ApplicationList extends Component {
             showMessageModal: false,
             jobId: this.props.location.state.jobId,
             dataFire: [],
+            links: [],
+            currentItem: 0,
         };
 
         this.openConfirmation = this.openConfirmation.bind(this);
         this.closeConfirmation = this.closeConfirmation.bind(this);
 
-        this.openDetails = this.openDetails.bind(this);
-        this.closeDetails = this.closeDetails.bind(this);
-
-        this.openDecline = this.openDecline.bind(this);
-        this.closeDecline = this.closeDecline.bind(this);
+        // this.openDetails = this.openDetails.bind(this);
+        // this.closeDetails = this.closeDetails.bind(this);
+        //
+        // this.openDecline = this.openDecline.bind(this);
+        // this.closeDecline = this.closeDecline.bind(this);
 
         this.showMessageModal = this.showMessageModal.bind(this);
         this.closeMessageModal = this.closeMessageModal.bind(this);
@@ -38,8 +40,11 @@ export default class ApplicationList extends Component {
         this.setState({showMessageModal: false})
     }
 
-    openConfirmation() {
-        this.setState({showConfirmationModal: true});
+    openConfirmation(value) {
+        const size = this.state.dataFire.length
+        this.setState({
+                          currentItem: size - 1 - value,
+                          showConfirmationModal: true});
     }
 
     closeConfirmation() {
@@ -55,12 +60,72 @@ export default class ApplicationList extends Component {
         this.setState({showDetailsModal: false});
     }
 
-    openDecline(){
-        this.setState({showDeclineModal: true});
+    openDecline(value){
+        const size = this.state.dataFire.length
+        this.setState({
+                          currentItem:size - 1 - value,
+                          showDeclineModal: true});
     }
 
     closeDecline(){
         this.setState({showDeclineModal: false});
+    }
+
+    deleteProduct(){
+
+
+        const index = this.state.currentItem;
+
+        this.setState({dataFire: [] });
+
+        const item = (this.state.dataFire[index]);
+        console.log("KEY" + item.key);
+        firebase.database().ref("post").child(this.state.jobId).child("application").child(item.key).remove();
+        this.showMessageModal();
+    }
+
+    deleteProduct2(){
+
+
+        const index = this.state.currentItem;
+
+        this.setState({dataFire: [] });
+
+        const item = (this.state.dataFire[index]);
+        console.log("KEY" + item.key);
+        firebase.database().ref("post").child(this.state.jobId).child("application").child(item.key).remove();
+        this.closeDecline();
+    }
+
+    handleClick(value){
+
+        console.log(`${value} clicked`);
+        const size = this.state.dataFire.length
+        const item = (this.state.dataFire[size - 1 - value]);
+        console.log(item.links);
+        this.setState({
+                          birth: item.birth,
+                          email:item.email,
+                          last:item.last,
+                          name:item.name,
+                          phone:item.phone,
+                          qualifications:item.qualifications,
+                          index: value,
+                      })
+
+        const values = item.availability;
+        const list = [];
+
+        for(let id in values){
+            list.push(values[id])
+
+            this.setState(prevState => ({
+                links: [...prevState.links, values[id]]
+            }))
+        }
+
+        this.openDetails();
+
     }
 
     componentDidMount() {
@@ -96,6 +161,12 @@ export default class ApplicationList extends Component {
 
     render() {
 
+        const {birth} = this.state
+        const {email} = this.state
+        const {last}= this.state
+        const {name}= this.state
+        const {phone}= this.state
+        const {qualifications} = this.state
 
         return (
             <div className="container" id="buyGroceryOnline">
@@ -133,21 +204,21 @@ export default class ApplicationList extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-dark btn-sm accept"
-                                                                onClick={() => this.openConfirmation()}
+                                                                onClick={() => this.openConfirmation(index)}
                                                                 style={{marginRight:'40px'}}>
                                                             Accept
                                                         </Button>
 
                                                         <Button type="button"
                                                                 className="btn btn-dark btn-sm decline"
-                                                                onClick={()=>this.openDecline()}
+                                                                onClick={()=>this.openDecline(index)}
                                                                 style={{marginRight:'40px'}}>
                                                             Decline
                                                         </Button>
 
                                                         <Button type="button"
                                                                 className="btn btn-dark btn-sm option"
-                                                                onClick={()=>this.openDetails()}>
+                                                                onClick={() => this.handleClick(index)}>
                                                             See Details
                                                         </Button>
                                                     </div>
@@ -175,7 +246,7 @@ export default class ApplicationList extends Component {
 
                             <div className="modal-footer">
                                 <Button  type="button"
-                                         className="btn btn-dark btn-sm" onClick={() => this.showMessageModal()}>
+                                         className="btn btn-dark btn-sm" onClick={() => this.deleteProduct()}>
                                     Yes, accept
                                 </Button>
                                 <Button  type="button"
@@ -239,7 +310,7 @@ export default class ApplicationList extends Component {
 
                             <div className="modal-footer">
                                 <Button  type="button"
-                                         className="btn btn-dark btn-sm" onClick={() => this.closeDecline()}>
+                                         className="btn btn-dark btn-sm" onClick={() => this.deleteProduct2()}>
                                     Yes, decline
                                 </Button>
                                 <Button  type="button"
@@ -252,10 +323,37 @@ export default class ApplicationList extends Component {
 
                     {
                         this.state.showDetailsModal?
-                        <div className="modal-content popup" style={{marginTop:"-25rem"}}>
-                            <div className="modal-header">
-                                <h4 className="modal-title">Applicant details...</h4>
+                        <div className="modal-content popup" style={{marginTop:"-25rem", backgroundColor:"#4b1b1b"}}>
+
+                            <h1>Applicants details</h1>
+                            <div className="row">
+                                <h5 style={{ color:"#ce9466"}}>Name:</h5>
+                                <h6 style={{fontSize:"20px", marginTop:"10px"}}>{name} {last}</h6>
                             </div>
+                            <div className="row">
+                                <h5 style={{color:"#ce9466"}}>Phone #:</h5>
+                                <h6 style={{fontSize:"20px", marginTop:"10px"}}>{phone}</h6>
+                            </div>
+                            <div className="row">
+                                <h5 style={{color:"#ce9466"}}>Email:</h5>
+                                <h6 style={{fontSize:"20px", marginTop:"10px"}}>{email}</h6>
+                            </div>
+                            <div className="row">
+                                <h5 style={{color:"#ce9466"}}>Availability:</h5>
+                                {this.state.links.map((value, index) => (
+                                    <h6 style={{fontSize:"20px", marginTop:"10px"}}>{value}</h6>
+                                ))}
+                            </div>
+
+
+
+
+
+
+
+
+
+
 
                             {/*<div className="modal-body popup-body" style={{color:"#ce9466", fontSize:"25px"}}>*/}
                             {/*    <p>Are you sure yo want to delete this item?</p>*/}

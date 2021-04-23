@@ -13,12 +13,13 @@ export default class BuyGroceryOnline extends Component {
             // showEditConfirmation: false,
             showDeleteConfirmation: false,
             dataFire: [],
+            currentItem: 0,
         };
 
         // this.openEditConfirmation = this.openEditConfirmation.bind(this);
         // this.closeEditConfirmation = this.closeEditConfirmation.bind(this);
 
-        this.openDeleteConfirmation = this.openDeleteConfirmation.bind(this);
+
         this.closeDeleteConfirmation = this.closeDeleteConfirmation.bind(this);
     }
 
@@ -30,8 +31,31 @@ export default class BuyGroceryOnline extends Component {
     //     this.setState({showEditConfirmation: false});
     // }
 
-    openDeleteConfirmation() {
-        this.setState({showDeleteConfirmation: true});
+    closeDelete2() {
+        console.log("helloooooo");
+        this.setState({
+                          showDeleteConfirmation:false,
+
+                      })
+        this.deleteProduct()
+    }
+
+    deleteProduct(){
+
+        // let values = [...this.state.dataFire];
+        const index = this.state.currentItem;
+        // values.splice(index,1);
+        this.setState({dataFire: [] });
+
+        const item = (this.state.dataFire[index]);
+        firebase.database().ref("post").child(item.key).remove();
+
+    }
+
+    openDeleteConfirmation(index) {
+        const size = this.state.dataFire.length;
+        this.setState({showDeleteConfirmation: true,
+                          currentItem:size - 1 - index,});
     }
 
     closeDeleteConfirmation() {
@@ -58,13 +82,14 @@ export default class BuyGroceryOnline extends Component {
                 let count = 0;
                 const todoApp = firebase.database().ref("post").child(userSnapshot.key).child("application");
                 todoApp.on('value', snapshot1 => {
+                    snapshot1.forEach(userSnapshot => {
                     count = 1 + count;
-
+                    });
 
                 });
 
-                const countKey = {key:count};
-                Object.assign(value, key);
+                const countKey = {count:count};
+                Object.assign(value, countKey);
 
 
 
@@ -81,9 +106,9 @@ export default class BuyGroceryOnline extends Component {
             <div className="container" id="buyGroceryOnline">
                 <div className="container-fluid">
                     <div className="header-box container">
-                        <Link to="/">
+
                             <img src={logo} alt={"Logo"} width="800px"/>
-                        </Link>
+
                         <Link to="/foodPantryPortal" type="button"
                               className="btn btn-go-back">
                             Go back
@@ -111,10 +136,12 @@ export default class BuyGroceryOnline extends Component {
                                                     <div className="col-8">
                                                         <Button type="button"
                                                                 className="btn btn-dark btn-sm delete"
-                                                                onClick={this.openDeleteConfirmation}>
+                                                                onClick={() =>this.openDeleteConfirmation(index)}>
                                                                 {/*style={{backgroundColor:'#ff252a', color:'white'}}>*/}
                                                             Delete
                                                         </Button>
+                                                        {
+                                                            value.count > 0?
                                                         <Link
                                                               to=
                                                                   {{
@@ -125,10 +152,14 @@ export default class BuyGroceryOnline extends Component {
                                                                   }}
                                                               className="btn btn-dark btn-sm option"
                                                               type="button">
-                                                            See Applications (4)
+                                                            See Applications
                                                         </Link>
+                                                                           :null}
                                                     </div>
                                                 </div>
+                                                    <div className="row" style={{marginLeft:"5rem"}}>
+                                                        <a>Number of applicants: {value.count} {value.currentUnit}</a>
+                                                    </div>
                                             </li>
                                         ))}
                                     </ul>
@@ -149,7 +180,7 @@ export default class BuyGroceryOnline extends Component {
                             </Modal.Body>
                             <Modal.Footer>
                                 <Button
-                                    onClick={this.closeDeleteConfirmation}>Delete</Button>
+                                    onClick={() =>this.closeDelete2()}>Delete</Button>
                                 <Button
                                     onClick={this.closeDeleteConfirmation}>Close</Button>
                             </Modal.Footer>
@@ -160,6 +191,12 @@ export default class BuyGroceryOnline extends Component {
                         </div>
                     </div>
                 </div>
+                <Link type="button"
+                      className="btn btn-dark btn-lg download-pdf-list"
+                      to="/createPost"
+                      style={{marginTop:'30px'}}>
+                    Create new volunteer post
+                </Link>
             </div>
         )
     }

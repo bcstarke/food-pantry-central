@@ -59,19 +59,19 @@ export default class BuyGroceryOnline extends Component {
 
                                 <a href="https://www.amazon.com/"
                                       type="button"
-                                className="store">
+                                className="store" target="_blank">
                                     <img src={amazon} alt={"Amazon"} height="100rem"/>
                                 </a>
 
                                 <a href="https://www.walmart.com/?&adid=22222222220800010149&wmlspartner=wmtlabs&wl0=e&wl1=g&wl2=c&wl3=505346679064&wl4=kwd-13273026&wl5=9009732&wl6=&wl7=&wl8=&veh=sem&gclid=Cj0KCQjwgtWDBhDZARIsADEKwgMny5NQx2oztsNJsLnQNHb4a8_GjiNGeI4YBWJsuWFZpPN5QF2cnkoaAlSkEALw_wcB&gclsrc=aw.ds"
                                       type="button"
-                                      className="store">
+                                      className="store" target="_blank">
                                     <img src={target} alt={"Target"} height="100rem"/>
                                 </a>
 
                                 <a href="https://www.target.com/"
                                       type="button"
-                                      className="store">
+                                      className="store" target="_blank">
                                     <img src={walmart} alt={"Walmart"} height="100rem"/>
                                 </a>
                             </div>
