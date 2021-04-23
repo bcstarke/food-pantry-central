@@ -47,14 +47,6 @@ export default class DonateMoney extends Component {
                             <div className="pantry-info-container container-fluid">
                                 <h2>Pantry you chose: {pantryName}</h2>
                                 <div className="change-pantry-container">
-                                    {/*<Route path="/choosePantry" exact={true} render={(props) =>*/}
-                                    {/*    <div>*/}
-                                    {/*        <ChoosePantry*/}
-                                    {/*            pantryName={this.props.pantryName}*/}
-                                    {/*        />*/}
-                                    {/*    </div>*/}
-                                    {/*}>*/}
-                                    {/*</Route>*/}
                                     <Link to="/choosePantry"
                                           className="btn btn-info button1"
                                           type="button"
@@ -66,7 +58,7 @@ export default class DonateMoney extends Component {
                         </div>
                         <div className="row">
                             <div className="container-fluid payment-method-container">
-                                <h2>Choose your payment type</h2>
+                                <h1>Choose your payment type</h1>
                                 <div className="payment-methods">
                                         <div className="row">
                                             <div className="col-6">
@@ -122,7 +114,7 @@ export default class DonateMoney extends Component {
                                                   type="button">
                                                 <div className="row">
                                                     <div className="col-10">
-                                                        <h4>Other payment options</h4>
+                                                        <h1>Other payment options</h1>
                                                     </div>
                                                 </div>
                                                 <div className="row">

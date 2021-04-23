@@ -6,7 +6,54 @@ import logo from "../images/food-pantry-logo-b.png";
 
 export default class MainMenu extends Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state={
+
+
+
+        }
+        // this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        this.setState({
+                          [event.target.name]: event.target.value
+                      })
+    }
+
+
+    signIn = () =>{
+      if(this.state.email != "arturo@gmail.com"){
+          alert(this.state.email + " account doesn't exist. Create an account or enter another email");
+          return;
+      }
+
+        if(this.state.password != "123456"){
+            alert(this.state.email + " password is not correct. Please try again.");
+            return;
+        }
+
+        this.props.history.push('/foodPantryPortal');
+
+
+    }
+
+
+
+
+
+
+
+
     render() {
+
+        const {email} = this.state
+        const {password} = this.state
+
         return (
             <div className="main-container" id="home">
                 <div className="container" id="mainMenuBox">
@@ -19,13 +66,13 @@ export default class MainMenu extends Component {
                                 <div className="form-group">
                                     <label className="label-text">Email address</label>
                                     <input type="email" className="form-control"
-                                           placeholder="Enter email"/>
+                                           placeholder="Enter email" name="email" onChange={this.handleInputName}/>
                                 </div>
 
                                 <div className="form-group">
                                     <label className="label-text">Password</label>
                                     <input type="password" className="form-control"
-                                           placeholder="Enter password"/>
+                                           placeholder="Enter password" name="password" onChange={this.handleInputName}/>
                                 </div>
 
                                 <div className="form-group">
@@ -37,8 +84,8 @@ export default class MainMenu extends Component {
                                     </div>
                                 </div>
 
-                                <Link type="button" to="/foodPantryPortal" className="btn btn-success btn-block">Sign In
-                                </Link>
+                                <button type="button" to="/foodPantryPortal" onClick={() =>this.signIn()} className="btn btn-success btn-block">Sign In
+                                </button>
                                 <br/><br/><br/>
                                 {/*<div className="sign-up-text text-right">Don't have an account? Sign up here:</div>*/}
                                 <div className="sign-up-text text-center">

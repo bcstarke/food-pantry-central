@@ -8,6 +8,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import map from "../images/googlemap.png";
+import firebase from "../../utils/firebase";
 
 
 export default class createGroceryItem extends Component {
@@ -17,6 +18,7 @@ export default class createGroceryItem extends Component {
         super(props);
         this.state={
             showModal:false,
+            dataFire: [],
         }
 
 
@@ -43,8 +45,28 @@ export default class createGroceryItem extends Component {
     }
 
     componentDidMount() {
-        const {handle} = this.props.match.params
-        const {pantryName} = this.props.location.state
+        this.setState({
+                          dataFire: [],
+                      })
+        const todoRef = firebase.database().ref("post");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+            const values = snapshot.val();
+
+            const list = [];
+
+            snapshot.forEach(userSnapshot => {
+                console.log("key " + userSnapshot.key);
+                const value = snapshot.child(userSnapshot.key).val();
+                const key = {key:userSnapshot.key};
+                Object.assign(value, key);
+                console.log("key2" + value.key);
+                this.setState(prevState => ({
+                    dataFire: [...prevState.dataFire, value]
+                }))
+            });
+
+        });
     }
 
     render() {
@@ -87,10 +109,12 @@ export default class createGroceryItem extends Component {
                                 <div className="col-10">
                                     <div className="list-group" id="list-tab" role="tablist">
                                         <ul className="list-group">
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
+
+                                            {this.state.dataFire.reverse().map((value, index) => (
+                                            <li className="list-group-item volunteer-box2" key={index} data-id={value.id} style={{backgroundColor:"#ffffff"}}>
                                                 <div className="row button-row">
                                                     <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Truck driver</h1>
+                                                        <h1 style={{color:"#4b1b1b"}}>{value.tittle}</h1>
                                                     </div>
                                                     <div className="col-6">
                                                         <Button type="button"
@@ -102,7 +126,9 @@ export default class createGroceryItem extends Component {
                                                               {{
                                                                   pathname: "/applyPost",
                                                                   state: {
-                                                                      pantryName: pantryName
+                                                                      pantryName: pantryName,
+                                                                      jobId: value.key,
+                                                                      qualifications: value.qualifications,
                                                                   }
                                                               }}
                                                               className="btn btn-success details-btn see-details-btn"
@@ -114,149 +140,7 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Fork Lift operator</h1>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Link to=
-                                                                  {{
-                                                                      pathname: "/applyPost",
-                                                                      state: {
-                                                                          pantryName: pantryName
-                                                                      }
-                                                                  }}
-                                                              className="btn btn-success details-btn see-details-btn"
-                                                              type="button"
-                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
-                                                            Apply
-                                                        </Link>
-
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1  style={{color:"#4b1b1b"}}>Shelf organizer</h1>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Link to=
-                                                                  {{
-                                                                      pathname: "/applyPost",
-                                                                      state: {
-                                                                          pantryName: pantryName
-                                                                      }
-                                                                  }}
-                                                              className="btn btn-success details-btn see-details-btn"
-                                                              type="button"
-                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
-                                                            Apply
-                                                        </Link>
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Food distributor</h1>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Link to=
-                                                                  {{
-                                                                      pathname: "/applyPost",
-                                                                      state: {
-                                                                          pantryName: pantryName
-                                                                      }
-                                                                  }}
-                                                              className="btn btn-success details-btn see-details-btn"
-                                                              type="button"
-                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
-                                                            Apply
-                                                        </Link>
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 2</h1>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}>See
-                                                            Details
-                                                        </Button>
-                                                        <Link to=
-                                                                  {{
-                                                                      pathname: "/applyPost",
-                                                                      state: {
-                                                                          pantryName: pantryName
-                                                                      }
-                                                                  }}
-                                                              className="btn btn-success details-btn see-details-btn"
-                                                              type="button"
-                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
-                                                            Apply
-                                                        </Link>
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li className="list-group-item volunteer-box2" style={{backgroundColor:"#ffffff"}}>
-                                                <div className="row button-row">
-                                                    <div className="col-6 pantry-name">
-                                                        <h1 style={{color:"#4b1b1b"}}>Fork Lift operator 3</h1>
-                                                    </div>
-                                                    <div className="col-6">
-                                                        <Button type="button"
-                                                                className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}
-                                                                >See
-                                                            Details
-                                                        </Button>
-                                                        <Link to=
-                                                                  {{
-                                                                      pathname: "/applyPost",
-                                                                      state: {
-                                                                          pantryName: pantryName
-                                                                      }
-                                                                  }}
-                                                              className="btn btn-success details-btn see-details-btn"
-                                                              type="button"
-                                                              style={{backgroundColor:"#6b724e", color:"#bfa675"}}>
-                                                            Apply
-                                                        </Link>
-                                                        <div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-
+                                            ))}
                                         </ul>
                                     </div>
 

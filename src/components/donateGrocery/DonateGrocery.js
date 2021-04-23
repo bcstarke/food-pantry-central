@@ -14,7 +14,7 @@ export default class DonateGrocery extends Component {
         super(props, context);
         this.state = {
             showModal: false,
-            // showDownload: false,
+            showDownload: false,
             showDetailsModal: false,
             productName:"",
             productQuantity:0,
@@ -29,8 +29,8 @@ export default class DonateGrocery extends Component {
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
         //
-        // this.download = this.download.bind(this);
-        // this.closeDownload = this.closeDownload.bind(this)
+        this.download = this.download.bind(this);
+        this.closeDownload = this.closeDownload.bind(this)
 
         this.details = this.details.bind(this)
         this.closeDetails = this.closeDetails.bind(this)
@@ -49,13 +49,13 @@ export default class DonateGrocery extends Component {
         this.setState({showModal: false});
     }
 
-    // download(){
-    //     this.setState({showDownload: true});
-    // }
-    //
-    // closeDownload(){
-    //     this.setState({showDownload: false});
-    // }
+    download(){
+        this.setState({showDownload: true});
+    }
+
+    closeDownload(){
+        this.setState({showDownload: false});
+    }
 
     details(){
         this.setState({showDetailsModal:true});
@@ -119,7 +119,6 @@ export default class DonateGrocery extends Component {
         const {productNeeded} = this.state
         const {productUnit} = this.state
         const {productAddNotes} = this.state
-
         const {pantryName} = (this.props.location.state != undefined ? this.props.location.state : " ")
 
         return (
@@ -195,39 +194,39 @@ export default class DonateGrocery extends Component {
                                 {/*    <br/>*/}
                                 {/*    MENU*/}
                                 {/*</Link>*/}
-                                {/*<Button type="button"*/}
-                                {/*        className="btn btn-dark btn-lg download-pdf-list"*/}
-                                {/*        onClick={this.download}*/}
-                                {/*        style={{marginTop:'30px'}}>*/}
-                                {/*    DOWNLOAD PDF WITH*/}
-                                {/*    <br/>*/}
-                                {/*    SELECTED ITEMS*/}
-                                {/*</Button>*/}
+                                <Button type="button"
+                                        className="btn btn-dark btn-lg download-pdf-list"
+                                        onClick={this.download}
+                                        style={{marginTop:'30px'}}>
+                                    DOWNLOAD PDF WITH
+                                    <br/>
+                                    SELECTED ITEMS
+                                </Button>
 
-                                {/*<div>*/}
-                                {/*    <Modal className="modal-container"*/}
-                                {/*           show={this.state.showDownload}*/}
-                                {/*           onHide={this.closeDownload}*/}
-                                {/*           animation={true}*/}
-                                {/*           bsSize="small">*/}
-                                {/*        <Modal.Header>*/}
-                                {/*            LIST DOWNLOADED*/}
-                                {/*        </Modal.Header>*/}
-                                {/*        <Modal.Body>*/}
-                                {/*            <div className="row container-fluid">*/}
-                                {/*                <h3>100 %</h3>*/}
-                                {/*            </div>*/}
-                                {/*        </Modal.Body>*/}
-                                {/*        <Modal.Footer>*/}
-                                {/*            <Button*/}
-                                {/*                onClick={this.closeDownload}>Close</Button>*/}
-                                {/*        </Modal.Footer>*/}
-                                {/*    </Modal>*/}
-                                {/*</div>*/}
+                                <div>
+                                    <Modal className="modal-container"
+                                           show={this.state.showDownload}
+                                           onHide={this.closeDownload}
+                                           animation={true}
+                                           bsSize="small">
+                                        <Modal.Header>
+                                            LIST DOWNLOADED
+                                        </Modal.Header>
+                                        <Modal.Body>
+                                            <div className="row container-fluid">
+                                                <h3>100 %</h3>
+                                            </div>
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                            <Button
+                                                onClick={this.closeDownload}>Close</Button>
+                                        </Modal.Footer>
+                                    </Modal>
+                                </div>
                             </div>
 
                             <div className="col-4">
-                                <h1 className={"items"}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h1>
+                                <h1 style={{fontSize:"40px"}}>HOW DO YOU WANT TO DELIVER YOUR ITEMS?</h1>
 
                                 <Link to={{
                                     pathname: "/buyGroceryOnline",
@@ -235,13 +234,15 @@ export default class DonateGrocery extends Component {
                                         pantryName: pantryName
                                     }
                                 }}
-                                      className="btn btn-dark btn-lg donate-options"
+                                      style={{height:"5rem", width:"14rem", paddingTop:"-10px"}}
+                                      className="btn btn-success buttonPortal"
                                       type="button">
                                     BUY ONLINE
                                 </Link>
                                 <br/>
                                 <Button type="button"
-                                        className="btn btn-dark btn-lg donate-options"
+                                        style={{height:"5rem", width:"14rem", fontSize:"40px", marginTop:"-10px"}}
+                                        className="btn btn-success buttonPortal"
                                         onClick={this.open}>
                                     DROP OFF ITEMS
                                 </Button>
@@ -251,30 +252,37 @@ export default class DonateGrocery extends Component {
                                            onHide={this.close}
                                            animation={true}
                                            bsSize="small">
-                                        <Modal.Header>
-                                            <Modal.Title>
-                                                DROP ITEMS AT:
-                                            </Modal.Title>
+                                        <Modal.Header closeButton>
+                                            <Modal.Title><h3>Pantry
+                                                Details</h3></Modal.Title>
                                         </Modal.Header>
                                         <Modal.Body>
-                                            <div className="row container-fluid">
-                                                <div className="map-container">
+                                            <div style={{marginTop:"-7rem"}}
+                                                 className="row container-fluid">
+                                                <div
+                                                    className="map-container">
                                                     <img src={map}
                                                          alt="Google Maps"/>
                                                 </div>
-                                                <b>Address: </b>
-                                                123
-                                                Address St., Boston MA,
-                                                02130
+                                                <h4 style={{fontSize:"30px"}}>Address:</h4>
+                                                <h6 style={{fontSize:"25px"}}>  123
+                                                    Hollywood St., Boston MA,
+                                                    02130</h6>
+
+
                                                 <br/>
-                                                <b>Hours of
-                                                    operation:</b>
                                                 <br/>
-                                                Mon - Thu: 10:00AM - 4:00PM
+                                                <h4 style={{fontSize:"30px"}}>Hours of
+                                                    operation:</h4>
                                                 <br/>
-                                                Sat: 9:00AM - 12:00PM
+                                                <h6 style={{fontSize:"25px"}}>
+                                                    Mon - Thu: 10:00AM - 4:00PM</h6>
                                                 <br/>
-                                                <b>Phone: (123) 456-7890</b>
+                                                <h6 style={{fontSize:"25px"}}>Sat: 9:00AM - 12:00PM      </h6>
+                                                <br/>
+                                                <br/><h4 style={{fontSize:"30px", color:"white"}}>.....................</h4>
+                                                <h4 style={{fontSize:"30px"}}>Phone:</h4>
+                                                <h6 style={{fontSize:"25px"}}> (123) 456-7890</h6><br/>
                                             </div>
                                         </Modal.Body>
                                         <Modal.Footer>

@@ -6,6 +6,7 @@ import logo from "../images/food-pantry-logo-b.png";
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Radio, RadioGroup} from 'react-radio-group';
+import firebase from "../../utils/firebase";
 
 export default class createJobPost extends Component {
 
@@ -50,8 +51,36 @@ export default class createJobPost extends Component {
             showInputSchedule2:false,
             showInputSchedule3:false,
             schedulerCount:0,
+            jobId: this.props.location.state.jobId,
+            dates: [],
+            workDays: [],
 
         }
+    }
+
+
+    componentDidMount() {
+        this.setState({
+                          dates: [],
+                      })
+        const todoRef = firebase.database().ref("post").child(this.state.jobId).child("dates");
+        todoRef.on('value', snapshot => {
+            // convert messages list from snapshot
+
+            snapshot.forEach(userSnapshot => {
+                console.log("key " + userSnapshot.key);
+                const value = snapshot.child(userSnapshot.key).val();
+                const key = {key:userSnapshot.key};
+                Object.assign(value, key);
+                console.log("key2" + value.key);
+                this.setState(prevState => ({
+                    dates: [...prevState.dates, value]
+                }))
+
+
+            });
+
+        });
     }
 
     openModal() {
@@ -93,6 +122,8 @@ export default class createJobPost extends Component {
                           backgroundPointName:"white",
                           showCheckname:true,
                       })
+        console.log('name ' + this.state.jobId)
+
     }
 
     backToName() {
@@ -101,6 +132,7 @@ export default class createJobPost extends Component {
                           showDescription:false,
 
                       })
+
     }
 
     hideDescription() {
@@ -260,6 +292,32 @@ export default class createJobPost extends Component {
                       })
     }
 
+    createApp= () =>{
+        const todoRef = firebase.database().ref("post").child(this.state.jobId).child("application");
+        const item ={
+            name: this.state.appName,
+            last: this.state.appLastName,
+            phone: this.state.appPhone,
+            email: this.state.appEmail,
+            birth: this.state.birthName,
+            qualifications:this.state.fit,
+        }
+        this.setState({
+                          dataFire: [],
+                      })
+        const ref  = todoRef.push(item);
+        const key = ref.getKey();
+
+        const todoRefLink = firebase.database().ref("post").child(this.state.jobId).child("application").child(key).child("availability");
+        this.state.workDays.map((value) =>
+                                  todoRefLink.push(value)
+        )
+
+        this.hideReview();
+
+
+    }
+
 
 
 
@@ -340,6 +398,16 @@ export default class createJobPost extends Component {
         }
     }
 
+    handleCheckboxChange = (event) => {
+        if (event.target.checked) {
+            if (!this.state.workDays.includes(event.target.value)) {
+                this.setState(prevState => ({ workDays: [...prevState.workDays, event.target.value]}))
+            }
+        } else {
+            this.setState(prevState => ({ workDays: prevState.workDays.filter(day => day !== event.target.value) }));
+        }
+    }
+
     onClickAvailability3(e) {
 
         if (e.target.checked && !this.state.radioButton3) {
@@ -356,6 +424,8 @@ export default class createJobPost extends Component {
         }
     }
 
+
+
     render() {
         const {appName} = this.state
         const {appLastName} = this.state
@@ -363,10 +433,8 @@ export default class createJobPost extends Component {
         const {appPhone} = this.state
         const {appEmail} = this.state
         const {pantryName} = this.props.location.state
-        const {appDay} = this.state
-        const {option1} = this.state
-        const {option2} = this.state
-        const {option3} = this.state
+        const {qualifications} = this.props.location.state
+        const {fit} = this.state
         return (
 
             <div className="main-container" id="home">
@@ -418,41 +486,20 @@ export default class createJobPost extends Component {
                                     <h2>Please select from the available schedules here:</h2>
 
                                     <div style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
-                                        <div className="radio-button-background">
-                                        <label>
-                                        <input type="checkbox"
-                                               value="Tuesday 10:00 AM - 12:00 PM"
-                                               name="option1"
-                                               style={{verticalAlign:"middle", zoom:"1.5"}}
-                                               checked={this.state.radioButton1}
-                                               // onClick={this.onClickAvailability1}
-                                               onChange={this.onValueChange1}/>
-                                            Tuesday 10:00 AM - 12:00 PM
-                                        </label>
-                                        </div>
+
                                             <div className="radio-button-background">
+                                                {this.state.dates.map((value, index) => (
                                         <label>
                                             <input type="checkbox"
-                                                   value="Thursday 10:00 AM - 4:00 PM"
-                                                   name="option2"
+                                                   value={value.day + " from:" + value.from + "-  to:" + value.to}
+                                                   key={index}
                                                    style={{verticalAlign:"middle", zoom:"1.5"}}
-                                                   checked={this.state.radioButton2}
-                                                   onClick={this.onClickAvailability2}
-                                                   onChange={this.onValueChange2}/>
-                                            Thursday 10:00 AM - 4:00 PM
+                                                   onChange={this.handleCheckboxChange}
+                                                  />
+                                            {value.day} - from: {value.from} to: {value.to}
                                         </label>
-                                            </div>
-                                                <div className="radio-button-background">
-                                        <label>
-                                            <input type="checkbox"
-                                                   value="Saturday 8:00 AM - 10:00 AM"
-                                                   name="option3"
-                                                   style={{verticalAlign:"middle", zoom:"1.5"}}
-                                                   checked={this.state.radioButton3}
-                                                   onClick={this.onClickAvailability3}
-                                                   onChange={this.onValueChange3}/>
-                                            Saturday 8:00 AM - 10:00 AM
-                                        </label>
+                                                ))}
+
                                                 </div>
                                     </div>
 
@@ -541,20 +588,21 @@ export default class createJobPost extends Component {
                             {
                                 this.state.showOpen?
                                 <div id="child-input-container">
-                                    <h2>Do you fulfill the qualifcations and requirements of this volunteer position</h2>
-                                    <div className="row" style={{marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
+                                    <h2>Do you fulfill the qualifications and requirements of this volunteer position</h2>
+                                    <h2 style={{fontSize:"20px"}}> {"(qualifications: " + qualifications + ")"}</h2>
+                                    <div className="row" style={{marginLeft:"-70px", marginBottom:"10px", color:"#ce9466", fontSize:"40px", fontFamily:"font-family: 'Bebas Neue', cursive;"}}>
                                     <label>
                                         <input type="radio"
                                                value="true"
-                                               name="qualifications"
-                                               style={{marginLeft:"20rem"}}/>
+                                               name="fit"
+                                               style={{marginLeft:"20rem"}} onChange={this.handleInputName}/>
                                         Yes
                                     </label>
                                     <label>
                                         <input type="radio"
-                                               value="true"
-                                               name="qualifications"
-                                               style={{marginLeft:"10rem"}}/>
+                                               value="false"
+                                               name="fit"
+                                               style={{marginLeft:"10rem"}} onChange={this.handleInputName}/>
                                         No
                                     </label>
                                     </div>
@@ -609,10 +657,9 @@ export default class createJobPost extends Component {
                                         </div>
                                         <div className="row">
                                             <h5>Schedules:</h5>
-                                            <h6></h6>
-                                            <h6>{option1}</h6>
-                                            <h6>{option2}</h6>
-                                            <h6>{option3}</h6>
+                                            {this.state.workDays.map((value, index) => (
+                                            <h6> {value}</h6>
+                                                                                    ))}
                                             <button className="btn edit-btn" size="sm"
                                                     onClick={() => this.editSchedule()} style={{backgroundColor:"#4b1b1b",  color:"#ce9466", border:"solid", textAlign:"center", paddingBottom:"20px"}}>edit
                                             </button>
@@ -625,7 +672,7 @@ export default class createJobPost extends Component {
                                             Cancel Application
                                         </button>
                                         <button type="button" className="btn btn-success button1"
-                                                onClick={() =>this.hideReview()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>Apply
+                                                onClick={() =>this.createApp()} style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}>Apply
                                         </button>
                                     </div>
                                 </div>

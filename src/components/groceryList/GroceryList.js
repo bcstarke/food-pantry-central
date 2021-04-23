@@ -29,6 +29,11 @@ export default class createGroceryItem extends Component {
             showDelete: false,
             dataFire: [],
             links: [],
+            index:0,
+            quantity1:1,
+            quantity2:1,
+            saveChanges2: false,
+            saveChanges1:false,
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -39,6 +44,30 @@ export default class createGroceryItem extends Component {
                           showDetails:true,
 
                       })
+    }
+
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        console.log(event.target.name);
+        this.setState({
+                          quantity1: event.target.value,
+                          saveChanges1:true,
+                      })
+        console.log("Test= " + this.state.quantity1);
+
+    }
+
+    handleInputName2 = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        console.log(event.target.name);
+        this.setState({
+                          quantity2: event.target.value,
+                          saveChanges2:true,
+                      })
+        console.log("Test= " + this.state.quantity2);
+
     }
 
     closeDetails() {
@@ -93,9 +122,6 @@ export default class createGroceryItem extends Component {
         const size = this.state.dataFire.length
         const item = (this.state.dataFire[size - 1 - value]);
         console.log(item.links);
-
-
-
         this.setState({
                           productName: item.name,
                           productQuantity:item.currentQuantity,
@@ -103,6 +129,8 @@ export default class createGroceryItem extends Component {
                           productUnit:item.currentUnit,
                           productUnitN:item.needUnit,
                           productAddNotes:item.notes,
+
+                          index: value,
                       })
 
         const values = item.links;
@@ -148,18 +176,6 @@ export default class createGroceryItem extends Component {
 
 
                         });
-            // for(let id in values){
-            //
-            //     list.push(values[id])
-            //
-            //     this.setState(prevState => ({
-            //         dataFire: [...prevState.dataFire, values[id]]
-            //     }))
-            // }
-            // this.setState({
-            //                   dataFire:list,
-            //               })
-            // console.log(snapshot.val());
 
         });
     }
@@ -176,11 +192,30 @@ export default class createGroceryItem extends Component {
 
     }
 
+    changes1(){
+        const size = this.state.dataFire.length
+        const item = (this.state.dataFire[size - 1 - this.state.index]);
+        console.log("test1 " + this.state.quatity1);
+        firebase.database().ref("groceries").child(item.key).child("currentQuantity").set(this.state.quantity1);
+
+
+    }
+
+    changes2(){
+        const size = this.state.dataFire.length
+        const item = (this.state.dataFire[size - 1 - this.state.index]);
+        console.log("test1 " + this.state.quatity2);
+        firebase.database().ref("groceries").child(item.key).child("neededQuantity").set(this.state.quantity2);
+
+
+    }
+
 
     render() {
 
         const {productName} = this.state
         const {productQuantity} = this.state
+        const {quantity1} = this.state
         const {productUnitN} = this.state
         const {productNeeded} = this.state
         const {productUnit} = this.state
@@ -231,7 +266,10 @@ export default class createGroceryItem extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row" style={{marginTop:"-1.5rem", marginLeft:"9rem"}}>
-                                                    <p>Current Quantity: {value.currentQuantity} {value.currentUnit}</p>
+                                                    <a>Pantry has: {value.currentQuantity} {value.currentUnit}</a>
+                                                </div>
+                                                <div className="row" style={{marginTop:"0", marginLeft:"9rem"}}>
+                                                    <p>Pantry needs: {value.needQuantity} {value.currentUnit}</p>
                                                 </div>
 
                                             </li>
@@ -239,10 +277,17 @@ export default class createGroceryItem extends Component {
                                         </ul>
                                     </div>
 
+
                                 </div>
 
                         </div>
 
+                        <Link type="button"
+                              className="btn btn-dark btn-lg download-pdf-list"
+to="/createItem"
+                              style={{marginTop:'30px'}}>
+                            Add new grocery Item
+                        </Link>
 
 
 
@@ -251,32 +296,42 @@ export default class createGroceryItem extends Component {
                     {
                         this.state.showDetails?
                         <div id="child-input-container" style={{height:"35rem", backgroundColor: "#4b1b1b", marginTop:"-30rem", marginLeft:"4rem"}}>
-                            <h3>{productName}</h3>
+                            <h3>Product details</h3>
                             <div className="review-content">
-
+                                <div className="row">
+                                    <h5 style={{marginLeft:"20rem"}}>Product:</h5>
+                                    <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productName}</h6>
+                                </div>
 
                                 <div className="row">
                                     <h5  style={{marginLeft:"20rem"}}>Current product Quantity:</h5>
-                                    <input type="number" id="quantity" name="quantity" min="1" max="100" className="form-control form-font"
+                                    <input type="number" id="quantity1" name="quantity1" min="1" max="100" className="form-control form-font"
                                            placeholder={productQuantity}  style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName} />
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productUnit}</h6>
+                                    {
+                                        this.state.saveChanges1?
                                     <button
 
                                         type="button" className="btn btn-success button1" style={{border:"solid", height: "30px", width: "100px", fontSize: "12px", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
-                                        onClick={() =>this.closeDetails()}>Save changes
+                                        onClick={() =>this.changes1()}>Save changes
                                     </button>
+                                                              :null}
+
                                 </div>
 
                                 <div className="row">
                                     <h5 style={{marginLeft:"20rem"}}>Quantity needed:</h5>
-                                    <input type="number" id="quantity" name="quantity" min="1" max="100" className="form-control form-font"
-                                           placeholder={productNeeded} style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName} />
+                                    <input type="number" id="quantity2" name="quantity2" min="1" max="100" className="form-control form-font"
+                                           placeholder={productNeeded} style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName2} />
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productUnitN}</h6>
+                                    {
+                                        this.state.saveChanges2?
                                     <button
 
                                         type="button" className="btn btn-success button1" style={{border:"solid", height: "30px", width: "100px", fontSize: "12px", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
-                                        onClick={() =>this.closeDetails()}>Save changes
+                                        onClick={() =>this.changes2()}>Save changes
                                     </button>
+                                                               :null}
                                 </div>
                                 <div className="row">
                                     <h5 style={{marginLeft:"20rem"}}>Additional notes:</h5>
@@ -295,7 +350,6 @@ export default class createGroceryItem extends Component {
                                 <div className="row" style={{marginLeft:"35rem", marginTop:"20px", marginBottom:"30px"}}>
 
                                     <button
-
                                         type="button" className="btn btn-success button1" style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
                                         onClick={() =>this.closeDetails()}>Close
                                     </button>

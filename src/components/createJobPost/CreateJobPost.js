@@ -285,6 +285,7 @@ export default class createJobPost extends Component {
         console.log(event.target.value);
         this.setState({
                           [event.target.name]: event.target.value
+
                       })
     }
 
@@ -713,10 +714,10 @@ export default class createJobPost extends Component {
                             </div>
                             <div className="modal-footer">
                                 <Link to="/foodPantryPortal" type="button" className="btn btn-success popup-btn"
-                                      onClick={() =>this.closeModal()}>Yes, take me to portal
+                                      onClick={() =>this.closeModal3()}>Yes, take me to portal
                                 </Link>
                                 <button type="button" className="btn btn-success popup-btn1"
-                                        onClick={() =>this.closeModal()}>No, cancel action
+                                        onClick={() =>this.closeModal3()}>No, cancel action
                                 </button>
                             </div>
                         </div>

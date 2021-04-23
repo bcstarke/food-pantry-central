@@ -22,6 +22,7 @@ export default class ChoosePantry extends Component {
             showModal: false,
             pantryName: "hello123",
             radius: 1,
+            zip:"",
         };
 
         this.open = this.open.bind(this);
@@ -29,9 +30,20 @@ export default class ChoosePantry extends Component {
     }
 
     _showTable = (bool) => {
+        if(this.state.zip == ""){
+            this.setState({
+                              showMessage: false
+                          });
+
+            alert(this.state.zip + " Please enter a valid zip code");
+
+            return;
+        }
+
         this.setState({
-                          showMessage: bool
+                          showMessage: true
                       });
+
     };
 
     open() {
@@ -48,7 +60,19 @@ export default class ChoosePantry extends Component {
         }))
     }
 
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        this.setState({
+                          [event.target.name]: event.target.value
+                      })
+    }
+
     render() {
+
+        const {miles} = this.state
+        const {zip} = this.state
+
         return (
             <div className="main-container" id="choosePantry">
                 <div className="container-fluid" id="choosePantryBox">
@@ -69,20 +93,22 @@ export default class ChoosePantry extends Component {
                               onClick={this.back}>
                             Go back
                         </Link>
-                        <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
+                        <h2 className="show-results-text-choosePantry">Please choose a pantry to donate to</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">
-                                <input type="text" className="form-control"
-                                       placeholder="Please enter your zip"/>
+                                <input type="text" className="form-control" name="zip" onChange={this.handleInputName}
+                                       placeholder="Please enter your zip" />
                             </div>
                             <div className="show-results-text-choosePantry col-sm-3">
-                                <h5 className="show-results-within-choosePantry">Show results
+                                <h5 className="show-results-within-choosePantry" style={{color:"white"}}>Show results
                                     within...</h5>
                             </div>
                             <div className="radius-drop-down col-sm-3">
                                 <select className="form-select" size="1"
                                         aria-label="Default select example"
-                                        value={this.state.radius}>
+                                        value={miles}
+                                        name="miles"
+                                        onChange={this.handleInputName}>
                                     <option value="1">1 Mile</option>
                                     <option value="2">2 Miles</option>
                                     <option value="5">5 Miles</option>
@@ -138,30 +164,36 @@ export default class ChoosePantry extends Component {
                                                                    animation={true}
                                                                    bsSize="small">
                                                                 <Modal.Header closeButton>
-                                                                    <Modal.Title>Pantry
-                                                                        Details</Modal.Title>
+                                                                    <Modal.Title><h3>Pantry
+                                                                        Details</h3></Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
-                                                                    <div
-                                                                        className="row container-fluid">
+                                                                    <div style={{marginTop:"-7rem"}}
+                                                                         className="row container-fluid">
                                                                         <div
                                                                             className="map-container">
                                                                             <img src={map}
                                                                                  alt="Google Maps"/>
                                                                         </div>
-                                                                        <b>Address: </b>
-                                                                        123
-                                                                        Address St., Boston MA,
-                                                                        02130
+                                                                        <h4 style={{fontSize:"30px"}}>Address:</h4>
+                                                                        <h6 style={{fontSize:"25px"}}>  123
+                                                                            Hollywood St., Boston MA,
+                                                                            02130</h6>
+
+
                                                                         <br/>
-                                                                        <b>Hours of
-                                                                            operation:</b>
                                                                         <br/>
-                                                                        Mon - Thu: 10:00AM - 4:00PM
+                                                                        <h4 style={{fontSize:"30px"}}>Hours of
+                                                                            operation:</h4>
                                                                         <br/>
-                                                                        Sat: 9:00AM - 12:00PM
+                                                                        <h6 style={{fontSize:"25px"}}>
+                                                                            Mon - Thu: 10:00AM - 4:00PM</h6>
                                                                         <br/>
-                                                                        <b>Phone: (123) 456-7890</b>
+                                                                        <h6 style={{fontSize:"25px"}}>Sat: 9:00AM - 12:00PM      </h6>
+                                                                        <br/>
+                                                                        <br/><h4 style={{fontSize:"30px", color:"white"}}>.....................</h4>
+                                                                        <h4 style={{fontSize:"30px"}}>Phone:</h4>
+                                                                        <h6 style={{fontSize:"25px"}}> (123) 456-7890</h6><br/>
                                                                     </div>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
@@ -173,7 +205,7 @@ export default class ChoosePantry extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row dist-text1">
-                                                    <p className="dist-text">0.6 miles away</p>
+                                                    <p style={{marginLeft:"14rem"}} className="dist-text">0.6 miles away</p>
                                                 </div>
                                             </li>
                                             <li className="list-group-item">
@@ -204,7 +236,7 @@ export default class ChoosePantry extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row dist-text1">
-                                                    <p className="dist-text">1.4 miles away</p>
+                                                    <p style={{marginLeft:"14rem"}} className="dist-text">1.4 miles away</p>
                                                 </div>
                                             </li>
                                             <li className="list-group-item">
@@ -234,8 +266,8 @@ export default class ChoosePantry extends Component {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div className="row dist-text">
-                                                    <p>2.2 miles away</p>
+                                                <div className="row dist-text1">
+                                                    <p style={{marginLeft:"14rem"}} className="dist-text">2.2 miles away</p>
                                                 </div>
                                             </li>
 
@@ -266,7 +298,7 @@ export default class ChoosePantry extends Component {
                                                     </div>
                                                 </div>
                                                 <div className="row dist-text1">
-                                                    <p className="dist-text">5.3 miles away</p>
+                                                    <p style={{marginLeft:"14rem"}} className="dist-text">5.3 miles away</p>
                                                 </div>
                                             </li>
                                         </ul>

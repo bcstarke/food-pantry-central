@@ -92,7 +92,11 @@ export default class createGroceryItem extends Component {
                         <div style={{backgroundColor:"#4b1b1b", padding:"10px", height:"20rem"}}>
                             <div className="review-content" >
                                 <div className="row" style={{marginTop:"30px"}}>
-                                    <h5>Food Pantry Name:</h5>
+                                    <h5>Name:</h5>
+                                    <h6> Arturo Avila Lares</h6>
+                                    <h5>Email:</h5>
+                                    <h6> Salvation Army Food Pantry</h6>
+                                    <h5>Employee of:</h5>
                                     <h6> Salvation Army Food Pantry</h6>
                                     {/*<button  className="btn edit-btn" size="sm" onClick={this.edit}>edit*/}
 
@@ -106,8 +110,6 @@ export default class createGroceryItem extends Component {
                                     {/*</button>*/}
                                 </div>
                                 <div className="row" style={{marginTop:"30px"}}>
-                                    <h5>Bank information:</h5>
-                                    <h6>xxxxxxxxx</h6>
                                     {/*<button className="btn edit-btn" size="sm"*/}
                                     {/*        onClick={this.edit}>edit*/}
                                     {/*</button>button*/}

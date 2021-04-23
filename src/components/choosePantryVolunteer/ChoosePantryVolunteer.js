@@ -21,17 +21,46 @@ export default class ChoosePantry extends Component {
             showMessage: false,
             showModal: false,
             pantryName: "hello123",
-            radius: 1
+            radius: 1,
+            zip:"",
         };
 
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
     }
 
-    _showTable = (bool) => {
+    handleChange(event) {
+        event.preventDefault();
+        console.log(event.target.value);
         this.setState({
-                          showMessage: bool
+                          [event.target.name]: event.target.value
+                      })
+    }
+
+    handleInputName = (event) =>{
+        event.preventDefault();
+        console.log(event.target.value);
+        this.setState({
+                          [event.target.name]: event.target.value
+                      })
+    }
+
+
+    _showTable = (bool) => {
+        if(this.state.zip == ""){
+            this.setState({
+                              showMessage: false
+                          });
+
+            alert(this.state.zip + " Please enter a valid zip code");
+
+            return;
+        }
+
+        this.setState({
+                          showMessage: true
                       });
+
     };
 
     open() {
@@ -49,6 +78,9 @@ export default class ChoosePantry extends Component {
     }
 
     render() {
+        const {miles} = this.state
+        const {zip} = this.state
+
         return (
             <div className="main-container" id="choosePantry">
                 <div className="container-fluid" id="choosePantryBox">
@@ -71,17 +103,19 @@ export default class ChoosePantry extends Component {
                         <h2 className="show-results-text-choosePantry">Please choose a pantry</h2>
                         <div className="row user-input-row">
                             <div className="form-floating zip-input col-sm-3">
-                                <input type="text" className="form-control"
+                                <input type="text" className="form-control" name="zip" onChange={this.handleInputName}
                                        placeholder="Please enter your zip"/>
                             </div>
                             <div className="show-results-text-choosePantry col-sm-3">
-                                <h5 className="show-results-within-choosePantry">Show results
+                                <h5 style={{color:"white"}} className="show-results-within-choosePantry">Show results
                                     within...</h5>
                             </div>
                             <div className="radius-drop-down col-sm-3">
                                 <select className="form-select" size="1"
                                         aria-label="Default select example"
-                                        value={this.state.radius}>
+                                        value={miles}
+                                        name="miles"
+                                        onChange={this.handleInputName}>
                                     <option value="1">1 Mile</option>
                                     <option value="2">2 Miles</option>
                                     <option value="5">5 Miles</option>
@@ -137,30 +171,36 @@ export default class ChoosePantry extends Component {
                                                                    animation={true}
                                                                    bsSize="small">
                                                                 <Modal.Header closeButton>
-                                                                    <Modal.Title>Pantry
-                                                                        Details</Modal.Title>
+                                                                    <Modal.Title><h3>Pantry
+                                                                        Details</h3></Modal.Title>
                                                                 </Modal.Header>
                                                                 <Modal.Body>
-                                                                    <div
-                                                                        className="row container-fluid">
+                                                                    <div style={{marginTop:"-7rem"}}
+                                                                         className="row container-fluid">
                                                                         <div
                                                                             className="map-container">
                                                                             <img src={map}
                                                                                  alt="Google Maps"/>
                                                                         </div>
-                                                                        <b>Address: </b>
-                                                                        123
-                                                                        Address St., Boston MA,
-                                                                        02130
+                                                                        <h4 style={{fontSize:"30px"}}>Address:</h4>
+                                                                        <h6 style={{fontSize:"25px"}}>  123
+                                                                            Hollywood St., Boston MA,
+                                                                            02130</h6>
+
+
                                                                         <br/>
-                                                                        <b>Hours of
-                                                                            operation:</b>
                                                                         <br/>
-                                                                        Mon - Thu: 10:00AM - 4:00PM
+                                                                        <h4 style={{fontSize:"30px"}}>Hours of
+                                                                            operation:</h4>
                                                                         <br/>
-                                                                        Sat: 9:00AM - 12:00PM
+                                                                        <h6 style={{fontSize:"25px"}}>
+                                                                            Mon - Thu: 10:00AM - 4:00PM</h6>
                                                                         <br/>
-                                                                        <b>Phone: (123) 456-7890</b>
+                                                                        <h6 style={{fontSize:"25px"}}>Sat: 9:00AM - 12:00PM      </h6>
+                                                                        <br/>
+                                                                        <br/><h4 style={{fontSize:"30px", color:"white"}}>.....................</h4>
+                                                                        <h4 style={{fontSize:"30px"}}>Phone:</h4>
+                                                                        <h6 style={{fontSize:"25px"}}> (123) 456-7890</h6><br/>
                                                                     </div>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
