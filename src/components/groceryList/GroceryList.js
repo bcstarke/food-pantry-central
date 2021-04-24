@@ -121,7 +121,7 @@ export default class createGroceryItem extends Component {
 
         console.log(`${value} clicked`);
         const size = this.state.dataFire.length
-        const item = (this.state.dataFire[size - 1 - value]);
+        const item = (this.state.dataFire[value]);
         console.log(item.links);
         this.setState({
                           productName: item.name,

@@ -469,7 +469,7 @@ export default class createGroceryItem extends Component {
                                             </div>
                                         </div>
 
-                                        {/*{this.createUI()}*/}
+                                        {this.createUI()}
 
                                     </div>
 
