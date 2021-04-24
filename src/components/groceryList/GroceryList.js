@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import map from "../images/googlemap.png";
 import firebase from "../../utils/firebase";
+import ReactTooltip from "react-tooltip";
 
 
 export default class createGroceryItem extends Component {
@@ -338,7 +339,10 @@ to="/createItem"
                                 <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productAddNotes}</h6>
                                 </div>
                                 <div className="row" style={{marginTop:"2rem"}}>
-                                <h5 style={{marginLeft:"20rem"}}>Product Suggestion:</h5>
+                                    <ReactTooltip id="registerTip" place="top" effect="solid" class='mySepecialClass'>
+                                        "Click on image to get redirected to product page"
+                                    </ReactTooltip>
+                                <h5 style={{marginLeft:"20rem"}}>Product Suggestion: <img data-tip data-for="registerTip" style={{height:"1.5rem", width:"1.5rem", borderRadius: "50%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZmEQb5_W_d63kRpr6DKBMx8ZPFo-M8N5y1w&usqp=CAU" alt="Italian Trulli"/></h5>
                                     {this.state.links.map((value, index) => (
                                         <a href={value.link} target="_blank">
                                             <img style={{height:"5rem", width:"5rem", borderRadius: "50%"}} src={value.image} alt="Italian Trulli"/>

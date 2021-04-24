@@ -33,7 +33,7 @@ export default class createGroceryItem extends Component {
             productNeeded:0,
             productLink: "",
             productImage: "",
-            productUnit:"Select unit",
+            productUnit:"",
             productUnitN:"Select unit",
             productAddNotes:"Write here",
             backgroundPointName:"red",
@@ -233,7 +233,7 @@ export default class createGroceryItem extends Component {
             currentQuantity: this.state.productQuantity,
             currentUnit:this.state.productUnit,
             needQuantity:this.state.productNeeded,
-            needUnit:this.state.productUnitN,
+            needUnit:this.state.productUnit,
             notes: this.state.productAddNotes,
         }
         this.setState({
@@ -393,7 +393,7 @@ export default class createGroceryItem extends Component {
                                     <div>
                                         <div className="row user-input-row form-div">
                                             <div className="form-floating col-sm-3">
-                                                <input type="text" className="form-control form-font"  placeholder="Product quantity here" value={productQuantity} name="productQuantity" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}/>
+                                                <input type="number" className="form-control form-font"  placeholder="Product quantity here" value={productQuantity} name="productQuantity" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}/>
                                             </div>
                                             <div className="col-sm-1.2">
                                                 <select className="form-control form-font" value={productUnit}  name="productUnit" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}>
@@ -401,6 +401,8 @@ export default class createGroceryItem extends Component {
                                                     <option value="Box(es)">Box(es)</option>
                                                     <option value="Kg">Kg</option>
                                                     <option value="Liter">Liter</option>
+                                                    <option value="Lb">Lb</option>
+                                                    <option value="oz">oz</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -410,16 +412,17 @@ export default class createGroceryItem extends Component {
                                     <div>
                                         <div className="row user-input-row form-div">
                                             <div className="form-floating col-sm-3">
-                                                <input type="text" className="form-control form-font"  placeholder="Product quantity here" value={productNeeded} name="productNeeded" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}/>
+                                                <input type="number" className="form-control form-font"   value={productNeeded} name="productNeeded" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}/>
                                             </div>
-                                            <div className="col-sm-1.2">
-                                                <select className="form-control form-font" value={productUnitN}  name="productUnitN" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}>
-                                                    <option selected value="Unit(s)">Unit(s)</option>
-                                                    <option value="Box(es)">Box(es)</option>
-                                                    <option value="Kg">Kg</option>
-                                                    <option value="Liter">Liter</option>
-                                                </select>
-                                            </div>
+                                            <h2>{productUnit}</h2>
+                                            {/*<div className="col-sm-1.2">*/}
+                                            {/*    <select className="form-control form-font" value={productUnitN}  name="productUnitN" onChange={this.handleInputQuantity} style={{backgroundColor:"#ffffff"}}>*/}
+                                            {/*        <option selected value="Unit(s)">Unit(s)</option>*/}
+                                            {/*        <option value="Box(es)">Box(es)</option>*/}
+                                            {/*        <option value="Kg">Kg</option>*/}
+                                            {/*        <option value="Liter">Liter</option>*/}
+                                            {/*    </select>*/}
+                                            {/*</div>*/}
                                         </div>
                                     </div>
 
@@ -441,7 +444,7 @@ export default class createGroceryItem extends Component {
                             {
                                 this.state.showLink?
                                 <div id="child-input-container">
-                                    <h2>Please add product link suggestions: <button className="btn edit-btn" size="m"
+                                    <h2>Please add product link suggestions (Optional):<button className="btn edit-btn" size="m"
                                                                                      onClick={this.addClick.bind(this)}>Add new suggestion
                                     </button></h2>
 

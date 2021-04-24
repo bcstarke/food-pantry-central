@@ -8,6 +8,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import map from "../images/googlemap.png";
 import firebase from "../../utils/firebase";
+import ReactTooltip from "react-tooltip";
 
 export default class DonateGrocery extends Component {
     constructor(props, context) {
@@ -81,9 +82,10 @@ export default class DonateGrocery extends Component {
         const values = item.links;
         const list = [];
 
+
         for(let id in values){
             list.push(values[id])
-
+            this.setState({ links: [],})
             this.setState(prevState => ({
                 links: [...prevState.links, values[id]]
             }))
@@ -96,6 +98,7 @@ export default class DonateGrocery extends Component {
     componentDidMount() {
         this.setState({
                           dataFire: [],
+                          links: [],
                       })
         const todoRef = firebase.database().ref("groceries");
         todoRef.on('value', snapshot => {
@@ -297,31 +300,55 @@ export default class DonateGrocery extends Component {
 
                     {
                         this.state.showDetailsModal?
-                        <div id="child-input-container" style={{height:"30rem", backgroundColor: "#4b1b1b", marginTop:"-30rem", marginLeft:"4rem"}}>
-                            <h3>{productName}</h3>
+                        <div id="child-input-container" style={{height:"40rem", backgroundColor: "#4b1b1b", marginTop:"-40rem", marginLeft:"4rem"}}>
+                            <h3>Product details</h3>
                             <div className="review-content">
                                 <div className="row">
-                                    <h5  style={{marginLeft:"20rem"}}>Current Quantity:</h5>
-                                    <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productQuantity} {productUnit}</h6>
+                                    <h5 style={{marginLeft:"20rem"}}>Product:</h5>
+                                    <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productName}</h6>
                                 </div>
 
                                 <div className="row">
-                                    <h5 style={{marginLeft:"20rem"}}>Quantity Needed:</h5>
-                                    {/*<input type="number" id="quantity" name="quantity" min="1" max="100" className="form-control form-font"*/}
-                                    {/*       placeholder="8"  style={{width:"5rem", fontSize:"20px", backgroundColor:"#ffffff"}} onChange={this.handleInputName} />*/}
+                                    <h5  style={{marginLeft:"20rem"}}>Quantity Pantry has:</h5>
+                                    <h6 style={{fontSize:"20px", marginTop:"10px"}}> {productQuantity} {productUnit}</h6>
+                                </div>
+
+                                <div className="row">
+                                    <h5 style={{marginLeft:"20rem"}}>Quantity Pantry needs:</h5>
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productNeeded} {productUnitN}</h6>
+
                                 </div>
                                 <div className="row">
                                     <h5 style={{marginLeft:"20rem"}}>Additional notes:</h5>
                                     <h6 style={{fontSize:"20px", marginTop:"10px"}}>{productAddNotes}</h6>
                                 </div>
-                                <div className="row" style={{marginLeft:"20rem", marginTop:"20px", marginBottom:"30px"}}>
+                                <div className="row" style={{marginTop:"2rem"}}>
+
+                                    <ReactTooltip id="registerTip" place="top" effect="solid" class='mySepecialClass'>
+                                      "Click on image to get redirected to product page"
+                                    </ReactTooltip>
+                                    <h5 style={{marginLeft:"20rem"}}>Product Suggestion:
+                                        <img data-tip data-for="registerTip" style={{height:"1.5rem", width:"1.5rem", borderRadius: "50%"}} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZmEQb5_W_d63kRpr6DKBMx8ZPFo-M8N5y1w&usqp=CAU" alt="Italian Trulli"/></h5>
+                                    {this.state.links.map((value, index) => (
+                                        <a href={value.link} target="_blank">
+                                            <img style={{height:"5rem", width:"5rem", borderRadius: "50%"}} src={value.image} alt="Italian Trulli"/>
+                                        </a>
+                                    ))}
+                                </div>
+
+
+                                <div className="row" style={{marginLeft:"35rem", marginTop:"20px", marginBottom:"30px"}}>
+
                                     <button
                                         type="button" className="btn btn-success button1" style={{border:"solid", borderBlockColor:"#6b724e", borderColor:"#6b724e"}}
                                         onClick={() =>this.closeDetails()}>Close
                                     </button>
+
                                 </div>
+
                             </div>
+
+
                         </div>
                                               :null}
 

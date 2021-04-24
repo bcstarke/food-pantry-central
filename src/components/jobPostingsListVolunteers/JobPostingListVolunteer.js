@@ -19,6 +19,7 @@ export default class createGroceryItem extends Component {
         this.state={
             showModal:false,
             dataFire: [],
+            links:[],
         }
 
 
@@ -31,6 +32,37 @@ export default class createGroceryItem extends Component {
 
                       })
     }
+
+    handleClick(value) {
+
+        console.log(`${value} clicked`);
+        const size = this.state.dataFire.length
+        const item = (this.state.dataFire[size - 1 - value]);
+        console.log(item.dates);
+        this.setState({
+                          tittle: item.tittle,
+                          description:item.description,
+                          open:item.open,
+                          qualification:item.qualifications,
+                          index: value,
+                      })
+
+        const values = item.dates;
+        const list = [];
+
+        for(let id in values){
+
+            list.push(values[id])
+
+            this.setState(prevState => ({
+                links: [...prevState.links, values[id]]
+            }))
+        }
+
+        this.openModal();
+
+    }
+
 
     closeModal() {
         this.setState({
@@ -71,6 +103,11 @@ export default class createGroceryItem extends Component {
 
     render() {
         const {pantryName} = this.props.location.state
+        const {tittle} =  this.state
+        const {description} = this.state
+        const {open} = this.state
+        const {qualification} = this.state
+        const {index} =  this.state
 
         return (
 
@@ -119,7 +156,7 @@ export default class createGroceryItem extends Component {
                                                     <div className="col-6">
                                                         <Button type="button"
                                                                 className="btn btn-success details-btn see-details-btn"
-                                                                onClick={() =>this.openModal()}>See
+                                                                onClick={() => this.handleClick(index)}>See
                                                             Details
                                                         </Button>
                                                         <Link to=
@@ -161,20 +198,22 @@ export default class createGroceryItem extends Component {
                     {
                         this.state.showModal?
                                      <div id="child-input-container" style={{height:"30rem", backgroundColor: "#4b1b1b", marginTop:"-30rem", marginLeft:"4rem"}}>
-                                         <h3>Truck driver</h3>
+                                         <h3>{tittle}</h3>
                                          <div className="review-content">
 
                                                  <h5>Position Description:</h5>
-                                                 <h6 style={{fontSize:"20px"}}>Pickup and drop grocery boxes from the food distribution stores to the food pantry. The volunteer will be loading and unloading heavy boxes.</h6>
+                                                 <h6 style={{fontSize:"20px"}}>{description}</h6>
 
 
 
                                                  <h5>Position Qualifications and Requirements:</h5>
-                                                 <h6 style={{fontSize:"20px"}}>Must have an unexpired truck driver's licence and are able to carry more than 10kg of boxes</h6>
+                                                 <h6 style={{fontSize:"20px"}}>{qualification}</h6>
 
                                                  <h5>Schedules:</h5>
-                                                 <h6 style={{fontSize:"20px"}}>Monday: 10:00 - 11:00</h6>
-                                                 <h6 style={{fontSize:"20px"}}>Tuesday: 12:00 - 15:00</h6>
+
+                                             {this.state.links.map((value, index) => (
+                                                 <h6 style={{fontSize:"20px"}}>{value.day + " from:" + value.from + " to:" + value.to }</h6>
+                                             ))}
 
 
 
