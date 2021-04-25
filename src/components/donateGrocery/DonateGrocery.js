@@ -82,7 +82,7 @@ export default class DonateGrocery extends Component {
         const values = item.links;
         const list = [];
 
-
+        this.setState({ links: [],})
         for(let id in values){
             list.push(values[id])
             // this.setState({ links: [],})
