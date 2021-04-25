@@ -116,9 +116,10 @@ export default class ApplicationList extends Component {
         const values = item.availability;
         const list = [];
 
+        this.setState({ links: [],})
         for(let id in values){
             list.push(values[id])
-            this.setState({ links: [],})
+
             this.setState(prevState => ({
                 links: [...prevState.links, values[id]]
             }))

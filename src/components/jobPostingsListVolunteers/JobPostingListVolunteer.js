@@ -50,10 +50,11 @@ export default class createGroceryItem extends Component {
         const values = item.dates;
         const list = [];
 
+        this.setState({ links: [],})
         for(let id in values){
 
             list.push(values[id])
-            this.setState({ links: [],})
+            // this.setState({ links: [],})
             this.setState(prevState => ({
                 links: [...prevState.links, values[id]]
             }))
