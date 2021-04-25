@@ -101,7 +101,7 @@ export default class ApplicationList extends Component {
 
         console.log(`${value} clicked`);
         const size = this.state.dataFire.length
-        const item = (this.state.dataFire[size - 1 - value]);
+        const item = (this.state.dataFire[value]);
         console.log(item.links);
         this.setState({
                           birth: item.birth,
@@ -118,7 +118,7 @@ export default class ApplicationList extends Component {
 
         for(let id in values){
             list.push(values[id])
-
+            this.setState({ links: [],})
             this.setState(prevState => ({
                 links: [...prevState.links, values[id]]
             }))

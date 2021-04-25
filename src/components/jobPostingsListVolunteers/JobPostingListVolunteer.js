@@ -37,7 +37,7 @@ export default class createGroceryItem extends Component {
 
         console.log(`${value} clicked`);
         const size = this.state.dataFire.length
-        const item = (this.state.dataFire[size - 1 - value]);
+        const item = (this.state.dataFire[value]);
         console.log(item.dates);
         this.setState({
                           tittle: item.tittle,
@@ -53,7 +53,7 @@ export default class createGroceryItem extends Component {
         for(let id in values){
 
             list.push(values[id])
-
+            this.setState({ links: [],})
             this.setState(prevState => ({
                 links: [...prevState.links, values[id]]
             }))

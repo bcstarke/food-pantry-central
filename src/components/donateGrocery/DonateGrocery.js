@@ -68,7 +68,7 @@ export default class DonateGrocery extends Component {
 
     handleClick(value) {
         const size = this.state.dataFire.length
-        const item = (this.state.dataFire[size - 1 - value]);
+        const item = (this.state.dataFire[value]);
 
         this.setState({
                           productName: item.name,

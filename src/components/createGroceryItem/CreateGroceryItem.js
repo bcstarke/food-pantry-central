@@ -536,7 +536,7 @@ export default class createGroceryItem extends Component {
                                         </div>
                                         <div className="row">
                                             <h5>Product Quantity needed:</h5>
-                                            <h6>{productNeeded} {productUnitN}</h6>
+                                            <h6>{productNeeded} {productUnit}</h6>
                                             <button className="btn edit-btn" size="sm"
                                                     onClick={() => this.editQuantity()}>edit
                                             </button>
